@@ -1,5 +1,7 @@
 # BoostCake
 
+CakePHP Plugin for [Bootstrap(3.0.0-wip)](https://github.com/twitter/bootstrap/tree/3.0.0-wip)
+
 ## Development Policy
 
 * More Simple! Simple! Simple!
