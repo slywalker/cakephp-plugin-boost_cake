@@ -10,8 +10,8 @@ CakePHP Plugin for [Bootstrap(3.0.0-wip)](https://github.com/twitter/bootstrap/t
 ### What is unable to solve
 
 #### Label
- 
-  // CakePHP Format
+
+	// CakePHP Format
 	<input type="radio" name="data[Foo][bar]" />
 	<label for="data[Foo][bar]">Foo</label>
 	
