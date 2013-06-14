@@ -31,3 +31,4 @@ CakePHP(2.3.x) Plugin for [Bootstrap(3.0.0-wip)](https://github.com/twitter/boot
 			<input type="text" class="input-with-feedback" id="inputError">
 		</div>
 	</div>
+
