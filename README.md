@@ -1,5 +1,7 @@
 # BoostCake
 
+[![Build Status](https://travis-ci.org/slywalker/cakephp-plugin-boost_cake.png)](https://travis-ci.org/slywalker/cakephp-plugin-boost_cake)
+
 CakePHP(2.3.x) Plugin for [Bootstrap(3.0.0-wip)](https://github.com/twitter/bootstrap/tree/3.0.0-wip)
 
 ## Development Policy
