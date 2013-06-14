@@ -80,4 +80,67 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+	public function testSelectMultipleCheckbox() {
+		$result = $this->Form->select('name',
+			array(
+				1 => 'one',
+				2 => 'two',
+				3 => 'three'
+			),
+			array(
+				'multiple' => 'checkbox',
+				'class' => 'checkbox-inline'
+			)
+		);
+		$this->assertTags($result, array(
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'value' => '', 'id' => 'name')),
+			array('label' => array('for' => 'Name1', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '1', 'id' => 'Name1')),
+			' one',
+			'/label',
+			array('label' => array('for' => 'Name2', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '2', 'id' => 'Name2')),
+			' two',
+			'/label',
+			array('label' => array('for' => 'Name3', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '3', 'id' => 'Name3')),
+			' three',
+			'/label'
+		));
+
+		$result = $this->Form->select('name',
+			array(
+				1 => 'bill',
+				'Smith' => array(
+					2 => 'fred',
+					3 => 'fred jr.'
+				)
+			),
+			array(
+				'multiple' => 'checkbox',
+				'class' => 'checkbox-inline'
+			)
+		);
+		$this->assertTags($result, array(
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'value' => '', 'id' => 'name')),
+			array('label' => array('for' => 'Name1', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '1', 'id' => 'Name1')),
+			' bill',
+			'/label',
+			'fieldset' => array(),
+			'legend' => array(),
+			'Smith',
+			'/legend',
+			array('label' => array('for' => 'Name2', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '2', 'id' => 'Name2')),
+			' fred',
+			'/label',
+			array('label' => array('for' => 'Name3', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '3', 'id' => 'Name3')),
+			' fred jr.',
+			'/label',
+			'/fieldset'
+		));
+	}
+
 }

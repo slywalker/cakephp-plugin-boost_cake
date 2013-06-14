@@ -51,4 +51,35 @@ class BoostCakeFormHelper extends FormHelper {
 		return $html;
 	}
 
+/**
+ * Overwirte FormHemlper::_selectOptions()
+ * If $tag is `<input type="checkbox">` then replace `<label>` position
+ * Returns an array of formatted OPTION/OPTGROUP elements
+ *
+ * @param array $elements
+ * @param array $parents
+ * @param boolean $showParents
+ * @param array $attributes
+ * @return array
+ */
+	protected function _selectOptions($elements = array(), $parents = array(), $showParents = null, $attributes = array()) {
+		$selectOptions = parent::_selectOptions($elements, $parents, $showParents, $attributes);
+
+		if ($attributes['style'] === 'checkbox') {
+			foreach ($selectOptions as $key => $option) {
+				$option = preg_replace('/<div.*?>/', '', $option);
+				$option = preg_replace('/<\/div>/', '', $option);
+				if (preg_match('/>(<label.*?>)/', $option, $match)) {
+					$option = $match[1] . preg_replace('/<label.*?>/', ' ', $option);
+					if (isset($attributes['class'])) {
+						$option = preg_replace('/(<label.*?)(>)/', '$1 class="' . $attributes['class'] . '"$2', $option);
+					}
+				}
+				$selectOptions[$key] = $option;
+			}
+		}
+
+		return $selectOptions;
+	}
+
 }

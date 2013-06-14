@@ -6,7 +6,7 @@ class BoostCakeHtmlHelper extends HtmlHelper {
 
 /**
  * Overwrite HtmlHelper::useTag()
- * If $tag is `<radio>` then replace `<label>` position
+ * If $tag is `<input type="radio">` then replace `<label>` position
  * Returns a formatted existent block of $tags
  *
  * @param string $tag Tag name
@@ -18,7 +18,7 @@ class BoostCakeHtmlHelper extends HtmlHelper {
 
 		if ($tag === 'radio') {
 			$regex = '/<label.*?>/';
-			if (preg_match('/<label.*?>/', $html, $match)) {
+			if (preg_match($regex, $html, $match)) {
 				$html = $match[0] . preg_replace($regex, ' ', $html);
 			}
 		}
