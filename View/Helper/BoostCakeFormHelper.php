@@ -53,7 +53,7 @@ class BoostCakeFormHelper extends FormHelper {
 
 /**
  * Overwirte FormHemlper::_selectOptions()
- * If $tag is `<input type="checkbox">` then replace `<label>` position
+ * If $attributes['style'] is `<input type="checkbox">` then replace `<label>` position
  * Returns an array of formatted OPTION/OPTGROUP elements
  *
  * @param array $elements
