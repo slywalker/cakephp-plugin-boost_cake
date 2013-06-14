@@ -1,9 +1,10 @@
 <?php
-class AllTests extends CakeTestSuite {
+class AllTest extends CakeTestSuite {
 
 	public static function suite() {
 		$suite = new CakeTestSuite('All tests');
-		$suite->addTestDirectory(TESTS . 'Case' . DS . 'View');
+		$path = dirname(__FILE__);
+		$suite->addTestDirectory($path . DS . 'View' . DS . 'Helper');
 		return $suite;
 	}
 
