@@ -106,7 +106,6 @@ class BoostCakeFormHelper extends FormHelper {
 		$options = Hash::merge($default, $options);
 		if ($this->tagIsInvalid() !== false) {
 			$options['div'] = $this->addClass($options['div'], $this->_inputOptions['errorClass']);
-			var_dump($options);
 		}
 		return parent::_divOptions($options);
 	}
