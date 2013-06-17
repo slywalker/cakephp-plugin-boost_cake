@@ -5,7 +5,8 @@ App::uses('View', 'View');
 class BoostCakeFormHelperTest extends CakeTestCase {
 
 	public function setUp() {
-		$View = new View(null);
+		parent::setUp();
+		$View = new View();
 		$this->Form = new BoostCakeFormHelper($View);
 	}
 
@@ -77,6 +78,25 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			'Name',
 			'/label',
 			array('input' => array('name' => 'data[name]', 'type' => 'text', 'id' => 'name'))
+		));
+	}
+
+	public function testBeforeInputAfterInput() {
+		$result = $this->Form->input('name', array(
+			'beforeInput' => 'Before Input',
+			'afterInput' => 'After Input',
+		));
+		$this->assertTags($result, array(
+			array('div' => array()),
+			'label' => array('for' => 'name'),
+			'Name',
+			'/label',
+			array('div' => array('class' => 'input text')),
+			'Before Input',
+			array('input' => array('name' => 'data[name]', 'type' => 'text', 'id' => 'name')),
+			'After Input',
+			'/div',
+			'/div'
 		));
 	}
 

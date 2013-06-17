@@ -10,6 +10,59 @@ class BoostCakeFormHelper extends FormHelper {
 
 	protected $_divOptions = array();
 
+	protected $_inputOptions = array();
+
+/**
+ * Overwirte FormHemlper::input()
+ * Generates a form input element complete with label and wrapper div
+ *
+ * ### Options
+ *
+ * See each field type method for more information. Any options that are part of
+ * $attributes or $options for the different **type** methods can be included in `$options` for input().i
+ * Additionally, any unknown keys that are not in the list below, or part of the selected type's options
+ * will be treated as a regular html attribute for the generated input.
+ *
+ * - `type` - Force the type of widget you want. e.g. `type => 'select'`
+ * - `label` - Either a string label, or an array of options for the label. See FormHelper::label().
+ * - `div` - Either `false` to disable the div, or an array of options for the div.
+ *	See HtmlHelper::div() for more options.
+ * - `options` - For widgets that take options e.g. radio, select.
+ * - `error` - Control the error message that is produced. Set to `false` to disable any kind of error reporting (field
+ *    error and error messages).
+ * - `errorMessage` - Boolean to control rendering error messages (field error will still occur).
+ * - `empty` - String or boolean to enable empty select box options.
+ * - `before` - Content to place before the label + input.
+ * - `after` - Content to place after the label + input.
+ * - `between` - Content to place between the label + input.
+ * - `beforeInput` - Content to place before the input.
+ * - `afterInput` - Content to place after the input.
+ * - `format` - Format template for element order. Any element that is not in the array, will not be in the output.
+ *	- Default input format order: array('before', 'label', 'between', 'input', 'after', 'error')
+ *	- Default checkbox format order: array('before', 'input', 'between', 'label', 'after', 'error')
+ *	- Hidden input will not be formatted
+ *	- Radio buttons cannot have the order of input and label elements controlled with these settings.
+ *
+ * @param string $fieldName This should be "Modelname.fieldname"
+ * @param array $options Each type of input takes different options.
+ * @return string Completed form widget.
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#creating-form-elements
+ */
+	public function input($fieldName, $options = array()) {
+		$this->_inputOptions = $options + array(
+			'beforeInput' => '',
+			'afterInput' => ''
+		);
+		if (isset($options['beforeInput'])) {
+			unset($options['beforeInput']);
+		}
+		if (isset($options['afterInput'])) {
+			unset($options['afterInput']);
+		}
+
+		return parent::input($fieldName, $options);
+	}
+
 /**
  * Overwirte FormHemlper::_divOptions()
  * Generate inner and outer div options
@@ -40,7 +93,11 @@ class BoostCakeFormHelper extends FormHelper {
  * @return type
  */
 	protected function _getInput($args) {
-		$html = parent::_getInput($args);
+		$input = parent::_getInput($args);
+		$beforeInput = $this->_inputOptions['beforeInput'];
+		$afterInput = $this->_inputOptions['afterInput'];
+
+		$html = $beforeInput . $input . $afterInput;
 
 		if ($this->_divOptions) {
 			$tag = $this->_divOptions['tag'];

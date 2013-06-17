@@ -5,7 +5,8 @@ App::uses('View', 'View');
 class BoostCakeHtmlHelperTest extends CakeTestCase {
 
 	public function setUp() {
-		$View = new View(null);
+		parent::setUp();
+		$View = new View();
 		$this->Html = new BoostCakeHtmlHelper($View);
 	}
 

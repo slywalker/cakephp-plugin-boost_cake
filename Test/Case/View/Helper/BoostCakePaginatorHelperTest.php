@@ -32,6 +32,81 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 	}
 
 /**
+ * testPaginationEmpty
+ *
+ * @return void
+ */
+	public function testPaginationEmpty() {
+		$this->Paginator->request->params['paging']['Post'] = array(
+			'page' => 1,
+			'current' => 0,
+			'count' => 0,
+			'prevPage' => false,
+			'nextPage' => false,
+			'pageCount' => 1,
+			'order' => null,
+			'limit' => 20,
+			'options' => array(
+				'page' => 1,
+				'conditions' => array()
+			),
+			'paramType' => 'named'
+		);
+		$numbers = $this->Paginator->pagination(array('model' => 'Post'));
+		$this->assertSame('', $numbers);
+	}
+
+/**
+ * testPaginationTwo
+ *
+ * @return void
+ */
+	public function testPaginationTwo() {
+		$this->Paginator->request->params['paging']['Post'] = array(
+			'page' => 1,
+			'current' => 0,
+			'count' => 40,
+			'prevPage' => false,
+			'nextPage' => true,
+			'pageCount' => 2,
+			'order' => null,
+			'limit' => 20,
+			'options' => array(
+				'page' => 1,
+				'conditions' => array()
+			),
+			'paramType' => 'named'
+		);
+		$result = $this->Paginator->pagination(array('model' => 'Post'));
+		$this->assertTags($result, array(
+			'div' => array('class' => 'pagination pagination-centered'),
+			'ul' => array(),
+			array('li' => array('class' => 'disabled')),
+			array('a' => array('href' => '/index/page:1')),
+			'&lt;',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'current disabled')),
+			array('a' => array('href' => '#')),
+			'1',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2')),
+			'2',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2', 'rel' => 'next')),
+			'&gt;',
+			'/a',
+			'/li',
+			'/ul',
+			'/div'
+		));
+	}
+
+/**
  * testNumbersEmpty
  *
  * @return void
@@ -78,14 +153,34 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'paramType' => 'named'
 		);
 
-		$expected = '<li class="current disabled"><a href="#">1</a></li>' .
-			'<li><a href="/index/page:2">2</a></li>' .
-			'<li><a href="/index/page:3">3</a></li>' .
-			'<li><a href="/index/page:4">4</a></li>' .
-			'<li><a href="/index/page:5">5</a></li>';
-
-		$numbers = $this->Paginator->numbers(array('model' => 'Post'));
-		$this->assertSame($expected, $numbers);
+		$result = $this->Paginator->numbers(array('model' => 'Post'));
+		$this->assertTags($result, array(
+			array('li' => array('class' => 'current disabled')),
+			array('a' => array('href' => '#')),
+			'1',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2')),
+			'2',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:3')),
+			'3',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:4')),
+			'4',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:5')),
+			'5',
+			'/a',
+			'/li'
+		));
 	}
 
 /**
@@ -110,27 +205,79 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'paramType' => 'named'
 		);
 
-		$expected = '<li><a href="/index/page:1">1</a></li>' .
-			'<li class="disabled"><a href="#">…</a></li>' .
-			'<li><a href="/index/page:6">6</a></li>' .
-			'<li><a href="/index/page:7">7</a></li>' .
-			'<li><a href="/index/page:8">8</a></li>' .
-			'<li><a href="/index/page:9">9</a></li>' .
-			'<li class="current disabled"><a href="#">10</a></li>' .
-			'<li><a href="/index/page:11">11</a></li>' .
-			'<li><a href="/index/page:12">12</a></li>' .
-			'<li><a href="/index/page:13">13</a></li>' .
-			'<li><a href="/index/page:14">14</a></li>' .
-			'<li class="disabled"><a href="#">…</a></li>' .
-			'<li><a href="/index/page:200">200</a></li>';
-
-		$numbers = $this->Paginator->numbers(array(
+		$result = $this->Paginator->numbers(array(
 			'model' => 'Post',
 			'modulus' => 8,
 			'first' => 1,
 			'last' => 1,
 		));
-		$this->assertSame($expected, $numbers);
+		$this->assertTags($result, array(
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:1')),
+			'1',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'disabled')),
+			array('a' => array('href' => '#')),
+			'…',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:6')),
+			'6',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:7')),
+			'7',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:8')),
+			'8',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:9')),
+			'9',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'current disabled')),
+			array('a' => array('href' => '#')),
+			'10',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:11')),
+			'11',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:12')),
+			'12',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:13')),
+			'13',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:14')),
+			'14',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'disabled')),
+			array('a' => array('href' => '#')),
+			'…',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:200')),
+			'200',
+			'/a',
+			'/li',
+		));
 	}
 
 }
