@@ -26,6 +26,8 @@ class BoostCakeFormHelper extends FormHelper {
 
 	protected $_inputOptions = array();
 
+	protected $_inputType = null;
+
 /**
  * Overwirte FormHemlper::input()
  * Generates a form input element complete with label and wrapper div
@@ -78,7 +80,21 @@ class BoostCakeFormHelper extends FormHelper {
 			unset($options['errorClass']);
 		}
 
-		return parent::input($fieldName, $options);
+		$html = parent::input($fieldName, $options);
+
+		if ($this->_inputType === 'checkbox') {
+			$regex = '/(<label.*?>)(.*?<\/label>)/';
+			if (preg_match($regex, $html, $label)) {
+				$html = preg_replace($regex, '', $html);
+				$html = preg_replace(
+					'/(<input type="checkbox".*?>)/',
+					$label[1] . '$1 ' . $label[2],
+					$html
+				);
+			}
+		}
+
+		return $html;
 	}
 
 /**
@@ -90,6 +106,8 @@ class BoostCakeFormHelper extends FormHelper {
  * @return array
  */
 	protected function _divOptions($options) {
+		$this->_inputType = $options['type'];
+
 		$divOptions = array('type' => $options['type']);
 		if (isset($options['div']) && $options['div'] !== false) {
 			if (!is_array($options['div'])) {

@@ -130,6 +130,21 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+	public function testCheckbox() {
+		$result = $this->Form->input('name', array('type' => 'checkbox'));
+		$this->assertTags($result, array(
+			array('div' => array()),
+			array('div' => array('class' => 'input checkbox')),
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'id' => 'name_', 'value' => '0')),
+			'label' => array('for' => 'name'),
+			array('input' => array('name' => 'data[name]', 'type' => 'checkbox', 'value' => '1', 'id' => 'name')),
+			' Name',
+			'/label',
+			'/div',
+			'/div'
+		));
+	}
+
 	public function testSelectMultipleCheckbox() {
 		$result = $this->Form->select('name',
 			array(
