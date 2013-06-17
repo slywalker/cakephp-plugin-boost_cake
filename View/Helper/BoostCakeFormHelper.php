@@ -8,6 +8,20 @@ class BoostCakeFormHelper extends FormHelper {
 		'className' => 'BoostCake.BoostCakeHtml'
 	));
 
+/**
+ * Persistent default options used by input(). Set by FormHelper::create().
+ *
+ * @var array
+ */
+	protected $_inputDefaults = array(
+		'error' => array(
+			'attributes' => array(
+				'wrap' => 'span',
+				'class' => 'help-block'
+			)
+		)
+	);
+
 	protected $_divOptions = array();
 
 	protected $_inputOptions = array();
@@ -51,13 +65,17 @@ class BoostCakeFormHelper extends FormHelper {
 	public function input($fieldName, $options = array()) {
 		$this->_inputOptions = $options + array(
 			'beforeInput' => '',
-			'afterInput' => ''
+			'afterInput' => '',
+			'errorClass' => 'has-error'
 		);
 		if (isset($options['beforeInput'])) {
 			unset($options['beforeInput']);
 		}
 		if (isset($options['afterInput'])) {
 			unset($options['afterInput']);
+		}
+		if (isset($options['errorClass'])) {
+			unset($options['errorClass']);
 		}
 
 		return parent::input($fieldName, $options);
@@ -73,14 +91,23 @@ class BoostCakeFormHelper extends FormHelper {
  */
 	protected function _divOptions($options) {
 		$divOptions = array('type' => $options['type']);
-		if (isset($options['div']['div'])) {
-			$divOptions += $options['div'];
-			unset($options['div']['div']);
+		if (isset($options['div']) && $options['div'] !== false) {
+			if (!is_array($options['div'])) {
+				$options['div'] = array('class' => $options['div']);
+			}
+			if (isset($options['div']['div'])) {
+				$divOptions += $options['div'];
+				unset($options['div']['div']);
+			}
 		}
 		$this->_divOptions = parent::_divOptions($divOptions);
 
 		$default = array('div' => array('class' => null));
 		$options = Hash::merge($default, $options);
+		if ($this->tagIsInvalid() !== false) {
+			$options['div'] = $this->addClass($options['div'], $this->_inputOptions['errorClass']);
+			var_dump($options);
+		}
 		return parent::_divOptions($options);
 	}
 

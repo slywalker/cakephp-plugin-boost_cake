@@ -2,12 +2,42 @@
 App::uses('BoostCakeFormHelper', 'BoostCake.View/Helper');
 App::uses('View', 'View');
 
+class Contact extends CakeTestModel {
+
+/**
+ * useTable property
+ *
+ * @var bool false
+ */
+	public $useTable = false;
+
+/**
+ * Default schema
+ *
+ * @var array
+ */
+	protected $_schema = array(
+		'id' => array('type' => 'integer', 'null' => '', 'default' => '', 'length' => '8'),
+		'name' => array('type' => 'string', 'null' => '', 'default' => '', 'length' => '255'),
+		'email' => array('type' => 'string', 'null' => '', 'default' => '', 'length' => '255'),
+		'phone' => array('type' => 'string', 'null' => '', 'default' => '', 'length' => '255'),
+		'password' => array('type' => 'string', 'null' => '', 'default' => '', 'length' => '255'),
+		'published' => array('type' => 'date', 'null' => true, 'default' => null, 'length' => null),
+		'created' => array('type' => 'date', 'null' => '1', 'default' => '', 'length' => ''),
+		'updated' => array('type' => 'datetime', 'null' => '1', 'default' => '', 'length' => null),
+		'age' => array('type' => 'integer', 'null' => '', 'default' => '', 'length' => null)
+	);
+
+}
+
 class BoostCakeFormHelperTest extends CakeTestCase {
 
 	public function setUp() {
 		parent::setUp();
 		$View = new View();
 		$this->Form = new BoostCakeFormHelper($View);
+
+		ClassRegistry::addObject('Contact', new Contact());
 	}
 
 	public function tearDown() {
@@ -160,6 +190,35 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			' fred jr.',
 			'/label',
 			'/fieldset'
+		));
+	}
+
+	public function testErrorMessage() {
+		$Contact = ClassRegistry::getObject('Contact');
+		$Contact->validationErrors['password'] = array('Please provide a password');
+
+		$result = $this->Form->input('Contact.password', array(
+			'div' => 'row',
+			'label' => array(
+				'class' => 'col col-lg-2 control-label'
+			),
+			'class' => 'input-with-feedback'
+		));
+		$this->assertTags($result, array(
+			array('div' => array('class' => 'row has-error error')),
+			'label' => array('for' => 'ContactPassword', 'class' => 'col col-lg-2 control-label'),
+			'Password',
+			'/label',
+			array('div' => array('class' => 'input password')),
+			'input' => array(
+				'type' => 'password', 'name' => 'data[Contact][password]',
+				'id' => 'ContactPassword', 'class' => 'input-with-feedback form-error'
+			),
+			'/div',
+			array('span' => array('class' => 'help-block')),
+			'Please provide a password',
+			'/span',
+			'/div'
 		));
 	}
 
