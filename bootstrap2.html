@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>
+		BoostCake -
+		Bootstrap2 examples	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Le styles -->
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<style>
+	body {
+		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	}
+	</style>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="/" class="brand">BoostCake</a>				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="/bootstrap2.html">Bootstrap2</a></li>
+						<li><a href="/bootstrap3.html">Bootstrap3</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+
+	<h1>BoostCake Examples <small>Bootstrap Version 2.3.2</small></h1>
+
+	<div class="page-header">
+		<h2>Forms</h2>
+	</div>
+
+	<h3>Default styles</h3>
+	<p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
+
+	<form action="/boost_cake/boost_cake/bootstrap2" class="well" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token219265192"/></div>		<fieldset>
+			<legend>Legend</legend>
+			<label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span>			<input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox" class="checkbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label>			<input  class="btn" type="submit" value="Submit"/>		</fieldset>
+	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="d2960776f86f570eb109a8e2b511519a53c09b19%3A" id="TokenFields946354254"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1666789836"/></div></form>
+	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+	&#039;inputDefaults&#039; =&gt; array(
+		&#039;div&#039; =&gt; false,
+		&#039;wrapInput&#039; =&gt; false
+	),
+	&#039;class&#039; =&gt; &#039;well&#039;
+)); ?&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Legend&lt;/legend&gt;
+		&lt;?php echo $this-&gt;Form-&gt;input(&#039;text&#039;, array(
+			&#039;label&#039; =&gt; &#039;Label name&#039;,
+			&#039;placeholder&#039; =&gt; &#039;Type something…&#039;,
+			&#039;after&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/span&gt;&#039;
+		)); ?&gt;
+		&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
+			&#039;label&#039; =&gt; array(
+				&#039;text&#039; =&gt; &#039;Check me out&#039;,
+				&#039;class&#039; =&gt; &#039;checkbox&#039;
+			)
+		)); ?&gt;
+		&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Submit&#039;, array(
+			&#039;div&#039; =&gt; false,
+			&#039;class&#039; =&gt; &#039;btn&#039;
+		)); ?&gt;
+	&lt;/fieldset&gt;
+&lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
+	<hr>
+
+	<h3>Search form</h3>
+	<p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
+
+	<form action="/boost_cake/boost_cake/bootstrap2" class="well form-search" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token398588850"/></div>		<input name="data[BoostCake][text]" class="input-medium search-query" maxlength="255" type="text" id="BoostCakeText"/>		<input  class="btn" type="submit" value="Search"/>	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="636d1151fd635d89b34da755239082bc2bc5edee%3A" id="TokenFields1405506436"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1391057229"/></div></form>
+	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+	&#039;inputDefaults&#039; =&gt; array(
+		&#039;div&#039; =&gt; false,
+		&#039;wrapInput&#039; =&gt; false
+	),
+	&#039;class&#039; =&gt; &#039;well form-search&#039;
+)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;text&#039;, array(
+		&#039;label&#039; =&gt; false,
+		&#039;class&#039; =&gt; &#039;input-medium search-query&#039;,
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Search&#039;, array(
+		&#039;div&#039; =&gt; false,
+		&#039;class&#039; =&gt; &#039;btn&#039;
+	)); ?&gt;
+&lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
+	<hr>
+
+	<h3>Inline form</h3>
+	<p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
+
+	<form action="/boost_cake/boost_cake/bootstrap2" class="well form-inline" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token428977785"/></div>		<input name="data[BoostCake][email]" class="input-small" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/>		<input name="data[BoostCake][password]" class="input-small" placeholder="Password" type="password" id="BoostCakePassword"/>		<input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember" class="checkbox"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label>		<input  class="btn" type="submit" value="Sign in"/>	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e98fd909788f5303f7a0ff707ddc2638745defd5%3A" id="TokenFields1384505249"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked803087092"/></div></form>
+	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+	&#039;inputDefaults&#039; =&gt; array(
+		&#039;div&#039; =&gt; false,
+		&#039;label&#039; =&gt; false,
+		&#039;wrapInput&#039; =&gt; false
+	),
+	&#039;class&#039; =&gt; &#039;well form-inline&#039;
+)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;email&#039;, array(
+		&#039;class&#039; =&gt; &#039;input-small&#039;,
+		&#039;placeholder&#039; =&gt; &#039;Email&#039;
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;password&#039;, array(
+		&#039;class&#039; =&gt; &#039;input-small&#039;,
+		&#039;placeholder&#039; =&gt; &#039;Password&#039;
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;remember&#039;, array(
+		&#039;label&#039; =&gt; array(
+			&#039;text&#039; =&gt; &#039;Remember me&#039;,
+			&#039;class&#039; =&gt; &#039;checkbox&#039;
+		)
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
+		&#039;div&#039; =&gt; false,
+		&#039;class&#039; =&gt; &#039;btn&#039;
+	)); ?&gt;
+&lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
+	<hr>
+
+	<h3>Horizontal form</h3>
+	<p>
+		Right align labels and float them to the left to make them appear on the same line as controls.
+		Requires the most markup changes from a default form:
+	</p>
+	<ul>
+		<li>Add <code>.form-horizontal</code> to the form</li>
+		<li>Wrap labels and controls in <code>.control-group</code></li>
+		<li>Add <code>.control-label</code> to the label</li>
+		<li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
+	</ul>
+
+	<form action="/boost_cake/boost_cake/bootstrap2" class="well form-horizontal" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token1952691803"/></div>		<div class="control-group"><label for="BoostCakeEmail" class="control-label">Email</label><div class="controls"><input name="data[BoostCake][email]" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>		<div class="control-group"><label for="BoostCakePassword" class="control-label">Password</label><div class="controls"><input name="data[BoostCake][password]" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>		<div class="control-group"><div class="controls"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember" class="checkbox"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div></div>		<div class="form-actions"><input  class="btn" type="submit" value="Sign in"/></div>	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e98fd909788f5303f7a0ff707ddc2638745defd5%3A" id="TokenFields754619426"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked966694120"/></div></form>
+	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+	&#039;inputDefaults&#039; =&gt; array(
+		&#039;div&#039; =&gt; &#039;control-group&#039;,
+		&#039;label&#039; =&gt; array(
+			&#039;class&#039; =&gt; &#039;control-label&#039;
+		),
+		&#039;wrapInput&#039; =&gt; &#039;controls&#039;
+	),
+	&#039;class&#039; =&gt; &#039;well form-horizontal&#039;
+)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;email&#039;, array(
+		&#039;placeholder&#039; =&gt; &#039;Email&#039;
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;password&#039;, array(
+		&#039;placeholder&#039; =&gt; &#039;Password&#039;
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;remember&#039;, array(
+		&#039;label&#039; =&gt; array(
+			&#039;text&#039; =&gt; &#039;Remember me&#039;,
+			&#039;class&#039; =&gt; &#039;checkbox&#039;
+		)
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
+		&#039;div&#039; =&gt; &#039;form-actions&#039;,
+		&#039;class&#039; =&gt; &#039;btn&#039;
+	)); ?&gt;
+&lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
+	<hr>
+	</div><!-- /container -->
+
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</body>
+</html>
