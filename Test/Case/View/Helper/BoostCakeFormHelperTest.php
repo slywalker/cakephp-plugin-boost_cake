@@ -235,6 +235,28 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			'/div',
 			'/div'
 		));
+
+		$result = $this->Form->input('Contact.password', array(
+			'div' => 'row',
+			'label' => array(
+				'class' => 'col col-lg-2 control-label'
+			),
+			'class' => 'input-with-feedback',
+			'errorMessage' => false
+		));
+		$this->assertTags($result, array(
+			array('div' => array('class' => 'row has-error error')),
+			'label' => array('for' => 'ContactPassword', 'class' => 'col col-lg-2 control-label'),
+			'Password',
+			'/label',
+			array('div' => array('class' => 'input password')),
+			'input' => array(
+				'type' => 'password', 'name' => 'data[Contact][password]',
+				'id' => 'ContactPassword', 'class' => 'input-with-feedback form-error'
+			),
+			'/div',
+			'/div'
+		));
 	}
 
 }
