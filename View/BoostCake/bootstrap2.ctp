@@ -232,3 +232,5 @@
 	)); ?>
 <?php echo \$this->Form->end(); ?>"); ?></pre>
 	<hr>
+
+</section>
