@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>
-		<?php echo __('CakePHP: the rapid development php framework:'); ?>
+		BoostCake -
 		<?php echo $title_for_layout; ?>
 	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,11 @@
 
 	<!-- Le styles -->
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<style>
+	body {
+		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	}
+	</style>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -26,15 +31,33 @@
 
 <body>
 
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<?php echo $this->Html->link('BoostCake', array(
+					'plugin' => 'boost_cake',
+					'controller' => 'boost_cake',
+					'action' => 'index'
+				), array('class' => 'brand')); ?>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><?php echo $this->Html->link('Bootstrap2', array(
+							'action' => 'bootstrap2'
+						)); ?></li>
+						<li><?php echo $this->Html->link('Bootstrap3', array(
+							'action' => 'bootstrap3'
+						)); ?></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
-
-		<h1>BoostCake Examples <small>Bootstrap Version 2.3.2</small></h1>
-
-		<?php echo $this->Session->flash(); ?>
 
 		<?php echo $this->fetch('content'); ?>
 
-	</div> <!-- /container -->
+	</div><!-- /container -->
 
 	<!-- Le javascript
     ================================================== -->
