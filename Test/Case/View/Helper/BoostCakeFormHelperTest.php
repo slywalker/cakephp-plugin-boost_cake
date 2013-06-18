@@ -229,10 +229,10 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 				'type' => 'password', 'name' => 'data[Contact][password]',
 				'id' => 'ContactPassword', 'class' => 'input-with-feedback form-error'
 			),
-			'/div',
 			array('span' => array('class' => 'help-block')),
 			'Please provide a password',
 			'/span',
+			'/div',
 			'/div'
 		));
 	}
