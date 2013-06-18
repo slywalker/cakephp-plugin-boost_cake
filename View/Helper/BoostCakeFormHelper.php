@@ -8,23 +8,6 @@ class BoostCakeFormHelper extends FormHelper {
 		'className' => 'BoostCake.BoostCakeHtml'
 	));
 
-/**
- * Persistent default options used by input(). Set by FormHelper::create().
- *
- * @var array
- */
-	protected $_inputDefaults = array(
-		'error' => array(
-			'attributes' => array(
-				'wrap' => 'span',
-				'class' => 'help-block'
-			)
-		),
-		'beforeInput' => '',
-		'afterInput' => '',
-		'errorClass' => 'has-error error'
-	);
-
 	protected $_divOptions = array();
 
 	protected $_inputOptions = array();
@@ -75,7 +58,20 @@ class BoostCakeFormHelper extends FormHelper {
 	public function input($fieldName, $options = array()) {
 		$this->_fieldName = $fieldName;
 
+		$default = array(
+			'error' => array(
+				'attributes' => array(
+					'wrap' => 'span',
+					'class' => 'help-block'
+				)
+			),
+			'beforeInput' => '',
+			'afterInput' => '',
+			'errorClass' => 'has-error error'
+		);
+
 		$options = array_merge(
+			$default,
 			$this->_inputDefaults,
 			$options
 		);

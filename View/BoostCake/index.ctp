@@ -1,3 +1,4 @@
+<?php $this->layout = 'bootstrap2'; ?>
 <?php $this->set('title_for_layout', 'BoostCake'); ?>
 
 <section id="forms">
