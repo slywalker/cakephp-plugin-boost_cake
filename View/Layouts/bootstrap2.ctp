@@ -28,7 +28,7 @@
 
 	<div class="container">
 
-		<h1>BoostCake Examples</h1>
+		<h1>BoostCake Examples <small>Bootstrap Version 2.3.2</small></h1>
 
 		<?php echo $this->Session->flash(); ?>
 

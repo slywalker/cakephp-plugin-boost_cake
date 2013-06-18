@@ -58,10 +58,8 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 
 		$result = $this->Form->input('name', array(
-			'div' => array(
-				'class' => 'row',
-				'div' => 'col col-lg-10'
-			),
+			'div' => 'row',
+			'wrapInput' => 'col col-lg-10',
 			'label' => array(
 				'class' => 'col col-lg-2 control-label'
 			)
@@ -87,7 +85,7 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			'/div'
 		));
 
-		$result = $this->Form->input('name', array('div' => array('div' => false)));
+		$result = $this->Form->input('name', array('wrapInput' => false));
 		$this->assertTags($result, array(
 			array('div' => array()),
 			'label' => array('for' => 'name'),
@@ -98,10 +96,8 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 
 		$result = $this->Form->input('name', array(
-			'div' => array(
-				'tag' => false,
-				'div' => false
-			)
+			'div' => false,
+			'wrapInput' => false
 		));
 		$this->assertTags($result, array(
 			'label' => array('for' => 'name'),

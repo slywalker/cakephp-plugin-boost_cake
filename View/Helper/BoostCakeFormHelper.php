@@ -46,6 +46,8 @@ class BoostCakeFormHelper extends FormHelper {
  *	- Radio buttons cannot have the order of input and label elements controlled with these settings.
  *
  * Added options
+ * - `wrapInput` - Either `false` to disable the div wrapping input, or an array of options for the div.
+ *	See HtmlHelper::div() for more options.
  * - `beforeInput` - Content to place before the input.
  * - `afterInput` - Content to place after the input.
  * - `errorClass` - Wrap input tag's error message class.
@@ -65,6 +67,9 @@ class BoostCakeFormHelper extends FormHelper {
 					'class' => 'help-block'
 				)
 			),
+			'wrapInput' => array(
+				'tag' => 'div'
+			),
 			'beforeInput' => '',
 			'afterInput' => '',
 			'errorClass' => 'has-error error'
@@ -75,9 +80,13 @@ class BoostCakeFormHelper extends FormHelper {
 			$this->_inputDefaults,
 			$options
 		);
+
 		$this->_inputOptions = $options;
 
 		$options['error'] = false;
+		if (isset($options['wrapInput'])) {
+			unset($options['wrapInput']);
+		}
 		if (isset($options['beforeInput'])) {
 			unset($options['beforeInput']);
 		}
@@ -121,24 +130,19 @@ class BoostCakeFormHelper extends FormHelper {
 	protected function _divOptions($options) {
 		$this->_inputType = $options['type'];
 
-		$divOptions = array('type' => $options['type']);
-		if (isset($options['div']) && $options['div'] !== false) {
-			if (!is_array($options['div'])) {
-				$options['div'] = array('class' => $options['div']);
-			}
-			if (isset($options['div']['div'])) {
-				$divOptions += $options['div'];
-				unset($options['div']['div']);
-			}
-		}
+		$divOptions = array(
+			'type' => $options['type'],
+			'div' => $this->_inputOptions['wrapInput']
+		);
 		$this->_divOptions = parent::_divOptions($divOptions);
 
 		$default = array('div' => array('class' => null));
 		$options = Hash::merge($default, $options);
+		$divOptions = parent::_divOptions($options);
 		if ($this->tagIsInvalid() !== false) {
-			$options['div'] = $this->addClass($options['div'], $this->_inputOptions['errorClass']);
+			$divOptions = $this->addClass($divOptions, $this->_inputOptions['errorClass']);
 		}
-		return parent::_divOptions($options);
+		return $divOptions;
 	}
 
 /**

@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 
 class BoostCakeController extends AppController {
 
-	public $uses = array();
+	public $uses = array('BoostCake.BoostCake');
 
 	public $components = array('Session');
 
