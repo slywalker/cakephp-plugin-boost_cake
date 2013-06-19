@@ -1,13 +1,13 @@
 {
     "name": "slywalker/boost_cake",
     "type": "cakephp-plugin",
-    "description": "Bootstrap(3.0.0-wip) Plugin for CakePHP",
+    "description": "BoostCake is a plugin for CakePHP using Bootstrap",
     "keywords": [
         "cakephp",
         "bootstrap",
         "twitter"
     ],
-    "homepage": "https://github.com/slywalker/cakephp-plugin-boost_cake",
+    "homepage": "http://slywalker.github.io/cakephp-plugin-boost_cake/",
     "license": "MIT",
     "authors": [
         {
