@@ -79,7 +79,7 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 		);
 		$result = $this->Paginator->pagination(array('model' => 'Post'));
 		$this->assertTags($result, array(
-			'div' => array('class' => 'pagination pagination-centered'),
+			'div' => array('class' => 'pagination'),
 			'ul' => array(),
 			array('li' => array('class' => 'disabled')),
 			array('a' => array('href' => '/index/page:1')),

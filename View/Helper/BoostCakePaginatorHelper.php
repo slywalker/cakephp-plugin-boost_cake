@@ -5,7 +5,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 
 	public function pagination($options = array()) {
 		$default = array(
-			'div' => 'pagination pagination-centered'
+			'div' => 'pagination'
 		);
 
 		$pagingParams = reset($this->request->params['paging']);
@@ -123,7 +123,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 			'after' => null,
 			'model' => $this->defaultModel(),
 			'class' => null,
-			'modulus' => 11,
+			'modulus' => 4,
 			'separator' => false,
 			'first' => null,
 			'last' => null,
