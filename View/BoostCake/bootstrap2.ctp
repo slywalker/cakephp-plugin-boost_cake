@@ -296,6 +296,18 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 						)
 					)
 				)); ?>
+				<div class="control-group">
+					<lable class="control-label">Radio</lable>
+					<?php echo $this->Form->input('radio', array(
+						'type' => 'radio',
+						'div' => false,
+						'legend' => false,
+						'options' => array(
+							1 => 'Option one is this and that—be sure to include why it\'s great',
+							2 => 'Option two can be something else and selecting it will deselect option one'
+						)
+					)); ?>
+				</div>
 				<?php echo $this->Form->input('username', array(
 					'placeholder' => 'Username',
 					'div' => 'control-group input-prepend',
@@ -379,6 +391,18 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			)
 		)
 	)); ?>
+	<div class=\"control-group\">
+		<lable class=\"control-label\">Radio</lable>
+		<?php echo \$this->Form->input('radio', array(
+			'type' => 'radio',
+			'div' => false,
+			'legend' => false,
+			'options' => array(
+				1 => 'Option one is this and that—be sure to include why it\'s great',
+				2 => 'Option two can be something else and selecting it will deselect option one'
+			)
+		)); ?>
+	</div>
 	<?php echo \$this->Form->input('username', array(
 		'placeholder' => 'Username',
 		'div' => 'control-group input-prepend',

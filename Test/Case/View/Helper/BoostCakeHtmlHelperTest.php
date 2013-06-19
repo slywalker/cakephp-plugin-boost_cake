@@ -19,7 +19,7 @@ class BoostCakeHtmlHelperTest extends CakeTestCase {
 			'radio', 'one', 'two', array('three' => 'four'), '<label for="one">label</label>'
 		);
 		$this->assertTags($result, array(
-			'label' => array('for' => 'one'),
+			'label' => array('class' => 'radio', 'for' => 'one'),
 			'input' => array('type' => 'radio', 'name' => 'one', 'id' => 'two', 'three' => 'four'),
 			' label',
 			'/label'
