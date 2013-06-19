@@ -75,7 +75,7 @@ class BoostCakeFormHelper extends FormHelper {
 			'errorClass' => 'has-error error'
 		);
 
-		$options = array_merge(
+		$options = Hash::merge(
 			$default,
 			$this->_inputDefaults,
 			$options

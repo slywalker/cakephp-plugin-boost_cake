@@ -248,6 +248,176 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			?></pre>
 			<hr>
 
+			<h3>Other form example</h3>
+			<?php
+			$BoostCake = ClassRegistry::getObject('BoostCake');
+			$BoostCake->validationErrors['password'] = array('Please provide a password');
+			?>
+			<?php echo $this->Form->create('BoostCake', array(
+				'inputDefaults' => array(
+					'div' => 'control-group',
+					'label' => array(
+						'class' => 'control-label'
+					),
+					'wrapInput' => 'controls'
+				),
+				'class' => 'well form-horizontal'
+			)); ?>
+				<?php echo $this->Form->input('select', array(
+					'label' => array(
+						'text' => 'Select Nested Options'
+					),
+					'empty' => '選択してください',
+					'options' => array(
+						'東京' => array(
+							1 => '渋谷',
+							2 => '秋葉原'
+						),
+						'大阪' => array(
+							3 => '梅田',
+							4 => '難波'
+						)
+					),
+				)); ?>
+				<?php echo $this->Form->input('select', array(
+					'label' => array(
+						'text' => 'Select Nested Options Checkbox'
+					),
+					'class' => 'checkbox inline',
+					'multiple' => 'checkbox',
+					'options' => array(
+						'東京' => array(
+							1 => '渋谷',
+							2 => '秋葉原'
+						),
+						'大阪' => array(
+							3 => '梅田',
+							4 => '難波'
+						)
+					)
+				)); ?>
+				<?php echo $this->Form->input('username', array(
+					'placeholder' => 'Username',
+					'div' => 'control-group input-prepend',
+					'label' => array(
+						'text' => 'Prepend',
+					),
+					'wrapInput' => 'controls',
+					'beforeInput' => '<span class="add-on">@</span>'
+				)); ?>
+				<?php echo $this->Form->input('price', array(
+					'div' => 'control-group input-append',
+					'label' => array(
+						'text' => 'Append',
+					),
+					'wrapInput' => 'controls',
+					'afterInput' => '<span class="add-on">.00</span>'
+				)); ?>
+				<?php echo $this->Form->input('password', array(
+					'label' => array(
+						'text' => 'Show Error Message'
+					),
+					'placeholder' => 'Password'
+				)); ?>
+				<?php echo $this->Form->input('password', array(
+					'label' => array(
+						'text' => 'Hide Error Message'
+					),
+					'placeholder' => 'Password',
+					'errorMessage' => false
+				)); ?>
+				<div class="form-actions">
+					<?php echo $this->Form->submit('Save changes', array(
+						'div' => false,
+						'class' => 'btn btn-primary'
+					)); ?>
+					<button type="button" class="btn">Cancel</button>
+				</div>
+			<?php echo $this->Form->end(); ?>
+
+			<pre class="prettyprint"><?php
+echo h("<?php echo \$this->Form->create('BoostCake', array(
+	'inputDefaults' => array(
+		'div' => 'control-group',
+		'label' => array(
+			'class' => 'control-label'
+		),
+		'wrapInput' => 'controls'
+	),
+	'class' => 'well form-horizontal'
+)); ?>
+	<?php echo \$this->Form->input('select', array(
+		'label' => array(
+			'text' => 'Select Nested Options'
+		),
+		'empty' => '選択してください',
+		'options' => array(
+			'東京' => array(
+				1 => '渋谷',
+				2 => '秋葉原'
+			),
+			'大阪' => array(
+				3 => '梅田',
+				4 => '難波'
+			)
+		),
+	)); ?>
+	<?php echo \$this->Form->input('select', array(
+		'label' => array(
+			'text' => 'Select Nested Options Checkbox'
+		),
+		'class' => 'checkbox inline',
+		'multiple' => 'checkbox',
+		'options' => array(
+			'東京' => array(
+				1 => '渋谷',
+				2 => '秋葉原'
+			),
+			'大阪' => array(
+				3 => '梅田',
+				4 => '難波'
+			)
+		)
+	)); ?>
+	<?php echo \$this->Form->input('username', array(
+		'placeholder' => 'Username',
+		'div' => 'control-group input-prepend',
+		'label' => array(
+			'text' => 'Prepend',
+		),
+		'wrapInput' => 'controls',
+		'beforeInput' => '<span class=\"add-on\">@</span>'
+	)); ?>
+	<?php echo \$this->Form->input('price', array(
+		'div' => 'control-group input-append',
+		'label' => array(
+			'text' => 'Append',
+		),
+		'wrapInput' => 'controls',
+		'afterInput' => '<span class=\"add-on\">.00</span>'
+	)); ?>
+	<?php echo \$this->Form->input('password', array(
+		'label' => array(
+			'text' => 'Show Error Message'
+		),
+		'placeholder' => 'Password'
+	)); ?>
+	<?php echo \$this->Form->input('password', array(
+		'label' => array(
+			'text' => 'Hide Error Message'
+		),
+		'placeholder' => 'Password',
+		'errorMessage' => false
+	)); ?>
+	<div class=\"form-actions\">
+		<?php echo \$this->Form->submit('Save changes', array(
+			'div' => false,
+			'class' => 'btn btn-primary'
+		)); ?>
+		<button type=\"button\" class=\"btn\">Cancel</button>
+	</div>
+<?php echo \$this->Form->end(); ?>");
+			?></pre>
 		</section>
 
 		<section id="pagination">
