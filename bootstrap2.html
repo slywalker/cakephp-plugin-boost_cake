@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +11,14 @@
 
 	<!-- Le styles -->
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-	<link href="/cakephp-plugin-boost_cake/bootstrap3/css/pygments-manni.css" rel="stylesheet">
 	<style>
 	body {
 		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	}
+	.affix {
+		position: fixed;
+		top: 60px;
+		width: 220px;
 	}
 	</style>
 
@@ -23,15 +26,15 @@
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-</head>
+
+	</head>
 
 <body>
 
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="/cakephp-plugin-boost_cake/" class="brand">BoostCake</a>
-				<ul class="nav">
+				<a href="/cakephp-plugin-boost_cake/" class="brand">BoostCake</a>				<ul class="nav">
 					<li><a href="/cakephp-plugin-boost_cake/bootstrap2.html">Bootstrap2</a></li>
 					<li><a href="/cakephp-plugin-boost_cake/bootstrap3.html">Bootstrap3</a></li>
 				</ul>
@@ -42,20 +45,30 @@
 	<div class="container">
 
 
-	<h1>BoostCake Examples <small>Bootstrap Version 2.3.2</small></h1>
-
-	<div class="page-header">
-		<h2>Forms</h2>
+<div class="row">
+	<div class="span3">
+		<ul class="nav nav-tabs nav-stacked affix">
+			<li><a href="#forms"><i class="icon-chevron-right pull-right"></i> Forms</a></li>
+			<li><a href="#pagination"><i class="icon-chevron-right pull-right"></i> Pagination</a></li>
+			<li><a href="#alerts"><i class="icon-chevron-right pull-right"></i> Alerts</a></li>
+		</ul>
 	</div>
+	<div class="span9">
+		<h1>BoostCake Examples <small>Bootstrap Version 2.3.2</small></h1>
 
-	<h3>Default styles</h3>
-	<p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
+		<section id="forms">
+			<div class="page-header">
+				<h2>Forms</h2>
+			</div>
 
-	<form action="/boost_cake/boost_cake/bootstrap2" class="well" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token219265192"/></div>		<fieldset>
-			<legend>Legend</legend>
-			<label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span>			<input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox" class="checkbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label>			<input  class="btn" type="submit" value="Submit"/>		</fieldset>
-	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="d2960776f86f570eb109a8e2b511519a53c09b19%3A" id="TokenFields946354254"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1666789836"/></div></form>
-	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<h3>Default styles</h3>
+			<p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
+
+			<form action="/boost_cake/boost_cake/bootstrap2" class="well" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="94444f4efbd69cd2c341742dc49dbbe09f201e74" id="Token557052199"/></div>				<fieldset>
+					<legend>Legend</legend>
+					<label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span>					<input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox" class="checkbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label>					<input  class="btn" type="submit" value="Submit"/>				</fieldset>
+			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="d2960776f86f570eb109a8e2b511519a53c09b19%3A" id="TokenFields273283402"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked893743029"/></div></form>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; false,
 		&#039;wrapInput&#039; =&gt; false
@@ -81,13 +94,13 @@
 		)); ?&gt;
 	&lt;/fieldset&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
-	<hr>
+			<hr>
 
-	<h3>Search form</h3>
-	<p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
+			<h3>Search form</h3>
+			<p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
 
-	<form action="/boost_cake/boost_cake/bootstrap2" class="well form-search" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token398588850"/></div>		<input name="data[BoostCake][text]" class="input-medium search-query" maxlength="255" type="text" id="BoostCakeText"/>		<input  class="btn" type="submit" value="Search"/>	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="636d1151fd635d89b34da755239082bc2bc5edee%3A" id="TokenFields1405506436"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1391057229"/></div></form>
-	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<form action="/boost_cake/boost_cake/bootstrap2" class="well form-search" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="94444f4efbd69cd2c341742dc49dbbe09f201e74" id="Token1116712474"/></div>				<input name="data[BoostCake][text]" class="input-medium search-query" maxlength="255" type="text" id="BoostCakeText"/>				<input  class="btn" type="submit" value="Search"/>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="636d1151fd635d89b34da755239082bc2bc5edee%3A" id="TokenFields1267416230"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked786929774"/></div></form>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; false,
 		&#039;wrapInput&#039; =&gt; false
@@ -103,13 +116,13 @@
 		&#039;class&#039; =&gt; &#039;btn&#039;
 	)); ?&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
-	<hr>
+			<hr>
 
-	<h3>Inline form</h3>
-	<p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
+			<h3>Inline form</h3>
+			<p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
 
-	<form action="/boost_cake/boost_cake/bootstrap2" class="well form-inline" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token428977785"/></div>		<input name="data[BoostCake][email]" class="input-small" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/>		<input name="data[BoostCake][password]" class="input-small" placeholder="Password" type="password" id="BoostCakePassword"/>		<input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember" class="checkbox"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label>		<input  class="btn" type="submit" value="Sign in"/>	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e98fd909788f5303f7a0ff707ddc2638745defd5%3A" id="TokenFields1384505249"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked803087092"/></div></form>
-	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<form action="/boost_cake/boost_cake/bootstrap2" class="well form-inline" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="94444f4efbd69cd2c341742dc49dbbe09f201e74" id="Token1744221922"/></div>				<input name="data[BoostCake][email]" class="input-small" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/>				<input name="data[BoostCake][password]" class="input-small" placeholder="Password" type="password" id="BoostCakePassword"/>				<input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember" class="checkbox"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label>				<input  class="btn" type="submit" value="Sign in"/>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e98fd909788f5303f7a0ff707ddc2638745defd5%3A" id="TokenFields1045829003"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked275465671"/></div></form>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; false,
 		&#039;label&#039; =&gt; false,
@@ -136,22 +149,22 @@
 		&#039;class&#039; =&gt; &#039;btn&#039;
 	)); ?&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
-	<hr>
+			<hr>
 
-	<h3>Horizontal form</h3>
-	<p>
-		Right align labels and float them to the left to make them appear on the same line as controls.
-		Requires the most markup changes from a default form:
-	</p>
-	<ul>
-		<li>Add <code>.form-horizontal</code> to the form</li>
-		<li>Wrap labels and controls in <code>.control-group</code></li>
-		<li>Add <code>.control-label</code> to the label</li>
-		<li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
-	</ul>
+			<h3>Horizontal form</h3>
+			<p>
+				Right align labels and float them to the left to make them appear on the same line as controls.
+				Requires the most markup changes from a default form:
+			</p>
+			<ul>
+				<li>Add <code>.form-horizontal</code> to the form</li>
+				<li>Wrap labels and controls in <code>.control-group</code></li>
+				<li>Add <code>.control-label</code> to the label</li>
+				<li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
+			</ul>
 
-	<form action="/boost_cake/boost_cake/bootstrap2" class="well form-horizontal" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cddb7bccc672c71095ea5bb9e40e69518cb8c89f" id="Token1952691803"/></div>		<div class="control-group"><label for="BoostCakeEmail" class="control-label">Email</label><div class="controls"><input name="data[BoostCake][email]" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>		<div class="control-group"><label for="BoostCakePassword" class="control-label">Password</label><div class="controls"><input name="data[BoostCake][password]" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>		<div class="control-group"><div class="controls"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember" class="checkbox"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div></div>		<div class="form-actions"><input  class="btn" type="submit" value="Sign in"/></div>	<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e98fd909788f5303f7a0ff707ddc2638745defd5%3A" id="TokenFields754619426"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked966694120"/></div></form>
-	<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<form action="/boost_cake/boost_cake/bootstrap2" class="well form-horizontal" id="BoostCakeBootstrap2Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="94444f4efbd69cd2c341742dc49dbbe09f201e74" id="Token336804319"/></div>				<div class="control-group"><label for="BoostCakeEmail" class="control-label">Email</label><div class="controls"><input name="data[BoostCake][email]" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>				<div class="control-group"><label for="BoostCakePassword" class="control-label">Password</label><div class="controls"><input name="data[BoostCake][password]" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="control-group"><div class="controls"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember" class="checkbox"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label><div class="submit"><input  class="btn" type="submit" value="Sign in"/></div></div></div>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="e98fd909788f5303f7a0ff707ddc2638745defd5%3A" id="TokenFields885303548"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked462435063"/></div></form>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; &#039;control-group&#039;,
 		&#039;label&#039; =&gt; array(
@@ -171,14 +184,110 @@
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Remember me&#039;,
 			&#039;class&#039; =&gt; &#039;checkbox&#039;
-		)
-	)); ?&gt;
-	&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
-		&#039;div&#039; =&gt; &#039;form-actions&#039;,
-		&#039;class&#039; =&gt; &#039;btn&#039;
+		),
+		&#039;afterInput&#039; =&gt; $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
+			&#039;class&#039; =&gt; &#039;btn&#039;
+		))
 	)); ?&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
-	<hr>
+			<hr>
+
+		</section>
+
+		<section id="pagination">
+			<div class="page-header">
+				<h2>Pagination</h2>
+			</div>
+
+			<h3>Standard pagination</h3>
+			<p>
+				Simple pagination inspired by Rdio, great for apps and search results.
+				The large block is hard to miss, easily scalable, and provides large click areas.
+			</p>
+
+						<div class="pagination"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(); ?&gt;</pre>
+
+			<h3>Sizes</h3>
+			<p>
+				Fancy larger or smaller pagination? Add .pagination-large,
+				<code>.pagination-small</code>, or <code>.pagination-mini</code> for additional sizes.
+			</p>
+
+			<div class="pagination pagination-large"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>			<div class="pagination"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>			<div class="pagination pagination-small"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>			<div class="pagination pagination-mini"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;div&#039; =&gt; &#039;pagination pagination-large&#039;
+)); ?&gt;
+&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;div&#039; =&gt; &#039;pagination&#039;
+)); ?&gt;
+&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;div&#039; =&gt; &#039;pagination pagination-small&#039;
+)); ?&gt;
+&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;div&#039; =&gt; &#039;pagination pagination-mini&#039;
+)); ?&gt;</pre>
+
+			<h3>Alignment</h3>
+			<p>
+				Add one of two optional classes to change the alignment of pagination links:
+				<code>.pagination-centered</code> and <code>.pagination-right</code>.
+			</p>
+
+			<div class="pagination pagination-centered"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>			<div class="pagination pagination-right"><ul><li><a href="/boost_cake/boost_cake/bootstrap2/page:1" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:8">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:11">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap2/page:12">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap2/page:200" rel="last">&gt;&gt;</a></li></ul></div>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;div&#039; =&gt; &#039;pagination pagination-centered&#039;
+)); ?&gt;
+&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;div&#039; =&gt; &#039;pagination pagination-right&#039;
+)); ?&gt;</pre>
+
+			<h3>Pager</h3>
+			<p>
+				Quick previous and next links for simple pagination implementations with light markup and styles.
+				It's great for simple sites like blogs or magazines.
+			</p>
+
+			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">Previous</a></li>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">Next</a></li></ul>			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap2/page:9" rel="prev">← Older</a></li>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap2/page:11" rel="next">Newer →</a></li></ul>
+			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pager(); ?&gt;
+&lt;?php echo $this-&gt;Paginator-&gt;pager(array(
+	&#039;prev&#039; =&gt; &#039;← Older&#039;,
+	&#039;next&#039; =&gt; &#039;Newer →&#039;
+)); ?&gt;</pre>
+
+		</section>
+	</div>
+</div>
 	</div><!-- /container -->
 
 	<!-- Le javascript
@@ -187,5 +296,6 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
 </body>
 </html>
