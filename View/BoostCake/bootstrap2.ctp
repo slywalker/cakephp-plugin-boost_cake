@@ -370,5 +370,37 @@ echo h("<?php echo \$this->Paginator->pager(); ?>
 			?></pre>
 
 		</section>
+
+		<section id="alerts">
+			<div class="page-header">
+				<h2>Alerts</h2>
+			</div>
+
+			<?php echo $this->Session->flash('notice'); ?>
+			<?php echo $this->Session->flash('success'); ?>
+			<?php echo $this->Session->flash('error'); ?>
+
+			<pre class="prettyprint"><?php
+echo h("<?php
+// View
+echo \$this->Session->flash();
+
+// Controller
+\$this->Session->setFlash(__('Alert notice message testing...'), 'alert', array(
+	'plugin' => 'BoostCake',
+));
+
+\$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+	'plugin' => 'BoostCake',
+	'class' => 'alert-success'
+));
+
+\$this->Session->setFlash(__('Alert error message testing...'), 'alert', array(
+	'plugin' => 'BoostCake',
+	'class' => 'alert-error'
+));
+?>");
+			?></pre>
+		</section>
 	</div>
 </div>
