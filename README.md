@@ -18,7 +18,7 @@ Ensure require is present in composer.json. This will install the plugin into Pl
 
 	{
 		"require": {
-			"cakephp/boost_cake": "dev-master"
+			"slywalker/boost_cake": "dev-master"
 		}
 	}
 	
