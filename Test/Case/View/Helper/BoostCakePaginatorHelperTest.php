@@ -77,6 +77,7 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			),
 			'paramType' => 'named'
 		);
+
 		$result = $this->Paginator->pagination(array(
 			'model' => 'Post',
 			'div' => 'pagination'
@@ -106,6 +107,35 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'/li',
 			'/ul',
 			'/div'
+		));
+
+		$result = $this->Paginator->pagination(array(
+			'model' => 'Post',
+			'ul' => 'pagination'
+		));
+		$this->assertTags($result, array(
+			'ul' => array('class' => 'pagination'),
+			array('li' => array('class' => 'disabled')),
+			array('a' => array('href' => '/index/page:1')),
+			'&lt;',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'current disabled')),
+			array('a' => array('href' => '#')),
+			'1',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2')),
+			'2',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2', 'rel' => 'next')),
+			'&gt;',
+			'/a',
+			'/li',
+			'/ul'
 		));
 	}
 
@@ -280,6 +310,45 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'200',
 			'/a',
 			'/li',
+		));
+	}
+
+/**
+ * testPager
+ *
+ * @return void
+ */
+	public function testPager() {
+		$this->Paginator->request->params['paging']['Post'] = array(
+			'page' => 10,
+			'current' => 20,
+			'count' => 1000,
+			'prevPage' => true,
+			'nextPage' => true,
+			'pageCount' => 200,
+			'order' => null,
+			'limit' => 20,
+			'options' => array(
+				'page' => 1,
+				'conditions' => array()
+			),
+			'paramType' => 'named'
+		);
+
+		$result = $this->Paginator->pager();
+		$this->assertTags($result, array(
+			'ul' => array('class' => 'pager'),
+			array('li' => array('class' => 'previous')),
+			array('a' => array('href' => '/index/page:9', 'rel' => 'prev')),
+			'Previous',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'next')),
+			array('a' => array('href' => '/index/page:11', 'rel' => 'next')),
+			'Next',
+			'/a',
+			'/li',
+			'/ul'
 		));
 	}
 
