@@ -31,7 +31,7 @@ Ensure require is present in composer.json. This will install the plugin into Pl
 More Simple! Simple! Simple!
 
 * Develop only those that method's $options in FormHelper unable to solve.
-* Dont't develop ajax/js helper
+* Don't develop ajax/js helper
 
 If you want to simplify the options, you can develop WrapBoostCake plugin.
 
