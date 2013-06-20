@@ -7,6 +7,25 @@ BoostCake is a plugin for CakePHP using Bootstrap
 * [Bootstrap(2.3.2)](https://github.com/twitter/bootstrap)
 * [Bootstrap(3.0.0-wip)](https://github.com/twitter/bootstrap/tree/3.0.0-wip)
 
+## Requirements
+
+* CakePHP >= 2.3
+* Bootstrap >= 2.3 (3.0 support)
+
+## Installation
+
+Ensure require is present in composer.json. This will install the plugin into Plugin/BoostCake:
+
+	{
+		"require": {
+			"cakephp/boost_cake": "dev-master"
+		}
+	}
+	
+## Documentation
+
+[BoostCake - Bootstrap Plugin for CakePHP](http://slywalker.github.io/cakephp-plugin-boost_cake/)
+
 ## Development Policy
 
 More Simple! Simple! Simple!
@@ -24,8 +43,3 @@ If you want to simplify the options, you can develop WrapBoostCake plugin.
 * Add error class in outer `div`
 * Change pgination tags
 * Change SessionHelper::flash()`s tmplate
-
-## Require
-
-* CakePHP >= 2.3
-* Bootstrap >= 2.3 (3.0 support)
