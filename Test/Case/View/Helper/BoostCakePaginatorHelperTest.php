@@ -77,7 +77,10 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			),
 			'paramType' => 'named'
 		);
-		$result = $this->Paginator->pagination(array('model' => 'Post'));
+		$result = $this->Paginator->pagination(array(
+			'model' => 'Post',
+			'div' => 'pagination'
+		));
 		$this->assertTags($result, array(
 			'div' => array('class' => 'pagination'),
 			'ul' => array(),

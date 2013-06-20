@@ -297,7 +297,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					)
 				)); ?>
 				<div class="control-group<?php if ($this->Form->isFieldError('radio')): ?> error<?php endif ?>">
-					<lable class="control-label">Radio</lable>
+					<label class="control-label">Radio</label>
 					<?php echo $this->Form->input('radio', array(
 						'type' => 'radio',
 						'div' => false,
@@ -392,7 +392,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		)
 	)); ?>
 	<div class=\"control-group<?php if (\$this->Form->isFieldError('radio')): ?> error<?php endif ?>\">
-		<lable class=\"control-label\">Radio</lable>
+		<label class=\"control-label\">Radio</label>
 		<?php echo \$this->Form->input('radio', array(
 			'type' => 'radio',
 			'div' => false,
@@ -472,10 +472,13 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 				'paramType' => 'named'
 			);
 			?>
-			<?php echo $this->Paginator->pagination(array('model' => 'Post')); ?>
+			<?php echo $this->Paginator->pagination(array(
+				'model' => 'Post',
+				'div' => 'pagination'
+			)); ?>
 
 			<pre class="prettyprint"><?php
-			echo h("<?php echo \$this->Paginator->pagination(); ?>");
+			echo h("<?php echo \$this->Paginator->pagination(array('div' => 'pagination')); ?>");
 			?></pre>
 
 			<h3>Sizes</h3>

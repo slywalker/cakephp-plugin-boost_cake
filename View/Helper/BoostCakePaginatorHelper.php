@@ -5,7 +5,8 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 
 	public function pagination($options = array()) {
 		$default = array(
-			'div' => 'pagination'
+			'div' => false,
+			'ul' => ''
 		);
 
 		$pagingParams = reset($this->request->params['paging']);
@@ -25,8 +26,10 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 
 		$units = $options['units'];
 		unset($options['units']);
-		$class = $options['div'];
+		$div = $options['div'];
 		unset($options['div']);
+		$ul = ($options['ul']) ? array('class' => $options['ul']) : array();
+		unset($options['ul']);
 
 		$out = array();
 		foreach ($units as $unit) {
@@ -36,7 +39,11 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 				$out[] = $this->{$unit}(null, $options);
 			}
 		}
-		return $this->Html->div($class, $this->Html->tag('ul', implode("\n", $out)));
+		$out = $this->Html->tag('ul', implode("\n", $out), $ul);
+		if ($div !== false) {
+			$out = $this->Html->div($div, $out);
+		}
+		return $out;
 	}
 
 	public function pager($options = array()) {

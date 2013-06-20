@@ -38,6 +38,21 @@ class BoostCakeController extends AppController {
 	}
 
 	public function bootstrap3() {
+		$this->Session->setFlash(__('Alert notice message testing...'), 'alert', array(
+			'plugin' => 'BoostCake',
+		), 'notice');
+		$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+			'plugin' => 'BoostCake',
+			'class' => 'alert-success'
+		), 'success');
+		$this->Session->setFlash(__('Alert danger message testing...'), 'alert', array(
+			'plugin' => 'BoostCake',
+			'class' => 'alert-danger'
+		), 'danger');
+		$this->Session->setFlash(__('Alert info message testing...'), 'alert', array(
+			'plugin' => 'BoostCake',
+			'class' => 'alert-info'
+		), 'info');
 	}
 
 }
