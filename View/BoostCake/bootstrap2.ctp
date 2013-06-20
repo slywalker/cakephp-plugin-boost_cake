@@ -296,7 +296,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 						)
 					)
 				)); ?>
-				<div class="control-group">
+				<div class="control-group<?php if ($this->Form->isFieldError('radio')): ?> error<?php endif ?>">
 					<lable class="control-label">Radio</lable>
 					<?php echo $this->Form->input('radio', array(
 						'type' => 'radio',
@@ -391,7 +391,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			)
 		)
 	)); ?>
-	<div class=\"control-group\">
+	<div class=\"control-group<?php if (\$this->Form->isFieldError('radio')): ?> error<?php endif ?>\">
 		<lable class=\"control-label\">Radio</lable>
 		<?php echo \$this->Form->input('radio', array(
 			'type' => 'radio',
