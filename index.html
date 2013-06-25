@@ -80,10 +80,29 @@ class AppController extends Controller {
 	);
 
 }</pre>
+
+<h3>AuthComponet setting</h3>
+<pre class="prettyprint">&lt;?php
+class AppController extends Controller {
+
+	public $components = array(
+		&#039;Auth&#039; =&gt; array(
+			&#039;flash&#039; =&gt; array(
+				&#039;element&#039; =&gt; &#039;alert&#039;,
+				&#039;key&#039; =&gt; &#039;auth&#039;,
+				&#039;params&#039; =&gt; array(
+					&#039;plugin&#039; =&gt; &#039;BoostCake&#039;,
+					&#039;class&#039; =&gt; &#039;alert-error&#039;
+				)
+			)
+		)
+	);
+
+}</pre>
 	</div><!-- /container -->
 
 	<!-- Le javascript
-    ================================================== -->
+	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
