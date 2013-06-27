@@ -9,9 +9,9 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 			'ul' => ''
 		);
 
-		$pagingParams = reset($this->request->params['paging']);
-		$pageCount = $pagingParams['pageCount'];
+		$model = (empty($options['model'])) ? $this->defaultModel() : $options['model'];
 
+		$pageCount = $this->request->params['paging'][$model]['pageCount'];
 		if ($pageCount < 2) {
 			// Don't display pagination if there is only one page
 			return '';

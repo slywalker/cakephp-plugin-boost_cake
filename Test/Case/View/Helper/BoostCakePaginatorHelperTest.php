@@ -57,6 +57,74 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 	}
 
 /**
+ * testPaginationTwoModel
+ *
+ * @return void
+ */
+	public function testPaginationTwoModel() {
+		$this->Paginator->request->params['paging']['Post'] = array(
+			'page' => 1,
+			'current' => 0,
+			'count' => 0,
+			'prevPage' => false,
+			'nextPage' => false,
+			'pageCount' => 1,
+			'order' => null,
+			'limit' => 20,
+			'options' => array(
+				'page' => 1,
+				'conditions' => array()
+			),
+			'paramType' => 'named'
+		);
+		$this->Paginator->request->params['paging']['Article'] = array(
+			'page' => 1,
+			'current' => 0,
+			'count' => 40,
+			'prevPage' => false,
+			'nextPage' => true,
+			'pageCount' => 2,
+			'order' => null,
+			'limit' => 20,
+			'options' => array(
+				'page' => 1,
+				'conditions' => array()
+			),
+			'paramType' => 'named'
+		);
+		$result = $this->Paginator->pagination(array(
+			'model' => 'Article',
+			'div' => 'pagination'
+		));
+		$this->assertTags($result, array(
+			'div' => array('class' => 'pagination'),
+			'ul' => array(),
+			array('li' => array('class' => 'disabled')),
+			array('a' => array('href' => '/index/page:1')),
+			'&lt;',
+			'/a',
+			'/li',
+			array('li' => array('class' => 'current disabled')),
+			array('a' => array('href' => '#')),
+			'1',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2')),
+			'2',
+			'/a',
+			'/li',
+			array('li' => array()),
+			array('a' => array('href' => '/index/page:2', 'rel' => 'next')),
+			'&gt;',
+			'/a',
+			'/li',
+			'/ul',
+			'/div'
+		));
+	}
+
+/**
  * testPaginationTwo
  *
  * @return void
