@@ -34,10 +34,9 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="/cakephp-plugin-boost_cake/" class="brand">BoostCake</a>
-				<ul class="nav">
-					<li><a href="/cakephp-plugin-boost_cake/bootstrap2.html">Bootstrap2</a></li>
-					<li><a href="/cakephp-plugin-boost_cake/bootstrap3.html">Bootstrap3</a></li>
+				<a href="/boost_cake" class="brand">BoostCake</a>				<ul class="nav">
+					<li><a href="/boost_cake/boost_cake/bootstrap2">Bootstrap2</a></li>
+					<li><a href="/boost_cake/boost_cake/bootstrap3">Bootstrap3</a></li>
 				</ul>
 			</div>
 		</div>
@@ -47,20 +46,49 @@
 
 
 <div class="hero-unit">
-	<h1>BoostCake</h1>
+	<h1>
+		BoostCake
+		<iframe src="http://ghbtns.com/github-btn.html?user=slywalker&repo=cakephp-plugin-boost_cake&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+	</h1>
 	<p>
 		This is a plugin for CakePHP using Bootstrap
 	</p>
 	<p>
+		<a href="https://travis-ci.org/slywalker/cakephp-plugin-boost_cake">
+			<img src="https://travis-ci.org/slywalker/cakephp-plugin-boost_cake.png" alt="Build Status">
+		</a>
+		<a href="https://packagist.org/packages/slywalker/boost_cake">
+			<img src="https://poser.pugx.org/slywalker/boost_cake/d/total.png" alt="Total Downloads">
+		</a>
+		<a href="https://packagist.org/packages/slywalker/boost_cake">
+			<img src="https://poser.pugx.org/slywalker/boost_cake/v/stable.png" alt="Latest Stable Version">
+		</a>
+	</p>
+	<p>
 		<a href="https://github.com/slywalker/cakephp-plugin-boost_cake" class="btn btn-primary btn-large">
-			Github Project &raquo;
+			Github Project <i class="icon-chevron-right icon-white"></i>
+		</a>
+		<a href="https://packagist.org/packages/slywalker/boost_cake" class="btn btn-primary btn-large">
+			Packagist <i class="icon-chevron-right icon-white"></i>
 		</a>
 	</p>
 </div>
 
 <div class="page-header">
-	<h2>Install</h2>
+	<h2>Installation</h2>
 </div>
+
+<h3>Composer</h3>
+<p>
+	Ensure require is present in <code>composer.json</code>.
+	This will install the plugin into <code>Plugin/BoostCake</code>:
+</p>
+
+<pre class="prettyprint">{
+	"require": {
+		"slywalker/boost_cake": "*"
+	}
+}</pre>
 
 <h3>Enable plugin</h3>
 <p>You need to enable the plugin your app/Config/bootstrap.php file:</p>
@@ -102,7 +130,7 @@ class AppController extends Controller {
 	</div><!-- /container -->
 
 	<!-- Le javascript
-	================================================== -->
+    ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
