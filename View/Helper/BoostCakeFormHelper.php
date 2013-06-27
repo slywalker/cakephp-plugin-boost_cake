@@ -48,6 +48,7 @@ class BoostCakeFormHelper extends FormHelper {
  * Added options
  * - `wrapInput` - Either `false` to disable the div wrapping input, or an array of options for the div.
  *	See HtmlHelper::div() for more options.
+ * - `checkboxDiv` - Wrap input checkbox tag's class.
  * - `beforeInput` - Content to place before the input.
  * - `afterInput` - Content to place after the input.
  * - `errorClass` - Wrap input tag's error message class.
@@ -70,6 +71,7 @@ class BoostCakeFormHelper extends FormHelper {
 			'wrapInput' => array(
 				'tag' => 'div'
 			),
+			'checkboxDiv' => 'checkbox',
 			'beforeInput' => '',
 			'afterInput' => '',
 			'errorClass' => 'has-error error'
@@ -86,6 +88,9 @@ class BoostCakeFormHelper extends FormHelper {
 		$options['error'] = false;
 		if (isset($options['wrapInput'])) {
 			unset($options['wrapInput']);
+		}
+		if (isset($options['checkboxDiv'])) {
+			unset($options['checkboxDiv']);
 		}
 		if (isset($options['beforeInput'])) {
 			unset($options['beforeInput']);
@@ -105,6 +110,9 @@ class BoostCakeFormHelper extends FormHelper {
 		$this->_inputDefaults = $inputDefaults;
 
 		if ($this->_inputType === 'checkbox') {
+			if (isset($options['before'])) {
+				$html = str_replace($options['before'], '%before%', $html);
+			}
 			$regex = '/(<label.*?>)(.*?<\/label>)/';
 			if (preg_match($regex, $html, $label)) {
 				$html = preg_replace($regex, '', $html);
@@ -113,6 +121,9 @@ class BoostCakeFormHelper extends FormHelper {
 					$label[1] . '$1 ' . $label[2],
 					$html
 				);
+			}
+			if (isset($options['before'])) {
+				$html = str_replace('%before%', $options['before'], $html);
 			}
 		}
 
@@ -155,6 +166,10 @@ class BoostCakeFormHelper extends FormHelper {
  */
 	protected function _getInput($args) {
 		$input = parent::_getInput($args);
+		if ($this->_inputType === 'checkbox' && $this->_inputOptions['checkboxDiv'] !== false) {
+			$input = $this->Html->div($this->_inputOptions['checkboxDiv'], $input);
+		}
+
 		$beforeInput = $this->_inputOptions['beforeInput'];
 		$afterInput = $this->_inputOptions['afterInput'];
 

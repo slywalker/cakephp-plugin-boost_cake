@@ -35,10 +35,7 @@
 						'after' => '<span class="help-block">Example block-level help text here.</span>'
 					)); ?>
 					<?php echo $this->Form->input('checkbox', array(
-						'label' => array(
-							'text' => 'Check me out',
-							'class' => 'checkbox'
-						)
+						'label' => 'Check me out'
 					)); ?>
 					<?php echo $this->Form->submit('Submit', array(
 						'div' => false,
@@ -63,10 +60,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			'after' => '<span class=\"help-block\">Example block-level help text here.</span>'
 		)); ?>
 		<?php echo \$this->Form->input('checkbox', array(
-			'label' => array(
-				'text' => 'Check me out',
-				'class' => 'checkbox'
-			)
+			'label' => 'Check me out'
 		)); ?>
 		<?php echo \$this->Form->submit('Submit', array(
 			'div' => false,
@@ -140,7 +134,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					'label' => array(
 						'text' => 'Remember me',
 						'class' => 'checkbox'
-					)
+					),
+					'checkboxDiv' => false
 				)); ?>
 				<?php echo $this->Form->submit('Sign in', array(
 					'div' => false,
@@ -169,7 +164,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		'label' => array(
 			'text' => 'Remember me',
 			'class' => 'checkbox'
-		)
+		),
+		'checkboxDiv' => false
 	)); ?>
 	<?php echo \$this->Form->submit('Sign in', array(
 		'div' => false,
@@ -208,10 +204,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					'placeholder' => 'Password'
 				)); ?>
 				<?php echo $this->Form->input('remember', array(
-					'label' => array(
-						'text' => 'Remember me',
-						'class' => 'checkbox'
-					),
+					'label' => 'Remember me',
 					'afterInput' => $this->Form->submit('Sign in', array(
 						'class' => 'btn'
 					))
@@ -236,10 +229,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		'placeholder' => 'Password'
 	)); ?>
 	<?php echo \$this->Form->input('remember', array(
-		'label' => array(
-			'text' => 'Remember me',
-			'class' => 'checkbox'
-		),
+		'label' => 'Remember me',
 		'afterInput' => \$this->Form->submit('Sign in', array(
 			'class' => 'btn'
 		))
@@ -296,18 +286,15 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 						)
 					)
 				)); ?>
-				<div class="control-group<?php if ($this->Form->isFieldError('radio')): ?> error<?php endif ?>">
-					<label class="control-label">Radio</label>
-					<?php echo $this->Form->input('radio', array(
-						'type' => 'radio',
-						'div' => false,
-						'legend' => false,
-						'options' => array(
-							1 => 'Option one is this and that—be sure to include why it\'s great',
-							2 => 'Option two can be something else and selecting it will deselect option one'
-						)
-					)); ?>
-				</div>
+				<?php echo $this->Form->input('radio', array(
+					'type' => 'radio',
+					'before' => '<label class="control-label">Radio</label>',
+					'legend' => false,
+					'options' => array(
+						1 => 'Option one is this and that—be sure to include why it\'s great',
+						2 => 'Option two can be something else and selecting it will deselect option one'
+					)
+				)); ?>
 				<?php echo $this->Form->input('username', array(
 					'placeholder' => 'Username',
 					'div' => 'control-group input-prepend',
@@ -337,6 +324,17 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					),
 					'placeholder' => 'Password',
 					'errorMessage' => false
+				)); ?>
+				<?php echo $this->Form->input('checkbox', array(
+					'label' => array('class' => null),
+					'afterInput' => '<span class="help-block">Checkbox Bootstrap Style</span>'
+				)); ?>
+				<?php echo $this->Form->input('checkbox', array(
+					'div' => false,
+					'label' => false,
+					'before' => '<label class="control-label">Checkbox</label>',
+					'wrapInput' => 'controls',
+					'afterInput' => '<span class="help-block">Checkbox CakePHP Style</span>'
 				)); ?>
 				<div class="form-actions">
 					<?php echo $this->Form->submit('Save changes', array(
@@ -391,18 +389,15 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			)
 		)
 	)); ?>
-	<div class=\"control-group<?php if (\$this->Form->isFieldError('radio')): ?> error<?php endif ?>\">
-		<label class=\"control-label\">Radio</label>
-		<?php echo \$this->Form->input('radio', array(
-			'type' => 'radio',
-			'div' => false,
-			'legend' => false,
-			'options' => array(
-				1 => 'Option one is this and that—be sure to include why it\'s great',
-				2 => 'Option two can be something else and selecting it will deselect option one'
-			)
-		)); ?>
-	</div>
+	<?php echo \$this->Form->input('radio', array(
+		'type' => 'radio',
+		'before' => '<label class=\"control-label\">Radio</label>',
+		'legend' => false,
+		'options' => array(
+			1 => 'Option one is this and that—be sure to include why it\'s great',
+			2 => 'Option two can be something else and selecting it will deselect option one'
+		)
+	)); ?>
 	<?php echo \$this->Form->input('username', array(
 		'placeholder' => 'Username',
 		'div' => 'control-group input-prepend',
@@ -432,6 +427,17 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		),
 		'placeholder' => 'Password',
 		'errorMessage' => false
+	)); ?>
+	<?php echo \$this->Form->input('checkbox', array(
+		'label' => array('class' => null),
+		'afterInput' => '<span class=\"help-block\">Checkbox Bootstrap Style</span>'
+	)); ?>
+	<?php echo \$this->Form->input('checkbox', array(
+		'div' => false,
+		'label' => false,
+		'before' => '<label class=\"control-label\">Checkbox</label>',
+		'wrapInput' => 'controls',
+		'afterInput' => '<span class=\"help-block\">Checkbox CakePHP Style</span>'
 	)); ?>
 	<div class=\"form-actions\">
 		<?php echo \$this->Form->submit('Save changes', array(

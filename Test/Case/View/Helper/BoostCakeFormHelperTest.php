@@ -131,6 +131,43 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		$this->assertTags($result, array(
 			array('div' => array()),
 			array('div' => array('class' => 'input checkbox')),
+			array('div' => array('class' => 'checkbox')),
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'id' => 'name_', 'value' => '0')),
+			'label' => array('for' => 'name'),
+			array('input' => array('name' => 'data[name]', 'type' => 'checkbox', 'value' => '1', 'id' => 'name')),
+			' Name',
+			'/label',
+			'/div',
+			'/div',
+			'/div'
+		));
+
+		$result = $this->Form->input('name', array(
+			'type' => 'checkbox',
+			'before' => '<label>Name</label>',
+			'label' => false
+		));
+		$this->assertTags($result, array(
+			array('div' => array()),
+			array('label' => array()),
+			'Name',
+			'/label',
+			array('div' => array('class' => 'input checkbox')),
+			array('div' => array('class' => 'checkbox')),
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'id' => 'name_', 'value' => '0')),
+			array('input' => array('name' => 'data[name]', 'type' => 'checkbox', 'value' => '1', 'id' => 'name')),
+			'/div',
+			'/div',
+			'/div'
+		));
+
+		$result = $this->Form->input('name', array(
+			'type' => 'checkbox',
+			'checkboxDiv' => false
+		));
+		$this->assertTags($result, array(
+			array('div' => array()),
+			array('div' => array('class' => 'input checkbox')),
 			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'id' => 'name_', 'value' => '0')),
 			'label' => array('for' => 'name'),
 			array('input' => array('name' => 'data[name]', 'type' => 'checkbox', 'value' => '1', 'id' => 'name')),
