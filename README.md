@@ -1,6 +1,7 @@
 # BoostCake
 
 [![Build Status](https://travis-ci.org/slywalker/cakephp-plugin-boost_cake.png)](https://travis-ci.org/slywalker/cakephp-plugin-boost_cake)
+[![Total Downloads](https://poser.pugx.org/slywalker/boost_cake/d/total.png)](https://packagist.org/packages/slywalker/boost_cake)
 
 BoostCake is a plugin for CakePHP using Bootstrap
 
