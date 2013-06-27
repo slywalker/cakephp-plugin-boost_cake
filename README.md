@@ -20,10 +20,10 @@ Ensure require is present in composer.json. This will install the plugin into Pl
 
 	{
 		"require": {
-			"slywalker/boost_cake": "dev-master"
+			"slywalker/boost_cake": "*"
 		}
 	}
-	
+
 ## Documentation
 
 [BoostCake - Bootstrap Plugin for CakePHP](http://slywalker.github.io/cakephp-plugin-boost_cake/)
