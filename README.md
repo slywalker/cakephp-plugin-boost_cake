@@ -43,5 +43,5 @@ If you want to simplify the options, you can develop WrapBoostCake plugin.
 * Add `div` wrapping input
 * Add content before and after `input`
 * Add error class in outer `div`
-* Change pgination tags
-* Change SessionHelper::flash()`s tmplate
+* Change pagination tags
+* Change SessionHelper::flash()`s template
