@@ -2,6 +2,18 @@
 App::uses('SessionHelper', 'View/Helper');
 
 class BoostCakeSessionHelper extends SessionHelper {
+
+/**
+ * Overwrite SessionHelper:flash()
+ * If no option plugin set, then use BoostCake plugin.
+ * Only change from original Session helper is the line
+ * else { $options['plugin'] = 'BoostCake'; }
+ *
+ * @param string $key The [Message.]key you are rendering in the view.
+ * @param array $attrs Additional attributes to use for the creation of this flash message.
+ *    Supports the 'params', and 'element' keys that are used in the helper.
+ * @return string
+ */
 	public function flash($key = 'flash', $attrs = array()) {
 		$out = false;
 
@@ -27,7 +39,9 @@ class BoostCakeSessionHelper extends SessionHelper {
 				if (isset($flash['params']['plugin'])) {
 					$options['plugin'] = $flash['params']['plugin'];
 				}
-				else {$options['plugin'] ='BoostCake';}
+				else {
+					$options['plugin'] = 'BoostCake';
+				}
 				$tmpVars = $flash['params'];
 				$tmpVars['message'] = $message;
 				$out = $this->_View->element($flash['element'], $tmpVars, $options);
