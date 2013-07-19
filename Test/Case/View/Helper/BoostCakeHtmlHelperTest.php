@@ -26,4 +26,16 @@ class BoostCakeHtmlHelperTest extends CakeTestCase {
 		));
 	}
 
+	public function testImage() {
+		$result = $this->Html->image('', array('data-src' => 'holder.js/24x24'));
+		$this->assertTags($result, array(
+			'img' => array('src' => '/', 'data-src' => 'holder.js/24x24', 'alt' => '')
+		));
+
+		$result = $this->Html->image('some.jpg', array('data-src' => 'holder.js/24x24'));
+		$this->assertTags($result, array(
+			'img' => array('src' => '/img/some.jpg', 'alt' => '')
+		));
+	}
+
 }
