@@ -15,7 +15,8 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		if ($pageCount < 2) {
 			// Don't display pagination if there is only one page
 			return '';
-		} else if ($pageCount == 2) {
+		}
+		if ($pageCount == 2) {
 			// If only two pages, don't show duplicate prev/next buttons
 			$default['units'] = array('prev', 'numbers', 'next');
 		} else {
