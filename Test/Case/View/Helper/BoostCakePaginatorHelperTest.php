@@ -92,15 +92,23 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			),
 			'paramType' => 'named'
 		);
+
 		$result = $this->Paginator->pagination(array(
 			'model' => 'Article',
 			'div' => 'pagination'
 		));
+
+		$version = (float)Configure::version();
+		$pageOne = '/index/page:1';
+		if ($version >= 2.4) {
+			$pageOne = '/';
+		}
+
 		$this->assertTags($result, array(
 			'div' => array('class' => 'pagination'),
 			'ul' => array(),
 			array('li' => array('class' => 'disabled')),
-			array('a' => array('href' => '/index/page:1')),
+			array('a' => array('href' => $pageOne)),
 			'&lt;',
 			'/a',
 			'/li',
@@ -150,11 +158,18 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'model' => 'Post',
 			'div' => 'pagination'
 		));
+
+		$version = (float)Configure::version();
+		$pageOne = '/index/page:1';
+		if ($version >= 2.4) {
+			$pageOne = '/';
+		}
+
 		$this->assertTags($result, array(
 			'div' => array('class' => 'pagination'),
 			'ul' => array(),
 			array('li' => array('class' => 'disabled')),
-			array('a' => array('href' => '/index/page:1')),
+			array('a' => array('href' => $pageOne)),
 			'&lt;',
 			'/a',
 			'/li',
@@ -181,10 +196,17 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'model' => 'Post',
 			'ul' => 'pagination'
 		));
+
+		$version = (float)Configure::version();
+		$pageOne = '/index/page:1';
+		if ($version >= 2.4) {
+			$pageOne = '/';
+		}
+
 		$this->assertTags($result, array(
 			'ul' => array('class' => 'pagination'),
 			array('li' => array('class' => 'disabled')),
-			array('a' => array('href' => '/index/page:1')),
+			array('a' => array('href' => $pageOne)),
 			'&lt;',
 			'/a',
 			'/li',
@@ -312,9 +334,16 @@ class BoostCakePaginatorHelperTest extends CakeTestCase {
 			'first' => 1,
 			'last' => 1,
 		));
+
+		$version = (float)Configure::version();
+		$pageOne = '/index/page:1';
+		if ($version >= 2.4) {
+			$pageOne = '/';
+		}
+
 		$this->assertTags($result, array(
 			array('li' => array()),
-			array('a' => array('href' => '/index/page:1')),
+			array('a' => array('href' => $pageOne)),
 			'1',
 			'/a',
 			'/li',
