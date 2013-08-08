@@ -11,10 +11,10 @@
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link href="//slywalker.github.io/cakephp-plugin-boost_cake/bootstrap3/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
 	<style>
 	body {
-		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		padding-top: 70px; /* 60px to make the container go all the way to the bottom of the topbar */
 	}
 	.affix {
 		position: fixed;
@@ -63,8 +63,8 @@
 	<!-- Le javascript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-	<script src="//slywalker.github.io/cakephp-plugin-boost_cake/bootstrap3/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	<?php echo $this->fetch('script'); ?>
 
