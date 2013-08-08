@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	
+
 	<link rel="stylesheet" type="text/css" href="/debug_kit/css/debug_toolbar.css" />
 <script type="text/javascript" src="/debug_kit/js/jquery.js"></script><script type="text/javascript" src="/debug_kit/js/js_debug_toolbar.js"></script>
 </head>
@@ -36,7 +37,8 @@
 
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
-			<a href="/cakephp-plugin-boost_cake/" class="navbar-brand">BoostCake</a>			<ul class="nav navbar-nav">
+			<a href="/cakephp-plugin-boost_cake/" class="navbar-brand">BoostCake</a>
+			<ul class="nav navbar-nav">
 				<li><a href="/cakephp-plugin-boost_cake/bootstrap2.html">Bootstrap2</a></li>
 				<li><a href="/cakephp-plugin-boost_cake/bootstrap3.html">Bootstrap3</a></li>
 			</ul>
@@ -45,7 +47,7 @@
 
 	<div class="container">
 
-		
+
 <div class="row">
 	<div class="col col-lg-3">
 		<ul class="nav nav-pills nav-stacked affix">
@@ -67,7 +69,7 @@
 
 			<form action="/boost_cake/boost_cake/bootstrap3" class="well" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token2099231886"/></div>				<fieldset>
 					<legend>Legend</legend>
-					<div class="form-group"><label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" class="form-control" placeholder="Type something￢ﾀﾦ" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span></div>					<div class="form-group"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label></div></div>					<input  class="btn btn-default" type="submit" value="Submit"/>				</fieldset>
+					<div class="form-group"><label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" class="form-control" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span></div>					<div class="form-group"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label></div></div>					<input  class="btn btn-default" type="submit" value="Submit"/>				</fieldset>
 			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="291886efe3bc63cd04ee082c5d3b93e9db9ea36c%3A" id="TokenFields1914658415"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1643127958"/></div></form>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
@@ -81,7 +83,7 @@
 		&lt;legend&gt;Legend&lt;/legend&gt;
 		&lt;?php echo $this-&gt;Form-&gt;input(&#039;text&#039;, array(
 			&#039;label&#039; =&gt; &#039;Label name&#039;,
-			&#039;placeholder&#039; =&gt; &#039;Type something￢ﾀﾦ&#039;,
+			&#039;placeholder&#039; =&gt; &#039;Type something…&#039;,
 			&#039;after&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/span&gt;&#039;
 		)); ?&gt;
 		&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
@@ -164,26 +166,26 @@
 
 			<h3>Other form example</h3>
 						<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token1937630415"/></div>				<div class="form-group"><label for="BoostCakeSelect" class="col col-lg-2 control-label">Select Nested Options</label><div class="col col-lg-10"><select name="data[BoostCake][select]" class="form-control" id="BoostCakeSelect">
-<option value="">￩ﾁﾸ￦ﾊﾞ￣ﾁﾗ￣ﾁﾦ￣ﾁﾏ￣ﾁﾠ￣ﾁﾕ￣ﾁﾄ</option>
-<optgroup label="￦ﾝﾱ￤ﾺﾬ">
-<option value="1">￦ﾸﾋ￨ﾰﾷ</option>
-<option value="2">￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ</option>
+<option value="">選択してください</option>
+<optgroup label="東京">
+<option value="1">渋谷</option>
+<option value="2">秋葉原</option>
 </optgroup>
-<optgroup label="￥ﾤﾧ￩ﾘﾪ">
-<option value="3">￦ﾢﾅ￧ﾔﾰ</option>
-<option value="4">￩ﾛﾣ￦ﾳﾢ</option>
+<optgroup label="大阪">
+<option value="3">梅田</option>
+<option value="4">難波</option>
 </optgroup>
 </select></div></div>				<div class="form-group"><label for="BoostCakeSelect" class="col col-lg-2 control-label">Select Nested Options Checkbox</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][select]" value="" id="BoostCakeSelect"/>
 
-<fieldset><legend>￦ﾝﾱ￤ﾺﾬ</legend>
-<label for="BoostCakeSelect1" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="1" id="BoostCakeSelect1" /> ￦ﾸﾋ￨ﾰﾷ</label>
-<label for="BoostCakeSelect2" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="2" id="BoostCakeSelect2" /> ￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ</label>
+<fieldset><legend>東京</legend>
+<label for="BoostCakeSelect1" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="1" id="BoostCakeSelect1" /> 渋谷</label>
+<label for="BoostCakeSelect2" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="2" id="BoostCakeSelect2" /> 秋葉原</label>
 </fieldset>
-<fieldset><legend>￥ﾤﾧ￩ﾘﾪ</legend>
-<label for="BoostCakeSelect3" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="3" id="BoostCakeSelect3" /> ￦ﾢﾅ￧ﾔﾰ</label>
-<label for="BoostCakeSelect4" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="4" id="BoostCakeSelect4" /> ￩ﾛﾣ￦ﾳﾢ</label>
+<fieldset><legend>大阪</legend>
+<label for="BoostCakeSelect3" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="3" id="BoostCakeSelect3" /> 梅田</label>
+<label for="BoostCakeSelect4" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="4" id="BoostCakeSelect4" /> 難波</label>
 </fieldset>
-</div></div>				<div class="form-group"><label class="col col-lg-2 control-label">Radio</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][radio]" id="BoostCakeRadio_" value=""/><label class="" for="BoostCakeRadio1"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio1" value="1" /> Option one is this and that￢ﾀﾔbe sure to include why it's great</label><label class="" for="BoostCakeRadio2"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio2" value="2" /> Option two can be something else and selecting it will deselect option one</label></div></div>				<div class="form-group"><label for="BoostCakeUsername" class="col col-lg-2 control-label">Prepend</label><div class="col col-lg-10"><div class="input-group"><span class="input-group-addon">@</span><input name="data[BoostCake][username]" class="form-control" placeholder="Username" type="text" id="BoostCakeUsername"/></div></div></div>				<div class="form-group"><label for="BoostCakePrice" class="col col-lg-2 control-label">Append</label><div class="col col-lg-10"><div class="input-group"><input name="data[BoostCake][price]" class="form-control" type="number" id="BoostCakePrice"/><span class="input-group-addon">.00</span></div></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Show Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/><span class="help-block text-danger">Please provide a password</span></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Hide Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="form-group"><div class="col col-lg-10 col-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Checkbox</label></div><span class="help-block">Checkbox Bootstrap Style</span></div></div>				<div class="form-group"><label class="col col-lg-2 control-label">Checkbox</label><div class="col col-lg-10"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/></div><span class="help-block">Checkbox CakePHP Style</span></div></div>				<div class="row">
+</div></div>				<div class="form-group"><label class="col col-lg-2 control-label">Radio</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][radio]" id="BoostCakeRadio_" value=""/><label class="" for="BoostCakeRadio1"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio1" value="1" /> Option one is this and that—be sure to include why it's great</label><label class="" for="BoostCakeRadio2"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio2" value="2" /> Option two can be something else and selecting it will deselect option one</label></div></div>				<div class="form-group"><label for="BoostCakeUsername" class="col col-lg-2 control-label">Prepend</label><div class="col col-lg-10"><div class="input-group"><span class="input-group-addon">@</span><input name="data[BoostCake][username]" class="form-control" placeholder="Username" type="text" id="BoostCakeUsername"/></div></div></div>				<div class="form-group"><label for="BoostCakePrice" class="col col-lg-2 control-label">Append</label><div class="col col-lg-10"><div class="input-group"><input name="data[BoostCake][price]" class="form-control" type="number" id="BoostCakePrice"/><span class="input-group-addon">.00</span></div></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Show Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/><span class="help-block text-danger">Please provide a password</span></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Hide Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="form-group"><div class="col col-lg-10 col-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Checkbox</label></div><span class="help-block">Checkbox Bootstrap Style</span></div></div>				<div class="form-group"><label class="col col-lg-2 control-label">Checkbox</label><div class="col col-lg-10"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/></div><span class="help-block">Checkbox CakePHP Style</span></div></div>				<div class="row">
 					<div class="col col-lg-10 col-offset-2">
 						<input  class="btn btn-primary" type="submit" value="Save changes"/>						<button type="button" class="btn btn-default">Cancel</button>
 					</div>
@@ -204,15 +206,15 @@
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Select Nested Options&#039;
 		),
-		&#039;empty&#039; =&gt; &#039;￩ﾁﾸ￦ﾊﾞ￣ﾁﾗ￣ﾁﾦ￣ﾁﾏ￣ﾁﾠ￣ﾁﾕ￣ﾁﾄ&#039;,
+		&#039;empty&#039; =&gt; &#039;選択してください&#039;,
 		&#039;options&#039; =&gt; array(
-			&#039;￦ﾝﾱ￤ﾺﾬ&#039; =&gt; array(
-				1 =&gt; &#039;￦ﾸﾋ￨ﾰﾷ&#039;,
-				2 =&gt; &#039;￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ&#039;
+			&#039;東京&#039; =&gt; array(
+				1 =&gt; &#039;渋谷&#039;,
+				2 =&gt; &#039;秋葉原&#039;
 			),
-			&#039;￥ﾤﾧ￩ﾘﾪ&#039; =&gt; array(
-				3 =&gt; &#039;￦ﾢﾅ￧ﾔﾰ&#039;,
-				4 =&gt; &#039;￩ﾛﾣ￦ﾳﾢ&#039;
+			&#039;大阪&#039; =&gt; array(
+				3 =&gt; &#039;梅田&#039;,
+				4 =&gt; &#039;難波&#039;
 			)
 		),
 	)); ?&gt;
@@ -223,13 +225,13 @@
 		&#039;class&#039; =&gt; &#039;checkbox-inline&#039;,
 		&#039;multiple&#039; =&gt; &#039;checkbox&#039;,
 		&#039;options&#039; =&gt; array(
-			&#039;￦ﾝﾱ￤ﾺﾬ&#039; =&gt; array(
-				1 =&gt; &#039;￦ﾸﾋ￨ﾰﾷ&#039;,
-				2 =&gt; &#039;￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ&#039;
+			&#039;東京&#039; =&gt; array(
+				1 =&gt; &#039;渋谷&#039;,
+				2 =&gt; &#039;秋葉原&#039;
 			),
-			&#039;￥ﾤﾧ￩ﾘﾪ&#039; =&gt; array(
-				3 =&gt; &#039;￦ﾢﾅ￧ﾔﾰ&#039;,
-				4 =&gt; &#039;￩ﾛﾣ￦ﾳﾢ&#039;
+			&#039;大阪&#039; =&gt; array(
+				3 =&gt; &#039;梅田&#039;,
+				4 =&gt; &#039;難波&#039;
 			)
 		)
 	)); ?&gt;
@@ -239,7 +241,7 @@
 		&#039;legend&#039; =&gt; false,
 		&#039;class&#039; =&gt; false,
 		&#039;options&#039; =&gt; array(
-			1 =&gt; &#039;Option one is this and that￢ﾀﾔbe sure to include why it\&#039;s great&#039;,
+			1 =&gt; &#039;Option one is this and that—be sure to include why it\&#039;s great&#039;,
 			2 =&gt; &#039;Option two can be something else and selecting it will deselect option one&#039;
 		)
 	)); ?&gt;
@@ -354,12 +356,12 @@
 			</p>
 
 			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" rel="prev">Previous</a></li>
-<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Next</a></li></ul>			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" rel="prev">￢ﾆﾐ Older</a></li>
-<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Newer ￢ﾆﾒ</a></li></ul>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Next</a></li></ul>			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" rel="prev">← Older</a></li>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Newer →</a></li></ul>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pager(); ?&gt;
 &lt;?php echo $this-&gt;Paginator-&gt;pager(array(
-	&#039;prev&#039; =&gt; &#039;￢ﾆﾐ Older&#039;,
-	&#039;next&#039; =&gt; &#039;Newer ￢ﾆﾒ&#039;
+	&#039;prev&#039; =&gt; &#039;← Older&#039;,
+	&#039;next&#039; =&gt; &#039;Newer →&#039;
 )); ?&gt;</pre>
 
 		</section>
@@ -370,13 +372,13 @@
 			</div>
 
 			<div class="alert">
-	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
+	<a class="close" data-dismiss="alert" href="#">×</a>
 	Alert notice message testing...</div>			<div class="alert alert-success">
-	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
+	<a class="close" data-dismiss="alert" href="#">×</a>
 	Alert success message testing...</div>			<div class="alert alert-danger">
-	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
+	<a class="close" data-dismiss="alert" href="#">×</a>
 	Alert danger message testing...</div>			<div class="alert alert-info">
-	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
+	<a class="close" data-dismiss="alert" href="#">×</a>
 	Alert info message testing...</div>
 			<pre class="prettyprint">&lt;?php
 // View
