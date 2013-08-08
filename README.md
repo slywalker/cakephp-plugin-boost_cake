@@ -6,8 +6,8 @@
 
 BoostCake is a plugin for CakePHP using Bootstrap
 
-* [Bootstrap(2.3.2)](https://github.com/twitter/bootstrap)
-* [Bootstrap(3.0.0-wip)](https://github.com/twitter/bootstrap/tree/3.0.0-wip)
+* [Bootstrap(2.3.2)](http://getbootstrap.com/2.3.2/)
+* [Bootstrap(3.0.0-rc1)](http://getbootstrap.com/)
 
 ## Requirements
 
