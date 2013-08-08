@@ -10,7 +10,7 @@
 		</ul>
 	</div>
 	<div class="col col-lg-9">
-		<h1>BoostCake Examples <small>Bootstrap Version 3.0.0-wip</small></h1>
+		<h1>BoostCake Examples <small>Bootstrap Version 3.0.0-rc1</small></h1>
 
 		<section id="forms">
 			<div class="page-header">
@@ -22,8 +22,9 @@
 
 			<?php echo $this->Form->create('BoostCake', array(
 				'inputDefaults' => array(
-					'div' => false,
-					'wrapInput' => false
+					'div' => 'form-group',
+					'wrapInput' => false,
+					'class' => 'form-control'
 				),
 				'class' => 'well'
 			)); ?>
@@ -35,11 +36,12 @@
 						'after' => '<span class="help-block">Example block-level help text here.</span>'
 					)); ?>
 					<?php echo $this->Form->input('checkbox', array(
-						'label' => 'Check me out'
+						'label' => 'Check me out',
+						'class' => false
 					)); ?>
 					<?php echo $this->Form->submit('Submit', array(
 						'div' => false,
-						'class' => 'btn'
+						'class' => 'btn btn-default'
 					)); ?>
 				</fieldset>
 			<?php echo $this->Form->end(); ?>
@@ -47,8 +49,9 @@
 			<pre class="prettyprint"><?php
 echo h("<?php echo \$this->Form->create('BoostCake', array(
 	'inputDefaults' => array(
-		'div' => false,
-		'wrapInput' => false
+		'div' => 'form-group',
+		'wrapInput' => false,
+		'class' => 'form-control'
 	),
 	'class' => 'well'
 )); ?>
@@ -60,11 +63,12 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			'after' => '<span class=\"help-block\">Example block-level help text here.</span>'
 		)); ?>
 		<?php echo \$this->Form->input('checkbox', array(
-			'label' => 'Check me out'
+			'label' => 'Check me out',
+			'class' => false
 		)); ?>
 		<?php echo \$this->Form->submit('Submit', array(
 			'div' => false,
-			'class' => 'btn'
+			'class' => 'btn btn-default'
 		)); ?>
 	</fieldset>
 <?php echo \$this->Form->end(); ?>");
@@ -78,7 +82,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 				'inputDefaults' => array(
 					'div' => false,
 					'label' => false,
-					'wrapInput' => false
+					'wrapInput' => false,
+					'class' => 'form-control'
 				),
 				'class' => 'well form-inline'
 			)); ?>
@@ -91,7 +96,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					'style' => 'width:180px;'
 				)); ?>
 				<?php echo $this->Form->input('remember', array(
-					'label' => 'Remember me'
+					'label' => 'Remember me',
+					'class' => false
 				)); ?>
 				<?php echo $this->Form->submit('Sign in', array(
 					'div' => false,
@@ -104,7 +110,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 	'inputDefaults' => array(
 		'div' => false,
 		'label' => false,
-		'wrapInput' => false
+		'wrapInput' => false,
+		'class' => 'form-control'
 	),
 	'class' => 'well form-inline'
 )); ?>
@@ -117,7 +124,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		'style' => 'width:180px;'
 	)); ?>
 	<?php echo \$this->Form->input('remember', array(
-		'label' => 'Remember me'
+		'label' => 'Remember me',
+		'class' => false
 	)); ?>
 	<?php echo \$this->Form->submit('Sign in', array(
 		'div' => false,
@@ -134,11 +142,12 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 
 			<?php echo $this->Form->create('BoostCake', array(
 				'inputDefaults' => array(
-					'div' => 'row',
+					'div' => 'form-group',
 					'label' => array(
 						'class' => 'col col-lg-2 control-label'
 					),
-					'wrapInput' => 'col col-lg-10'
+					'wrapInput' => 'col col-lg-10',
+					'class' => 'form-control'
 				),
 				'class' => 'well form-horizontal'
 			)); ?>
@@ -151,6 +160,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 				<?php echo $this->Form->input('remember', array(
 					'wrapInput' => 'col col-lg-10 col-offset-2',
 					'label' => 'Remember me',
+					'class' => false,
 					'afterInput' => $this->Form->submit('Sign in', array(
 						'class' => 'btn'
 					))
@@ -160,11 +170,12 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			<pre class="prettyprint"><?php
 echo h("<?php echo \$this->Form->create('BoostCake', array(
 	'inputDefaults' => array(
-		'div' => 'row',
+		'div' => 'form-group',
 		'label' => array(
 			'class' => 'col col-lg-2 control-label'
 		),
-		'wrapInput' => 'col col-lg-10'
+		'wrapInput' => 'col col-lg-10',
+		'class' => 'form-control'
 	),
 	'class' => 'well form-horizontal'
 )); ?>
@@ -176,7 +187,8 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 	)); ?>
 	<?php echo \$this->Form->input('remember', array(
 		'wrapInput' => 'col col-lg-10 col-offset-2',
-		'label' => Remember me',
+		'label' => 'Remember me',
+		'class' => false,
 		'afterInput' => \$this->Form->submit('Sign in', array(
 			'class' => 'btn'
 		))
@@ -192,11 +204,12 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			?>
 			<?php echo $this->Form->create('BoostCake', array(
 				'inputDefaults' => array(
-					'div' => 'row',
+					'div' => 'form-group',
 					'label' => array(
 						'class' => 'col col-lg-2 control-label'
 					),
-					'wrapInput' => 'col col-lg-10'
+					'wrapInput' => 'col col-lg-10',
+					'class' => 'form-control'
 				),
 				'class' => 'well form-horizontal'
 			)); ?>
@@ -237,6 +250,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					'type' => 'radio',
 					'before' => '<label class="col col-lg-2 control-label">Radio</label>',
 					'legend' => false,
+					'class' => false,
 					'options' => array(
 						1 => 'Option one is this and that—be sure to include why it\'s great',
 						2 => 'Option two can be something else and selecting it will deselect option one'
@@ -265,25 +279,25 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 					'label' => array(
 						'text' => 'Show Error Message'
 					),
-					'class' => 'input-with-feedback',
 					'placeholder' => 'Password'
 				)); ?>
 				<?php echo $this->Form->input('password', array(
 					'label' => array(
 						'text' => 'Hide Error Message'
 					),
-					'class' => 'input-with-feedback',
 					'placeholder' => 'Password',
 					'errorMessage' => false
 				)); ?>
 				<?php echo $this->Form->input('checkbox', array(
 					'wrapInput' => 'col col-lg-10 col-offset-2',
 					'label' => array('class' => null),
+					'class' => false,
 					'afterInput' => '<span class="help-block">Checkbox Bootstrap Style</span>'
 				)); ?>
 				<?php echo $this->Form->input('checkbox', array(
 					'before' => '<label class="col col-lg-2 control-label">Checkbox</label>',
 					'label' => false,
+					'class' => false,
 					'wrapInput' => 'col col-lg-10',
 					'afterInput' => '<span class="help-block">Checkbox CakePHP Style</span>'
 				)); ?>
@@ -293,7 +307,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 							'div' => false,
 							'class' => 'btn btn-primary'
 						)); ?>
-						<button type="button" class="btn">Cancel</button>
+						<button type="button" class="btn btn-default">Cancel</button>
 					</div>
 				</div>
 			<?php echo $this->Form->end(); ?>
@@ -301,11 +315,12 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			<pre class="prettyprint"><?php
 echo h("<?php echo \$this->Form->create('BoostCake', array(
 	'inputDefaults' => array(
-		'div' => 'row',
+		'div' => 'form-group',
 		'label' => array(
 			'class' => 'col col-lg-2 control-label'
 		),
-		'wrapInput' => 'col col-lg-10'
+		'wrapInput' => 'col col-lg-10',
+		'class' => 'form-control'
 	),
 	'class' => 'well form-horizontal'
 )); ?>
@@ -346,6 +361,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		'type' => 'radio',
 		'before' => '<label class=\"col col-lg-2 control-label\">Radio</label>',
 		'legend' => false,
+		'class' => false,
 		'options' => array(
 			1 => 'Option one is this and that—be sure to include why it\'s great',
 			2 => 'Option two can be something else and selecting it will deselect option one'
@@ -374,25 +390,25 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 		'label' => array(
 			'text' => 'Show Error Message'
 		),
-		'class' => 'input-with-feedback',
 		'placeholder' => 'Password'
 	)); ?>
 	<?php echo \$this->Form->input('password', array(
 		'label' => array(
 			'text' => 'Hide Error Message'
 		),
-		'class' => 'input-with-feedback',
 		'placeholder' => 'Password',
 		'errorMessage' => false
 	)); ?>
 	<?php echo \$this->Form->input('checkbox', array(
 		'wrapInput' => 'col col-lg-10 col-offset-2',
 		'label' => array('class' => null),
+		'class' => false,
 		'afterInput' => '<span class=\"help-block\">Checkbox Bootstrap Style</span>'
 	)); ?>
 	<?php echo \$this->Form->input('checkbox', array(
 		'before' => '<label class=\"col col-lg-2 control-label\">Checkbox</label>',
 		'label' => false,
+		'class' => false,
 		'wrapInput' => 'col col-lg-10',
 		'afterInput' => '<span class=\"help-block\">Checkbox CakePHP Style</span>'
 	)); ?>
@@ -402,7 +418,7 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 				'div' => false,
 				'class' => 'btn btn-primary'
 			)); ?>
-			<button type=\"button\" class=\"btn\">Cancel</button>
+			<button type=\"button\" class=\"btn btn-default\">Cancel</button>
 		</div>
 	</div>
 <?php echo \$this->Form->end(); ?>");
@@ -541,4 +557,3 @@ echo \$this->Session->flash();
 		</section>
 	</div>
 </div>
-
