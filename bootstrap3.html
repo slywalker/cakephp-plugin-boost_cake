@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +11,10 @@
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link href="//slywalker.github.io/cakephp-plugin-boost_cake/bootstrap3/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
 	<style>
 	body {
-		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		padding-top: 70px; /* 60px to make the container go all the way to the bottom of the topbar */
 	}
 	.affix {
 		position: fixed;
@@ -27,14 +28,16 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	</head>
+	
+	<link rel="stylesheet" type="text/css" href="/debug_kit/css/debug_toolbar.css" />
+<script type="text/javascript" src="/debug_kit/js/jquery.js"></script><script type="text/javascript" src="/debug_kit/js/js_debug_toolbar.js"></script>
+</head>
 
 <body>
 
 	<div class="navbar navbar-fixed-top">
 		<div class="container">
-			<a href="/cakephp-plugin-boost_cake/" class="navbar-brand">BoostCake</a>
-			<ul class="nav navbar-nav">
+			<a href="/cakephp-plugin-boost_cake/" class="navbar-brand">BoostCake</a>			<ul class="nav navbar-nav">
 				<li><a href="/cakephp-plugin-boost_cake/bootstrap2.html">Bootstrap2</a></li>
 				<li><a href="/cakephp-plugin-boost_cake/bootstrap3.html">Bootstrap3</a></li>
 			</ul>
@@ -43,7 +46,7 @@
 
 	<div class="container">
 
-
+		
 <div class="row">
 	<div class="col col-lg-3">
 		<ul class="nav nav-pills nav-stacked affix">
@@ -53,7 +56,7 @@
 		</ul>
 	</div>
 	<div class="col col-lg-9">
-		<h1>BoostCake Examples <small>Bootstrap Version 3.0.0-wip</small></h1>
+		<h1>BoostCake Examples <small>Bootstrap Version 3.0.0-rc1</small></h1>
 
 		<section id="forms">
 			<div class="page-header">
@@ -63,14 +66,15 @@
 			<h3>Default styles</h3>
 			<p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
 
-			<form action="/boost_cake/boost_cake/bootstrap3" class="well" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6d36f6e20d0bc06ecbc9d7bc826a76738737b804" id="Token377962038"/></div>				<fieldset>
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token2099231886"/></div>				<fieldset>
 					<legend>Legend</legend>
-					<label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span>					<div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label></div>					<input  class="btn" type="submit" value="Submit"/>				</fieldset>
-			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="f54ded682858cea8ff46156ceabe312616a3007f%3A" id="TokenFields1953230156"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked835144093"/></div></form>
+					<div class="form-group"><label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" class="form-control" placeholder="Type something￢ﾀﾦ" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span></div>					<div class="form-group"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label></div></div>					<input  class="btn btn-default" type="submit" value="Submit"/>				</fieldset>
+			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="291886efe3bc63cd04ee082c5d3b93e9db9ea36c%3A" id="TokenFields1914658415"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1643127958"/></div></form>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
-		&#039;div&#039; =&gt; false,
-		&#039;wrapInput&#039; =&gt; false
+		&#039;div&#039; =&gt; &#039;form-group&#039;,
+		&#039;wrapInput&#039; =&gt; false,
+		&#039;class&#039; =&gt; &#039;form-control&#039;
 	),
 	&#039;class&#039; =&gt; &#039;well&#039;
 )); ?&gt;
@@ -78,15 +82,16 @@
 		&lt;legend&gt;Legend&lt;/legend&gt;
 		&lt;?php echo $this-&gt;Form-&gt;input(&#039;text&#039;, array(
 			&#039;label&#039; =&gt; &#039;Label name&#039;,
-			&#039;placeholder&#039; =&gt; &#039;Type something…&#039;,
+			&#039;placeholder&#039; =&gt; &#039;Type something￢ﾀﾦ&#039;,
 			&#039;after&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/span&gt;&#039;
 		)); ?&gt;
 		&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
-			&#039;label&#039; =&gt; &#039;Check me out&#039;
+			&#039;label&#039; =&gt; &#039;Check me out&#039;,
+			&#039;class&#039; =&gt; false
 		)); ?&gt;
 		&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Submit&#039;, array(
 			&#039;div&#039; =&gt; false,
-			&#039;class&#039; =&gt; &#039;btn&#039;
+			&#039;class&#039; =&gt; &#039;btn btn-default&#039;
 		)); ?&gt;
 	&lt;/fieldset&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
@@ -95,12 +100,13 @@
 			<h3>Inline form</h3>
 			<p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
 
-			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-inline" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6d36f6e20d0bc06ecbc9d7bc826a76738737b804" id="Token286089006"/></div>				<input name="data[BoostCake][email]" placeholder="Email" style="width:180px;" maxlength="255" type="email" id="BoostCakeEmail"/>				<input name="data[BoostCake][password]" placeholder="Password" style="width:180px;" type="password" id="BoostCakePassword"/>				<div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div>				<input  class="btn" type="submit" value="Sign in"/>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="5c868eac833b4f478236e49931fca71ac74d12b6%3A" id="TokenFields716572332"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1122137694"/></div></form>
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-inline" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token809891455"/></div>				<input name="data[BoostCake][email]" class="form-control" placeholder="Email" style="width:180px;" maxlength="255" type="email" id="BoostCakeEmail"/>				<input name="data[BoostCake][password]" class="form-control" placeholder="Password" style="width:180px;" type="password" id="BoostCakePassword"/>				<div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div>				<input  class="btn" type="submit" value="Sign in"/>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="a1fc270693a5254148a1919b2e1e7a2d28a3756f%3A" id="TokenFields1419320788"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked853185066"/></div></form>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; false,
 		&#039;label&#039; =&gt; false,
-		&#039;wrapInput&#039; =&gt; false
+		&#039;wrapInput&#039; =&gt; false,
+		&#039;class&#039; =&gt; &#039;form-control&#039;
 	),
 	&#039;class&#039; =&gt; &#039;well form-inline&#039;
 )); ?&gt;
@@ -113,7 +119,8 @@
 		&#039;style&#039; =&gt; &#039;width:180px;&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;remember&#039;, array(
-		&#039;label&#039; =&gt; &#039;Remember me&#039;
+		&#039;label&#039; =&gt; &#039;Remember me&#039;,
+		&#039;class&#039; =&gt; false
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
 		&#039;div&#039; =&gt; false,
@@ -127,14 +134,15 @@
 				Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout.
 			</p>
 
-			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6d36f6e20d0bc06ecbc9d7bc826a76738737b804" id="Token469684507"/></div>				<div class="row"><label for="BoostCakeEmail" class="col col-lg-2 control-label">Email</label><div class="col col-lg-10"><input name="data[BoostCake][email]" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>				<div class="row"><label for="BoostCakePassword" class="col col-lg-2 control-label">Password</label><div class="col col-lg-10"><input name="data[BoostCake][password]" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="row"><div class="col col-lg-10 col-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div><div class="submit"><input  class="btn" type="submit" value="Sign in"/></div></div></div>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="5c868eac833b4f478236e49931fca71ac74d12b6%3A" id="TokenFields1950697376"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1609189111"/></div></form>
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token1898002043"/></div>				<div class="form-group"><label for="BoostCakeEmail" class="col col-lg-2 control-label">Email</label><div class="col col-lg-10"><input name="data[BoostCake][email]" class="form-control" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>				<div class="form-group"><label for="BoostCakePassword" class="col col-lg-2 control-label">Password</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="form-group"><div class="col col-lg-10 col-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div><div class="submit"><input  class="btn" type="submit" value="Sign in"/></div></div></div>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="a1fc270693a5254148a1919b2e1e7a2d28a3756f%3A" id="TokenFields1541002459"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1657711094"/></div></form>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
-		&#039;div&#039; =&gt; &#039;row&#039;,
+		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;label&#039; =&gt; array(
 			&#039;class&#039; =&gt; &#039;col col-lg-2 control-label&#039;
 		),
-		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10&#039;
+		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10&#039;,
+		&#039;class&#039; =&gt; &#039;form-control&#039;
 	),
 	&#039;class&#039; =&gt; &#039;well form-horizontal&#039;
 )); ?&gt;
@@ -146,7 +154,8 @@
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;remember&#039;, array(
 		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10 col-offset-2&#039;,
-		&#039;label&#039; =&gt; Remember me&#039;,
+		&#039;label&#039; =&gt; &#039;Remember me&#039;,
+		&#039;class&#039; =&gt; false,
 		&#039;afterInput&#039; =&gt; $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
 			&#039;class&#039; =&gt; &#039;btn&#039;
 		))
@@ -155,39 +164,40 @@
 			<hr>
 
 			<h3>Other form example</h3>
-						<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6d36f6e20d0bc06ecbc9d7bc826a76738737b804" id="Token1760747764"/></div>				<div class="row"><label for="BoostCakeSelect" class="col col-lg-2 control-label">Select Nested Options</label><div class="col col-lg-10"><select name="data[BoostCake][select]" id="BoostCakeSelect">
-<option value="">選択してください</option>
-<optgroup label="東京">
-<option value="1">渋谷</option>
-<option value="2">秋葉原</option>
+						<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token1937630415"/></div>				<div class="form-group"><label for="BoostCakeSelect" class="col col-lg-2 control-label">Select Nested Options</label><div class="col col-lg-10"><select name="data[BoostCake][select]" class="form-control" id="BoostCakeSelect">
+<option value="">￩ﾁﾸ￦ﾊﾞ￣ﾁﾗ￣ﾁﾦ￣ﾁﾏ￣ﾁﾠ￣ﾁﾕ￣ﾁﾄ</option>
+<optgroup label="￦ﾝﾱ￤ﾺﾬ">
+<option value="1">￦ﾸﾋ￨ﾰﾷ</option>
+<option value="2">￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ</option>
 </optgroup>
-<optgroup label="大阪">
-<option value="3">梅田</option>
-<option value="4">難波</option>
+<optgroup label="￥ﾤﾧ￩ﾘﾪ">
+<option value="3">￦ﾢﾅ￧ﾔﾰ</option>
+<option value="4">￩ﾛﾣ￦ﾳﾢ</option>
 </optgroup>
-</select></div></div>				<div class="row"><label for="BoostCakeSelect" class="col col-lg-2 control-label">Select Nested Options Checkbox</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][select]" value="" id="BoostCakeSelect"/>
+</select></div></div>				<div class="form-group"><label for="BoostCakeSelect" class="col col-lg-2 control-label">Select Nested Options Checkbox</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][select]" value="" id="BoostCakeSelect"/>
 
-<fieldset><legend>東京</legend>
-<label for="BoostCakeSelect1" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="1" id="BoostCakeSelect1" /> 渋谷</label>
-<label for="BoostCakeSelect2" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="2" id="BoostCakeSelect2" /> 秋葉原</label>
+<fieldset><legend>￦ﾝﾱ￤ﾺﾬ</legend>
+<label for="BoostCakeSelect1" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="1" id="BoostCakeSelect1" /> ￦ﾸﾋ￨ﾰﾷ</label>
+<label for="BoostCakeSelect2" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="2" id="BoostCakeSelect2" /> ￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ</label>
 </fieldset>
-<fieldset><legend>大阪</legend>
-<label for="BoostCakeSelect3" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="3" id="BoostCakeSelect3" /> 梅田</label>
-<label for="BoostCakeSelect4" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="4" id="BoostCakeSelect4" /> 難波</label>
+<fieldset><legend>￥ﾤﾧ￩ﾘﾪ</legend>
+<label for="BoostCakeSelect3" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="3" id="BoostCakeSelect3" /> ￦ﾢﾅ￧ﾔﾰ</label>
+<label for="BoostCakeSelect4" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="4" id="BoostCakeSelect4" /> ￩ﾛﾣ￦ﾳﾢ</label>
 </fieldset>
-</div></div>				<div class="row"><label class="col col-lg-2 control-label">Radio</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][radio]" id="BoostCakeRadio_" value=""/><label class="radio" for="BoostCakeRadio1"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio1" value="1" /> Option one is this and that—be sure to include why it's great</label><label class="radio" for="BoostCakeRadio2"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio2" value="2" /> Option two can be something else and selecting it will deselect option one</label></div></div>				<div class="row"><label for="BoostCakeUsername" class="col col-lg-2 control-label">Prepend</label><div class="col col-lg-10"><div class="input-group"><span class="input-group-addon">@</span><input name="data[BoostCake][username]" placeholder="Username" type="text" id="BoostCakeUsername"/></div></div></div>				<div class="row"><label for="BoostCakePrice" class="col col-lg-2 control-label">Append</label><div class="col col-lg-10"><div class="input-group"><input name="data[BoostCake][price]" type="number" id="BoostCakePrice"/><span class="input-group-addon">.00</span></div></div></div>				<div class="row has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Show Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="input-with-feedback form-error" placeholder="Password" type="password" id="BoostCakePassword"/><span class="help-block text-danger">Please provide a password</span></div></div>				<div class="row has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Hide Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="input-with-feedback form-error" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="row"><div class="col col-lg-10 col-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Checkbox</label></div><span class="help-block">Checkbox Bootstrap Style</span></div></div>				<div class="row"><label class="col col-lg-2 control-label">Checkbox</label><div class="col col-lg-10"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/></div><span class="help-block">Checkbox CakePHP Style</span></div></div>				<div class="row">
+</div></div>				<div class="form-group"><label class="col col-lg-2 control-label">Radio</label><div class="col col-lg-10"><input type="hidden" name="data[BoostCake][radio]" id="BoostCakeRadio_" value=""/><label class="" for="BoostCakeRadio1"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio1" value="1" /> Option one is this and that￢ﾀﾔbe sure to include why it's great</label><label class="" for="BoostCakeRadio2"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio2" value="2" /> Option two can be something else and selecting it will deselect option one</label></div></div>				<div class="form-group"><label for="BoostCakeUsername" class="col col-lg-2 control-label">Prepend</label><div class="col col-lg-10"><div class="input-group"><span class="input-group-addon">@</span><input name="data[BoostCake][username]" class="form-control" placeholder="Username" type="text" id="BoostCakeUsername"/></div></div></div>				<div class="form-group"><label for="BoostCakePrice" class="col col-lg-2 control-label">Append</label><div class="col col-lg-10"><div class="input-group"><input name="data[BoostCake][price]" class="form-control" type="number" id="BoostCakePrice"/><span class="input-group-addon">.00</span></div></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Show Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/><span class="help-block text-danger">Please provide a password</span></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-lg-2 control-label">Hide Error Message</label><div class="col col-lg-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="form-group"><div class="col col-lg-10 col-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Checkbox</label></div><span class="help-block">Checkbox Bootstrap Style</span></div></div>				<div class="form-group"><label class="col col-lg-2 control-label">Checkbox</label><div class="col col-lg-10"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/></div><span class="help-block">Checkbox CakePHP Style</span></div></div>				<div class="row">
 					<div class="col col-lg-10 col-offset-2">
-						<input  class="btn btn-primary" type="submit" value="Save changes"/>						<button type="button" class="btn">Cancel</button>
+						<input  class="btn btn-primary" type="submit" value="Save changes"/>						<button type="button" class="btn btn-default">Cancel</button>
 					</div>
 				</div>
-			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="c9e169264a589748b06b82b83f8cbb49b8a5aedf%3A" id="TokenFields1885651581"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1494691116"/></div></form>
+			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="c95cdcede40e2e2b4e80449f454674a9ad89e5ed%3A" id="TokenFields1261374020"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1991102726"/></div></form>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
-		&#039;div&#039; =&gt; &#039;row&#039;,
+		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;label&#039; =&gt; array(
 			&#039;class&#039; =&gt; &#039;col col-lg-2 control-label&#039;
 		),
-		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10&#039;
+		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10&#039;,
+		&#039;class&#039; =&gt; &#039;form-control&#039;
 	),
 	&#039;class&#039; =&gt; &#039;well form-horizontal&#039;
 )); ?&gt;
@@ -195,15 +205,15 @@
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Select Nested Options&#039;
 		),
-		&#039;empty&#039; =&gt; &#039;選択してください&#039;,
+		&#039;empty&#039; =&gt; &#039;￩ﾁﾸ￦ﾊﾞ￣ﾁﾗ￣ﾁﾦ￣ﾁﾏ￣ﾁﾠ￣ﾁﾕ￣ﾁﾄ&#039;,
 		&#039;options&#039; =&gt; array(
-			&#039;東京&#039; =&gt; array(
-				1 =&gt; &#039;渋谷&#039;,
-				2 =&gt; &#039;秋葉原&#039;
+			&#039;￦ﾝﾱ￤ﾺﾬ&#039; =&gt; array(
+				1 =&gt; &#039;￦ﾸﾋ￨ﾰﾷ&#039;,
+				2 =&gt; &#039;￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ&#039;
 			),
-			&#039;大阪&#039; =&gt; array(
-				3 =&gt; &#039;梅田&#039;,
-				4 =&gt; &#039;難波&#039;
+			&#039;￥ﾤﾧ￩ﾘﾪ&#039; =&gt; array(
+				3 =&gt; &#039;￦ﾢﾅ￧ﾔﾰ&#039;,
+				4 =&gt; &#039;￩ﾛﾣ￦ﾳﾢ&#039;
 			)
 		),
 	)); ?&gt;
@@ -214,13 +224,13 @@
 		&#039;class&#039; =&gt; &#039;checkbox-inline&#039;,
 		&#039;multiple&#039; =&gt; &#039;checkbox&#039;,
 		&#039;options&#039; =&gt; array(
-			&#039;東京&#039; =&gt; array(
-				1 =&gt; &#039;渋谷&#039;,
-				2 =&gt; &#039;秋葉原&#039;
+			&#039;￦ﾝﾱ￤ﾺﾬ&#039; =&gt; array(
+				1 =&gt; &#039;￦ﾸﾋ￨ﾰﾷ&#039;,
+				2 =&gt; &#039;￧ﾧﾋ￨ﾑﾉ￥ﾎﾟ&#039;
 			),
-			&#039;大阪&#039; =&gt; array(
-				3 =&gt; &#039;梅田&#039;,
-				4 =&gt; &#039;難波&#039;
+			&#039;￥ﾤﾧ￩ﾘﾪ&#039; =&gt; array(
+				3 =&gt; &#039;￦ﾢﾅ￧ﾔﾰ&#039;,
+				4 =&gt; &#039;￩ﾛﾣ￦ﾳﾢ&#039;
 			)
 		)
 	)); ?&gt;
@@ -228,8 +238,9 @@
 		&#039;type&#039; =&gt; &#039;radio&#039;,
 		&#039;before&#039; =&gt; &#039;&lt;label class=&quot;col col-lg-2 control-label&quot;&gt;Radio&lt;/label&gt;&#039;,
 		&#039;legend&#039; =&gt; false,
+		&#039;class&#039; =&gt; false,
 		&#039;options&#039; =&gt; array(
-			1 =&gt; &#039;Option one is this and that—be sure to include why it\&#039;s great&#039;,
+			1 =&gt; &#039;Option one is this and that￢ﾀﾔbe sure to include why it\&#039;s great&#039;,
 			2 =&gt; &#039;Option two can be something else and selecting it will deselect option one&#039;
 		)
 	)); ?&gt;
@@ -256,25 +267,25 @@
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Show Error Message&#039;
 		),
-		&#039;class&#039; =&gt; &#039;input-with-feedback&#039;,
 		&#039;placeholder&#039; =&gt; &#039;Password&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;password&#039;, array(
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Hide Error Message&#039;
 		),
-		&#039;class&#039; =&gt; &#039;input-with-feedback&#039;,
 		&#039;placeholder&#039; =&gt; &#039;Password&#039;,
 		&#039;errorMessage&#039; =&gt; false
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
 		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10 col-offset-2&#039;,
 		&#039;label&#039; =&gt; array(&#039;class&#039; =&gt; null),
+		&#039;class&#039; =&gt; false,
 		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Checkbox Bootstrap Style&lt;/span&gt;&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
 		&#039;before&#039; =&gt; &#039;&lt;label class=&quot;col col-lg-2 control-label&quot;&gt;Checkbox&lt;/label&gt;&#039;,
 		&#039;label&#039; =&gt; false,
+		&#039;class&#039; =&gt; false,
 		&#039;wrapInput&#039; =&gt; &#039;col col-lg-10&#039;,
 		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Checkbox CakePHP Style&lt;/span&gt;&#039;
 	)); ?&gt;
@@ -284,7 +295,7 @@
 				&#039;div&#039; =&gt; false,
 				&#039;class&#039; =&gt; &#039;btn btn-primary&#039;
 			)); ?&gt;
-			&lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;Cancel&lt;/button&gt;
+			&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Cancel&lt;/button&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
@@ -344,12 +355,12 @@
 			</p>
 
 			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" rel="prev">Previous</a></li>
-<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Next</a></li></ul>			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" rel="prev">← Older</a></li>
-<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Newer →</a></li></ul>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Next</a></li></ul>			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" rel="prev">￢ﾆﾐ Older</a></li>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" rel="next">Newer ￢ﾆﾒ</a></li></ul>
 			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pager(); ?&gt;
 &lt;?php echo $this-&gt;Paginator-&gt;pager(array(
-	&#039;prev&#039; =&gt; &#039;← Older&#039;,
-	&#039;next&#039; =&gt; &#039;Newer →&#039;
+	&#039;prev&#039; =&gt; &#039;￢ﾆﾐ Older&#039;,
+	&#039;next&#039; =&gt; &#039;Newer ￢ﾆﾒ&#039;
 )); ?&gt;</pre>
 
 		</section>
@@ -360,13 +371,13 @@
 			</div>
 
 			<div class="alert">
-	<a class="close" data-dismiss="alert" href="#">×</a>
+	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
 	Alert notice message testing...</div>			<div class="alert alert-success">
-	<a class="close" data-dismiss="alert" href="#">×</a>
+	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
 	Alert success message testing...</div>			<div class="alert alert-danger">
-	<a class="close" data-dismiss="alert" href="#">×</a>
+	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
 	Alert danger message testing...</div>			<div class="alert alert-info">
-	<a class="close" data-dismiss="alert" href="#">×</a>
+	<a class="close" data-dismiss="alert" href="#">ￃﾗ</a>
 	Alert info message testing...</div>
 			<pre class="prettyprint">&lt;?php
 // View
@@ -402,9 +413,311 @@ $this-&gt;Session-&gt;setFlash(__(&#039;Alert info message testing...&#039;), &#
 	<!-- Le javascript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-	<script src="//slywalker.github.io/cakephp-plugin-boost_cake/bootstrap3/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	
+<div id="debug-kit-toolbar">
+			<ul id="panel-tabs">
+			<li class="panel-tab icon">
+				<a href="#hide" id="hide-toolbar">
+					<img src="/debug_kit/img/cake.icon.png" alt="CakePHP" />				</a>
+			</li>
+								<li class="panel-tab">
+			<a href="#history">History</a>				<div class="panel-content" id="history-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> Request History</h2>
+	4 previous requests available	<ul class="history-list">
+		<li><a href="#" class="history-link" id="history-restore-current">Restore to current request</a>		</li>
+					<li><a href="/debug_kit/toolbar_access/history_state/1" class="history-link">boost_cake/boost_cake/bootstrap3</a></li>
+					<li><a href="/debug_kit/toolbar_access/history_state/2" class="history-link">boost_cake/boost_cake/bootstrap3</a></li>
+					<li><a href="/debug_kit/toolbar_access/history_state/3" class="history-link">boost_cake/boost_cake/bootstrap3</a></li>
+					<li><a href="/debug_kit/toolbar_access/history_state/4" class="history-link">boost_cake/boost_cake/bootstrap3</a></li>
+			</ul>
+						</div>
+						<div class="panel-content-data panel-history" id="history-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#session">Session</a>				<div class="panel-content" id="session-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Session</h2>
+<ul class="neat-array depth-0"><li><strong>Config</strong><ul class="neat-array depth-1"><li><strong>userAgent</strong>670d15bb2c81f34eb3281c156187e1d3</li><li><strong>time</strong>1375951098</li><li><strong>countdown</strong>10</li></ul></li><li><strong>_Token</strong><ul class="neat-array depth-1"><li><strong>key</strong>0f2bcef62f7916250264ab2f342b2edebb55908c</li><li><strong>allowedControllers</strong>(empty)</li><li><strong>allowedActions</strong>(empty)</li><li><strong>unlockedFields</strong>(empty)</li><li><strong>csrfTokens</strong><ul class="neat-array depth-2"><li><strong>30b35237e2f65d9ef8b61e58c4c52d61834c25bf</strong>1375938073</li><li><strong>0f2bcef62f7916250264ab2f342b2edebb55908c</strong>1375938498</li></ul></li></ul></li><li><strong>Message</strong><ul class="neat-array depth-1"><li><strong>notice</strong><ul class="neat-array depth-2"><li><strong>message</strong>Alert notice message testing...</li><li><strong>element</strong>alert</li><li><strong>params</strong><ul class="neat-array depth-3"><li><strong>plugin</strong>BoostCake</li></ul></li></ul></li><li><strong>success</strong><ul class="neat-array depth-2"><li><strong>message</strong>Alert success message testing...</li><li><strong>element</strong>alert</li><li><strong>params</strong><ul class="neat-array depth-3"><li><strong>plugin</strong>BoostCake</li><li><strong>class</strong>alert-success</li></ul></li></ul></li><li><strong>danger</strong><ul class="neat-array depth-2"><li><strong>message</strong>Alert danger message testing...</li><li><strong>element</strong>alert</li><li><strong>params</strong><ul class="neat-array depth-3"><li><strong>plugin</strong>BoostCake</li><li><strong>class</strong>alert-danger</li></ul></li></ul></li><li><strong>info</strong><ul class="neat-array depth-2"><li><strong>message</strong>Alert info message testing...</li><li><strong>element</strong>alert</li><li><strong>params</strong><ul class="neat-array depth-3"><li><strong>plugin</strong>BoostCake</li><li><strong>class</strong>alert-info</li></ul></li></ul></li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="session-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#request">Request</a>				<div class="panel-content" id="request-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> Request</h2>
+
+<h4>Cake Params</h4>
+<ul class="neat-array depth-0"><li><strong>plugin</strong>boost_cake</li><li><strong>controller</strong>boost_cake</li><li><strong>action</strong>bootstrap3</li><li><strong>named</strong>(empty)</li><li><strong>pass</strong>(empty)</li><li><strong>_Token</strong><ul class="neat-array depth-1"><li><strong>key</strong>0f2bcef62f7916250264ab2f342b2edebb55908c</li><li><strong>unlockedFields</strong>(empty)</li></ul></li><li><strong>isAjax</strong>(false)</li></ul>
+<h4>Post data</h4>
+<p class="info">No post data.</p>
+<h4>Query string</h4>
+<p class="info">No querystring data.</p>
+<h4>Cookie</h4>
+	<p class="info">To view Cookies, add CookieComponent to Controller</p>
+
+<h4>Current Route</h4>
+<ul class="neat-array depth-0"><li><strong>keys</strong><ul class="neat-array depth-1"><li><strong>0</strong>plugin</li><li><strong>1</strong>controller</li><li><strong>2</strong>action</li></ul></li><li><strong>options</strong><ul class="neat-array depth-1"><li><strong>plugin</strong>base|boost_cake|debug_kit|debug_kit_plus|migrations|search|uploader</li></ul></li><li><strong>defaults</strong>(empty)</li><li><strong>template</strong>/:plugin/:controller/:action/*</li></ul>						</div>
+						<div class="panel-content-data panel-history" id="request-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#sqllog">Sqllog</a>				<div class="panel-content" id="sqllog-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Sql Logs</h2>
+							</div>
+						<div class="panel-content-data panel-history" id="sqllog-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#timer">Timer</a>				<div class="panel-content" id="timer-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<div class="debug-info">
+	<h2>Memory</h2>
+	<div class="peak-mem-use">
+	<p><strong>Peak Memory Use</strong> 4.89 MB</p>	</div>
+
+	<table class="debug-table"><tr><th>Message</th> <th>Memory use</th></tr><tr class="odd"><td>Component initialization</td> <td>2.26 MB</td></tr>
+<tr class="even"><td>Controller action start</td> <td>2.42 MB</td></tr>
+<tr class="odd"><td>Controller render start</td> <td>2.55 MB</td></tr>
+<tr class="even"><td>View render complete</td> <td>4.51 MB</td></tr></table></div>
+
+<div class="debug-info debug-timers">
+	<h2>Timers</h2>
+	<div class="request-time">
+				<p><strong>Total Request Time:</strong> 417 (ms)</p>	</div>
+<table class="debug-table"><tr><th>Message</th> <th>Time in ms</th> <th>Graph</th></tr><tr class="odd"><td>Core Processing (Derived from $_SERVER["REQUEST_TIME"])</td> <td>97.20</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 0px; width: 82px" title="Starting 0.00ms into the request, taking 97.20ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td>Event: Controller.initialize</td> <td>4.14</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 82px; width: 3px" title="Starting 97.19ms into the request, taking 4.14ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Event: Controller.startup</td> <td>4.26</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 86px; width: 4px" title="Starting 101.56ms into the request, taking 4.26ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td>Controller action</td> <td>2.20</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 89px; width: 2px" title="Starting 105.64ms into the request, taking 2.20ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Event: Controller.beforeRender</td> <td>90.48</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 91px; width: 76px" title="Starting 107.56ms into the request, taking 90.48ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Processing toolbar data</td> <td>89.78</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 91px; width: 76px" title="Starting 107.98ms into the request, taking 89.78ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Rendering View</td> <td>181.41</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 182px; width: 153px" title="Starting 215.75ms into the request, taking 181.41ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Event: View.beforeRender</td> <td>0.29</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 185px; width: 1px" title="Starting 219.99ms into the request, taking 0.29ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo; Rendering APP/Plugin/BoostCake/View/BoostCake/bootstrap3.ctp</td> <td>171.62</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 186px; width: 145px" title="Starting 221.16ms into the request, taking 171.62ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo;  &raquo; Rendering APP/Plugin/BoostCake/View/Elements/alert.ctp</td> <td>0.47</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 317px; width: 1px" title="Starting 376.11ms into the request, taking 0.47ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo;  &raquo; Rendering APP/Plugin/BoostCake/View/Elements/alert.ctp #2</td> <td>0.44</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 324px; width: 1px" title="Starting 385.23ms into the request, taking 0.44ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo;  &raquo; Rendering APP/Plugin/BoostCake/View/Elements/alert.ctp #3</td> <td>0.41</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 326px; width: 1px" title="Starting 386.59ms into the request, taking 0.41ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo;  &raquo; Rendering APP/Plugin/BoostCake/View/Elements/alert.ctp #4</td> <td>4.28</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 327px; width: 4px" title="Starting 387.87ms into the request, taking 4.28ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Event: View.afterRender</td> <td>0.20</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 331px; width: 1px" title="Starting 393.09ms into the request, taking 0.20ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo; Event: View.beforeLayout</td> <td>0.22</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 332px; width: 1px" title="Starting 393.86ms into the request, taking 0.22ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Rendering APP/Plugin/BoostCake/View/Layouts/bootstrap3.ctp #2</td> <td>2.07</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 332px; width: 2px" title="Starting 394.51ms into the request, taking 2.07ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Event: View.afterLayout</td> <td>0.00</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 334px; width: 1px" title="Starting 397.00ms into the request, taking 0.00ms" class="debug-kit-graph-bar-value"> </div></div></td></tr></table></div>
+						</div>
+						<div class="panel-content-data panel-history" id="timer-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#log">Log</a>				<div class="panel-content" id="log-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Logs</h2>
+<div class="code-table">
+				<p class="info">There were no log entries made this request</p>
+	</div>
+						</div>
+						<div class="panel-content-data panel-history" id="log-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#variables">Variables</a>				<div class="panel-content" id="variables-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> View Variables</h2>
+<ul class="neat-array depth-0"><li><strong>$request->data</strong>(empty)</li><li><strong>$this->validationErrors</strong><ul class="neat-array depth-1"><li><strong>BoostCake</strong><ul class="neat-array depth-2"><li><strong>password</strong><ul class="neat-array depth-3"><li><strong>0</strong>Please provide a password</li></ul></li></ul></li></ul></li><li><strong>Loaded Helpers</strong><ul class="neat-array depth-1"><li><strong>0</strong>Session</li><li><strong>1</strong>Html</li><li><strong>2</strong>Form</li><li><strong>3</strong>Paginator</li><li><strong>4</strong>Number</li><li><strong>5</strong>SimpleGraph</li><li><strong>6</strong>DebugTimer</li><li><strong>7</strong>Toolbar</li><li><strong>8</strong>HtmlToolbar</li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="variables-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#environment">Environment</a>				<div class="panel-content" id="environment-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>App Constants</h2>
+No application environment available.
+<h2>CakePHP Constants</h2>
+<table class="debug-table"><tr><th>Constant</th> <th>Value</th></tr><tr class="odd"><td>APP</td> <td>/Users/slywalker/www/mail.foozoc.net/</td></tr>
+<tr class="even"><td>APP_DIR</td> <td>mail.foozoc.net</td></tr>
+<tr class="odd"><td>APPLIBS</td> <td>/Users/slywalker/www/mail.foozoc.net/Lib/</td></tr>
+<tr class="even"><td>CACHE</td> <td>/Users/slywalker/www/mail.foozoc.net/tmp/cache/</td></tr>
+<tr class="odd"><td>CAKE</td> <td>/Users/slywalker/www/mail.foozoc.net/Vendor/pear-pear.cakephp.org/CakePHP/Cake/</td></tr>
+<tr class="even"><td>CAKE_CORE_INCLUDE_PATH</td> <td>/Users/slywalker/www/mail.foozoc.net/Vendor/pear-pear.cakephp.org/CakePHP</td></tr>
+<tr class="odd"><td>CORE_PATH</td> <td>/Users/slywalker/www/mail.foozoc.net/Vendor/pear-pear.cakephp.org/CakePHP/</td></tr>
+<tr class="even"><td>CAKE_VERSION</td> <td>2.3.8</td></tr>
+<tr class="odd"><td>CSS</td> <td>/Users/slywalker/www/mail.foozoc.net/webroot/css/</td></tr>
+<tr class="even"><td>CSS_URL</td> <td>css/</td></tr>
+<tr class="odd"><td>DS</td> <td>/</td></tr>
+<tr class="even"><td>FULL_BASE_URL</td> <td>http://mail.foozoc.net.cake.local</td></tr>
+<tr class="odd"><td>IMAGES</td> <td>/Users/slywalker/www/mail.foozoc.net/webroot/img/</td></tr>
+<tr class="even"><td>IMAGES_URL</td> <td>img/</td></tr>
+<tr class="odd"><td>JS</td> <td>/Users/slywalker/www/mail.foozoc.net/webroot/js/</td></tr>
+<tr class="even"><td>JS_URL</td> <td>js/</td></tr>
+<tr class="odd"><td>LOGS</td> <td>/Users/slywalker/www/mail.foozoc.net/tmp/logs/</td></tr>
+<tr class="even"><td>ROOT</td> <td>/Users/slywalker/www</td></tr>
+<tr class="odd"><td>TESTS</td> <td>/Users/slywalker/www/mail.foozoc.net/Test/</td></tr>
+<tr class="even"><td>TMP</td> <td>/Users/slywalker/www/mail.foozoc.net/tmp/</td></tr>
+<tr class="odd"><td>VENDORS</td> <td>/Users/slywalker/www/vendors/</td></tr>
+<tr class="even"><td>WEBROOT_DIR</td> <td>webroot</td></tr>
+<tr class="odd"><td>WWW_ROOT</td> <td>/Users/slywalker/www/mail.foozoc.net/webroot/</td></tr></table>
+<h2>PHP Environment</h2>
+<table class="debug-table"><tr><th>Environment Variable</th> <th>Value</th></tr><tr class="odd"><td>Php Version</td> <td>5.4.17</td></tr>
+<tr class="even"><td>User</td> <td>nobody</td></tr>
+<tr class="odd"><td>Home</td> <td>/var/empty</td></tr>
+<tr class="even"><td>Fcgi Role</td> <td>RESPONDER</td></tr>
+<tr class="odd"><td>Script Filename</td> <td>/opt/local/var/www/mail.foozoc.net/webroot/index.php</td></tr>
+<tr class="even"><td>Query String</td> <td>/boost_cake/boost_cake/bootstrap3&</td></tr>
+<tr class="odd"><td>Request Method</td> <td>GET</td></tr>
+<tr class="even"><td>Content Type</td> <td></td></tr>
+<tr class="odd"><td>Content Length</td> <td></td></tr>
+<tr class="even"><td>Script Name</td> <td>/index.php</td></tr>
+<tr class="odd"><td>Request Uri</td> <td>/boost_cake/boost_cake/bootstrap3</td></tr>
+<tr class="even"><td>Document Uri</td> <td>/index.php</td></tr>
+<tr class="odd"><td>Document Root</td> <td>/opt/local/var/www/mail.foozoc.net/webroot</td></tr>
+<tr class="even"><td>Server Protocol</td> <td>HTTP/1.1</td></tr>
+<tr class="odd"><td>Gateway Interface</td> <td>CGI/1.1</td></tr>
+<tr class="even"><td>Server Software</td> <td>nginx/1.4.2</td></tr>
+<tr class="odd"><td>Remote Addr</td> <td>127.0.0.1</td></tr>
+<tr class="even"><td>Remote Port</td> <td>53722</td></tr>
+<tr class="odd"><td>Server Addr</td> <td>127.0.0.1</td></tr>
+<tr class="even"><td>Server Port</td> <td>80</td></tr>
+<tr class="odd"><td>Server Name</td> <td>mail.foozoc.net.cake.com</td></tr>
+<tr class="even"><td>Redirect Status</td> <td>200</td></tr>
+<tr class="odd"><td>Cake Debug</td> <td>2</td></tr>
+<tr class="even"><td>Http Host</td> <td>mail.foozoc.net.cake.local</td></tr>
+<tr class="odd"><td>Http Connection</td> <td>keep-alive</td></tr>
+<tr class="even"><td>Http Accept</td> <td>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td></tr>
+<tr class="odd"><td>Http User Agent</td> <td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.36</td></tr>
+<tr class="even"><td>Http Referer</td> <td>http://mail.foozoc.net.cake.local/boost_cake/boost_cake/bootstrap3</td></tr>
+<tr class="odd"><td>Http Accept Encoding</td> <td>gzip,deflate,sdch</td></tr>
+<tr class="even"><td>Http Accept Language</td> <td>en-US,en;q=0.8</td></tr>
+<tr class="odd"><td>Http Cookie</td> <td>CAKEPHP=4t9r0k3egcvh6h62fel5iecfm2; toolbarDisplay=hide</td></tr>
+<tr class="even"><td>Php Self</td> <td>/index.php</td></tr>
+<tr class="odd"><td>Request Time Float</td> <td>1375936698.1351</td></tr>
+<tr class="even"><td>Request Time</td> <td>1375936698</td></tr></table>						</div>
+						<div class="panel-content-data panel-history" id="environment-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#include">Include</a>				<div class="panel-content" id="include-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> Included Files</h2>
+
+<h4>Include Paths</h4>
+<ul class="neat-array depth-0"><li><strong>0</strong>/Users/slywalker/www/mail.foozoc.net/Vendor/pear-pear.cakephp.org/CakePHP</li><li><strong>3</strong>/opt/local/lib/php53/pear</li><li><strong>4</strong>-&gt; /Users/slywalker/www/mail.foozoc.net/Vendor/pear-pear.cakephp.org/CakePHP/Cake/</li></ul>
+<h4>Included Files</h4>
+<ul class="neat-array depth-0"><li><strong>core</strong>(empty)</li><li><strong>app</strong><ul class="neat-array depth-1"><li><strong>Cache</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Cache/Cache.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Cache/Engine/ApcEngine.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Cache/CacheEngine.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Cache/Engine/FileEngine.php</li></ul></li><li><strong>Component</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/Component/SessionComponent.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/Component/SecurityComponent.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/Component/RequestHandlerComponent.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/Component/PaginatorComponent.php</li></ul></li><li><strong>Config</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Config/core.php</li><li><strong>1</strong>APP/Config/bootstrap.php</li><li><strong>2</strong>APP/Config/routes.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Config/routes.php</li><li><strong>4</strong>APP/Config/database.php</li><li><strong>5</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Config/config.php</li></ul></li><li><strong>Controller</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Controller/AppController.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/Controller.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/ComponentCollection.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Controller/Component.php</li></ul></li><li><strong>Datasource</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Model/Datasource/CakeSession.php</li></ul></li><li><strong>Error</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Error/exceptions.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Error/ErrorHandler.php</li></ul></li><li><strong>I18n</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/I18n/I18n.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/I18n/L10n.php</li></ul></li><li><strong>Log</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Log/CakeLog.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Log/LogEngineCollection.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Log/Engine/FileLog.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Log/Engine/BaseLog.php</li><li><strong>4</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Log/CakeLogInterface.php</li></ul></li><li><strong>Model</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Model/ConnectionManager.php</li></ul></li><li><strong>Network</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Network/CakeRequest.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Network/CakeResponse.php</li></ul></li><li><strong>Other</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/webroot/index.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/bootstrap.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/basics.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Core/App.php</li><li><strong>4</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Core/Configure.php</li><li><strong>5</strong>APP/Vendor/autoload.php</li><li><strong>6</strong>APP/Vendor/composer/autoload_real.php</li><li><strong>7</strong>APP/Vendor/composer/ClassLoader.php</li><li><strong>8</strong>APP/Vendor/composer/include_paths.php</li><li><strong>9</strong>APP/Vendor/composer/autoload_namespaces.php</li><li><strong>10</strong>APP/Vendor/composer/autoload_classmap.php</li><li><strong>11</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Core/CakePlugin.php</li><li><strong>12</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Event/CakeEventListener.php</li><li><strong>13</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Event/CakeEvent.php</li><li><strong>14</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Event/CakeEventManager.php</li><li><strong>15</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Core/Object.php</li></ul></li><li><strong>Routing</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/Dispatcher.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/Filter/AssetDispatcher.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/DispatcherFilter.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/Filter/CacheDispatcher.php</li><li><strong>4</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/Router.php</li><li><strong>5</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/Route/CakeRoute.php</li><li><strong>6</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Routing/Route/PluginShortRoute.php</li></ul></li><li><strong>Utility</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Utility/Hash.php</li><li><strong>1</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Utility/Inflector.php</li><li><strong>2</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Utility/ObjectCollection.php</li><li><strong>3</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Utility/Debugger.php</li><li><strong>4</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Utility/String.php</li><li><strong>5</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/Utility/Security.php</li></ul></li><li><strong>View</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/Vendor/pear-pear.cakephp.org/CakePHP/Cake/View/HelperCollection.php</li></ul></li></ul></li><li><strong>plugins</strong><ul class="neat-array depth-1"><li><strong>Base</strong><ul class="neat-array depth-2"><li><strong>Component</strong><ul class="neat-array depth-3"><li><strong>0</strong>Base/Controller/Component/BaseActionComponent.php</li></ul></li></ul></li><li><strong>BoostCake</strong><ul class="neat-array depth-2"><li><strong>Controller</strong><ul class="neat-array depth-3"><li><strong>0</strong>BoostCake/Controller/BoostCakeController.php</li></ul></li></ul></li><li><strong>DebugKit</strong><ul class="neat-array depth-2"><li><strong>Component</strong><ul class="neat-array depth-3"><li><strong>0</strong>DebugKit/Controller/Component/ToolbarComponent.php</li></ul></li><li><strong>Plugin</strong><ul class="neat-array depth-3"><li><strong>0</strong>DebugKit/Lib/DebugMemory.php</li><li><strong>1</strong>DebugKit/Lib/Panel/HistoryPanel.php</li><li><strong>2</strong>DebugKit/Lib/DebugPanel.php</li><li><strong>3</strong>DebugKit/Lib/Panel/SessionPanel.php</li><li><strong>4</strong>DebugKit/Lib/Panel/RequestPanel.php</li><li><strong>5</strong>DebugKit/Lib/Panel/SqlLogPanel.php</li><li><strong>6</strong>DebugKit/Lib/Panel/TimerPanel.php</li><li><strong>7</strong>DebugKit/Lib/Panel/LogPanel.php</li><li><strong>8</strong>DebugKit/Lib/Log/Engine/DebugKitLog.php</li><li><strong>9</strong>DebugKit/Lib/Panel/VariablesPanel.php</li><li><strong>10</strong>DebugKit/Lib/Panel/EnvironmentPanel.php</li><li><strong>11</strong>DebugKit/Lib/Panel/IncludePanel.php</li><li><strong>12</strong>DebugKit/Lib/DebugTimer.php</li></ul></li></ul></li><li><strong>DebugKitPlus</strong><ul class="neat-array depth-2"><li><strong>Plugin</strong><ul class="neat-array depth-3"><li><strong>0</strong>DebugKitPlus/Lib/Panel/ApcPanel.php</li><li><strong>1</strong>DebugKitPlus/Lib/Panel/ConfigurePanel.php</li><li><strong>2</strong>DebugKitPlus/Lib/Panel/RequestPlusPanel.php</li></ul></li></ul></li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="include-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#apc">Apc</a>				<div class="panel-content" id="apc-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Apc</h2>
+<p><form action="/debug_kit_plus/debug_kit_plus/apc_clear_cache" name="post_520320ba96908452304875" id="post_520320ba96908452304875" style="display:none;" method="post"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="0f2bcef62f7916250264ab2f342b2edebb55908c" id="Token1839163364"/><div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="869f3d9eac8610167bfb82b02ca5a749f959415b%3A" id="TokenFields2079444274"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1510886611"/></div></form><a href="#" onclick="document.post_520320ba96908452304875.submit(); event.returnValue = false; return false;">Apc Cache Clear</a></p>
+<ul class="neat-array depth-0"><li><strong>num_slots</strong>4099</li><li><strong>ttl</strong>0</li><li><strong>num_hits</strong>476</li><li><strong>num_misses</strong>372</li><li><strong>num_inserts</strong>282</li><li><strong>expunges</strong>0</li><li><strong>start_time</strong>1375927007</li><li><strong>mem_size</strong>13728</li><li><strong>num_entries</strong>8</li><li><strong>file_upload_progress</strong>1</li><li><strong>memory_type</strong>mmap</li><li><strong>locking_type</strong>spin Locks</li><li><strong>cache_list</strong><ul class="neat-array depth-1"><li><strong>0</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_default_en-us</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936698</li><li><strong>creation_time</strong>1375936698</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936698</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>1200</li><li><strong>value</strong><ul class="neat-array depth-3"><li><strong>LC_MESSAGES</strong>(empty)</li></ul></li></ul></li><li><strong>1</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_cake_en-us</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936273</li><li><strong>creation_time</strong>1375936273</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936273</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>1200</li><li><strong>value</strong>(false)</li></ul></li><li><strong>2</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_default_en-us_expires</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936698</li><li><strong>creation_time</strong>1375936698</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936698</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>656</li><li><strong>value</strong>1375936708</li></ul></li><li><strong>3</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_debug_kit_en-us_expires</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936698</li><li><strong>creation_time</strong>1375936698</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936698</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>656</li><li><strong>value</strong>1375936708</li></ul></li><li><strong>4</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_debug_kit_plus_en-us</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936273</li><li><strong>creation_time</strong>1375936273</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936273</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>1200</li><li><strong>value</strong>(false)</li></ul></li><li><strong>5</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_cake_en-us_expires</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936273</li><li><strong>creation_time</strong>1375936273</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936273</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>656</li><li><strong>value</strong>(false)</li></ul></li><li><strong>6</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_debug_kit_plus_en-us_expires</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936273</li><li><strong>creation_time</strong>1375936273</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936273</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>656</li><li><strong>value</strong>(false)</li></ul></li><li><strong>7</strong><ul class="neat-array depth-2"><li><strong>info</strong>mail_foozoc_net_cake_core_debug_kit_en-us</li><li><strong>ttl</strong>10</li><li><strong>type</strong>user</li><li><strong>num_hits</strong>0</li><li><strong>mtime</strong>1375936698</li><li><strong>creation_time</strong>1375936698</li><li><strong>deletion_time</strong>0</li><li><strong>access_time</strong>1375936698</li><li><strong>ref_count</strong>0</li><li><strong>mem_size</strong>7504</li><li><strong>value</strong><ul class="neat-array depth-3"><li><strong>LC_MESSAGES</strong><ul class="neat-array depth-4"><li><strong>Component initialization and startup</strong></li><li><strong>Controller Action</strong></li><li><strong>Render Controller Action</strong></li><li><strong>Could not load DebugToolbar panel %s</strong></li><li><strong>There are no active panels. You must enable a panel to see its output.</strong></li><li><strong>Request History</strong></li><li><strong>No previous requests logged.</strong></li><li><strong>previous requests available</strong></li><li><strong>Restore to current request</strong></li><li><strong>Logs</strong></li><li><strong>Time</strong></li><li><strong>Message</strong></li><li><strong>There were no log entries made this request</strong></li><li><strong>Request</strong></li><li><strong>Current Route</strong></li><li><strong>Session</strong></li><li><strong>Sql Logs</strong></li><li><strong>toggle (%s) query explains for %s</strong></li><li><strong>No slow queries!, or your database does not support EXPLAIN</strong></li><li><strong>No active database connections</strong></li><li><strong>Memory</strong></li><li><strong>Current Memory Use</strong></li><li><strong>Peak Memory Use</strong></li><li><strong>Timers</strong></li><li><strong>%s (ms)</strong></li><li><strong>Total Request Time:</strong></li><li><strong>Time in ms</strong></li><li><strong>Graph</strong></li><li><strong>View Variables</strong></li><li><strong>Starting %sms into the request, taking %sms</strong></li><li><strong>%plural-c</strong>nplurals=INTEGER;plural=EXPRESSION;</li></ul></li></ul></li></ul></li></ul></li><li><strong>deleted_list</strong>(empty)</li><li><strong>slot_distribution</strong><ul class="neat-array depth-1"><li><strong>489</strong>1</li><li><strong>897</strong>1</li><li><strong>1645</strong>1</li><li><strong>2016</strong>1</li><li><strong>2631</strong>1</li><li><strong>2924</strong>1</li><li><strong>3154</strong>1</li><li><strong>3509</strong>1</li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="apc-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#configure">Configure</a>				<div class="panel-content" id="configure-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Configure</h2>
+<ul class="neat-array depth-0"><li><strong>debug</strong>2</li><li><strong>App</strong><ul class="neat-array depth-1"><li><strong>base</strong>(false)</li><li><strong>baseUrl</strong>(false)</li><li><strong>dir</strong>mail.foozoc.net</li><li><strong>webroot</strong>webroot</li><li><strong>www_root</strong>/Users/slywalker/www/mail.foozoc.net/webroot/</li><li><strong>encoding</strong>UTF-8</li></ul></li><li><strong>Error</strong><ul class="neat-array depth-1"><li><strong>handler</strong>ErrorHandler::handleError</li><li><strong>level</strong>24575</li><li><strong>trace</strong>(true)</li></ul></li><li><strong>Exception</strong><ul class="neat-array depth-1"><li><strong>handler</strong>ErrorHandler::handleException</li><li><strong>renderer</strong>ExceptionRenderer</li><li><strong>log</strong>(true)</li></ul></li><li><strong>Session</strong><ul class="neat-array depth-1"><li><strong>cookie</strong>CAKEPHP</li><li><strong>timeout</strong>240</li><li><strong>ini</strong><ul class="neat-array depth-2"><li><strong>session.use_trans_sid</strong>0</li><li><strong>session.cookie_path</strong>/</li><li><strong>session.cookie_lifetime</strong>14400</li><li><strong>session.name</strong>CAKEPHP</li><li><strong>session.gc_maxlifetime</strong>14400</li><li><strong>session.cookie_httponly</strong>1</li></ul></li><li><strong>defaults</strong>php</li><li><strong>cookieTimeout</strong>240</li></ul></li><li><strong>Security</strong><ul class="neat-array depth-1"><li><strong>salt</strong>c47951ff438fc27f9d36e00e73c6af842cdf39aa</li><li><strong>cipherSeed</strong>613661643731393763303164346266</li></ul></li><li><strong>Acl</strong><ul class="neat-array depth-1"><li><strong>classname</strong>DbAcl</li><li><strong>database</strong>default</li></ul></li><li><strong>Dispatcher</strong><ul class="neat-array depth-1"><li><strong>filters</strong><ul class="neat-array depth-2"><li><strong>0</strong>AssetDispatcher</li><li><strong>1</strong>CacheDispatcher</li></ul></li></ul></li><li><strong>Config</strong><ul class="neat-array depth-1"><li><strong>language</strong>en-us</li></ul></li><li><strong>Cake</strong><ul class="neat-array depth-1"><li><strong>version</strong>2.3.8</li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="configure-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#requestplus">Req+</a>				<div class="panel-content" id="requestplus-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Request Plus</h2>
+
+<h3>BoostCakeController</h3>
+
+<h4>passedArgs</h4>
+<ul class="neat-array depth-0"><li><strong>0</strong>(empty)</li></ul>
+<h3>CakeRequest</h3>
+
+<h4>Property</h4>
+<ul class="neat-array depth-0"><li><strong>params</strong><ul class="neat-array depth-1"><li><strong>plugin</strong>boost_cake</li><li><strong>controller</strong>boost_cake</li><li><strong>action</strong>bootstrap3</li><li><strong>named</strong>(empty)</li><li><strong>pass</strong>(empty)</li><li><strong>_Token</strong><ul class="neat-array depth-2"><li><strong>key</strong>0f2bcef62f7916250264ab2f342b2edebb55908c</li><li><strong>unlockedFields</strong>(empty)</li></ul></li><li><strong>isAjax</strong>(false)</li></ul></li><li><strong>data</strong>(empty)</li><li><strong>query</strong>(empty)</li><li><strong>url</strong>boost_cake/boost_cake/bootstrap3</li><li><strong>base</strong></li><li><strong>webroot</strong>/</li><li><strong>here</strong>/boost_cake/boost_cake/bootstrap3</li></ul>
+<h4>Method</h4>
+<ul class="neat-array depth-0"><li><strong>domain</strong>cake.local</li><li><strong>subdomains</strong><ul class="neat-array depth-1"><li><strong>0</strong>mail</li><li><strong>1</strong>foozoc</li><li><strong>2</strong>net</li></ul></li><li><strong>host</strong>mail.foozoc.net.cake.local</li><li><strong>method</strong>GET</li><li><strong>referer</strong>http://mail.foozoc.net.cake.local/boost_cake/boost_cake/bootstrap3</li><li><strong>clientIp</strong>127.0.0.1</li><li><strong>accepts</strong><ul class="neat-array depth-1"><li><strong>0</strong>text/html</li><li><strong>1</strong>application/xhtml+xml</li><li><strong>2</strong>application/xml</li><li><strong>3</strong>*/*</li></ul></li><li><strong>parseAccept</strong><ul class="neat-array depth-1"><li><strong>1.0</strong><ul class="neat-array depth-2"><li><strong>0</strong>text/html</li><li><strong>1</strong>application/xhtml+xml</li></ul></li><li><strong>0.9</strong><ul class="neat-array depth-2"><li><strong>0</strong>application/xml</li></ul></li><li><strong>0.8</strong><ul class="neat-array depth-2"><li><strong>0</strong>*/*</li></ul></li></ul></li><li><strong>acceptLanguage</strong><ul class="neat-array depth-1"><li><strong>0</strong>en-us</li><li><strong>1</strong>en</li></ul></li><li><strong>input</strong></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="requestplus-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+				</ul>
+	</div>
 
 </body>
 </html>
