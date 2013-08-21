@@ -11,10 +11,10 @@
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<style>
 	body {
-		padding-top: 70px; /* 60px to make the container go all the way to the bottom of the topbar */
+		padding-top: 70px; /* 70px to make the container go all the way to the bottom of the topbar */
 	}
 	.affix {
 		position: fixed;
@@ -35,24 +35,34 @@
 </head>
 
 <body>
-
-	<div class="navbar navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
-			<?php echo $this->Html->link('BoostCake', array(
-				'plugin' => 'boost_cake',
-				'controller' => 'boost_cake',
-				'action' => 'index'
-			), array('class' => 'navbar-brand')); ?>
-			<ul class="nav navbar-nav">
-				<li><?php echo $this->Html->link('Bootstrap2', array(
-					'action' => 'bootstrap2'
-				)); ?></li>
-				<li><?php echo $this->Html->link('Bootstrap3', array(
-					'action' => 'bootstrap3'
-				)); ?></li>
-			</ul>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<?php echo $this->Html->link('BoostCake', array(
+					'plugin' => 'boost_cake',
+					'controller' => 'boost_cake',
+					'action' => 'index'
+				), array('class' => 'navbar-brand')); ?>
+			</div>
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li><?php echo $this->Html->link('Bootstrap3', array(
+						'action' => 'bootstrap3'
+					)); ?></li>
+					<li><?php echo $this->Html->link('Bootstrap2', array(
+						'action' => 'bootstrap2'
+					)); ?></li>
+				</ul>
+			</div>
 		</div>
-	</div>
+	</nav>
 
 	<div class="container">
 
@@ -61,10 +71,10 @@
 	</div><!-- /container -->
 
 	<!-- Le javascript
-    ================================================== -->
+	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	<?php echo $this->fetch('script'); ?>
 

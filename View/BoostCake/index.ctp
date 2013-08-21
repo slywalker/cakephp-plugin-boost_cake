@@ -1,7 +1,7 @@
-<?php $this->layout = 'bootstrap2'; ?>
+<?php $this->layout = 'bootstrap3'; ?>
 <?php $this->set('title_for_layout', 'Bootstrap Plugin for CakePHP'); ?>
 
-<div class="hero-unit">
+<div class="jumbotron">
 	<h1>
 		BoostCake
 		<iframe src="http://ghbtns.com/github-btn.html?user=slywalker&repo=cakephp-plugin-boost_cake&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
