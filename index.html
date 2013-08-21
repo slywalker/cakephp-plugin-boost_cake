@@ -10,10 +10,10 @@
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<style>
 	body {
-		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+		padding-top: 70px; /* 70px to make the container go all the way to the bottom of the topbar */
 	}
 	.affix {
 		position: fixed;
@@ -30,23 +30,30 @@
 	</head>
 
 <body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/cakephp-plugin-boost_cake" class="navbar-brand">BoostCake</a>			</div>
 
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a href="/cakephp-plugin-boost_cake/" class="brand">BoostCake</a>
-				<ul class="nav">
-					<li><a href="/cakephp-plugin-boost_cake/bootstrap2.html">Bootstrap2</a></li>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
 					<li><a href="/cakephp-plugin-boost_cake/bootstrap3.html">Bootstrap3</a></li>
+					<li><a href="/cakephp-plugin-boost_cake/bootstrap2.html">Bootstrap2</a></li>
 				</ul>
 			</div>
 		</div>
-	</div>
+	</nav>
 
 	<div class="container">
 
 
-<div class="hero-unit">
+<div class="jumbotron">
 	<h1>
 		BoostCake
 		<iframe src="http://ghbtns.com/github-btn.html?user=slywalker&repo=cakephp-plugin-boost_cake&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
@@ -110,7 +117,7 @@ class AppController extends Controller {
 
 }</pre>
 
-<h3>AuthComponent settings</h3>
+<h3>AuthComponet setting</h3>
 <pre class="prettyprint">&lt;?php
 class AppController extends Controller {
 
@@ -131,10 +138,10 @@ class AppController extends Controller {
 	</div><!-- /container -->
 
 	<!-- Le javascript
-    ================================================== -->
+	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 </body>
