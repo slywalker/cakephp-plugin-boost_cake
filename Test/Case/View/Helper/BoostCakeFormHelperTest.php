@@ -34,13 +34,14 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 
 	public function setUp() {
 		parent::setUp();
-		$View = new View();
-		$this->Form = new BoostCakeFormHelper($View);
+		$this->View = new View();
+		$this->Form = new BoostCakeFormHelper($this->View);
 
 		ClassRegistry::addObject('Contact', new Contact());
 	}
 
 	public function tearDown() {
+		unset($this->View);
 		unset($this->Form);
 	}
 
@@ -289,6 +290,27 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			),
 			'/div',
 			'/div'
+		));
+	}
+
+	public function testPostLink() {
+		$result = $this->Form->postLink('Delete', '/posts/delete/1', array(
+			'block' => 'form'
+		));
+		$this->assertTags($result, array(
+			'a' => array('href' => '#', 'onclick' => 'preg:/document\.post_\w+\.submit\(\); event\.returnValue = false; return false;/'),
+			'Delete',
+			'/a'
+		));
+
+		$result = $this->View->fetch('form');
+		$this->assertTags($result, array(
+			'form' => array(
+				'method' => 'post', 'action' => '/posts/delete/1',
+				'name' => 'preg:/post_\w+/', 'id' => 'preg:/post_\w+/', 'style' => 'display:none;'
+			),
+			'input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST'),
+			'/form'
 		));
 	}
 
