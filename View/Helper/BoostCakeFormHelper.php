@@ -255,7 +255,12 @@ class BoostCakeFormHelper extends FormHelper {
 			unset($options['block']);
 		}
 
+		$fields = $this->fields;
+		$this->fields = array();
+
 		$out = parent::postLink($title, $url, $options, $confirmMessage);
+
+		$this->fields = $fields;
 
 		if ($block) {
 			$regex = '/<form.*?>.*?<\/form>/';
