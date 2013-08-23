@@ -17,7 +17,7 @@ class BoostCakeFormHelper extends FormHelper {
 	protected $_fieldName = null;
 
 /**
- * Overwirte FormHemlper::input()
+ * Overwrite FormHelper::input()
  * Generates a form input element complete with label and wrapper div
  *
  * ### Options
@@ -131,7 +131,7 @@ class BoostCakeFormHelper extends FormHelper {
 	}
 
 /**
- * Overwirte FormHemlper::_divOptions()
+ * Overwrite FormHelper::_divOptions()
  * Generate inner and outer div options
  * Generate div options for input
  *
@@ -157,7 +157,7 @@ class BoostCakeFormHelper extends FormHelper {
 	}
 
 /**
- * Overwirte FormHemlper::_getInput()
+ * Overwrite FormHelper::_getInput()
  * Wrap `<div>` input element
  * Generates an input element
  *
@@ -195,7 +195,7 @@ class BoostCakeFormHelper extends FormHelper {
 	}
 
 /**
- * Overwirte FormHemlper::_selectOptions()
+ * Overwrite FormHelper::_selectOptions()
  * If $attributes['style'] is `<input type="checkbox">` then replace `<label>` position
  * Returns an array of formatted OPTION/OPTGROUP elements
  *
