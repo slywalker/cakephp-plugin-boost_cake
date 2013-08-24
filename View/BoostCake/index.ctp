@@ -47,7 +47,7 @@
 }</pre>
 
 <h3>Enable plugin</h3>
-<p>You need to enable the plugin your app/Config/bootstrap.php file:</p>
+<p>You need to enable the plugin in your app/Config/bootstrap.php file:</p>
 <pre class="prettyprint">CakePlugin::load('BoostCake');</pre>
 <p>If you are already using <code>CakePlugin::loadAll();</code>, then this is not necessary.</p>
 
@@ -65,7 +65,7 @@ class AppController extends Controller {
 
 }"); ?></pre>
 
-<h3>AuthComponet setting</h3>
+<h3>AuthComponent setting</h3>
 <pre class="prettyprint"><?php echo h("<?php
 class AppController extends Controller {
 
