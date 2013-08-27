@@ -66,6 +66,7 @@ class AppController extends Controller {
 }"); ?></pre>
 
 <h3>AuthComponent setting</h3>
+<p>Substitute alert-error with alert-danger if Bootstrap 3.</p>
 <pre class="prettyprint"><?php echo h("<?php
 class AppController extends Controller {
 
