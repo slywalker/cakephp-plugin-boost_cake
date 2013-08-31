@@ -464,13 +464,13 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 
 			<h3>Sizes</h3>
 			<p>
-				Fancy larger or smaller pagination? Add .pagination-large,
-				<code>.pagination-small</code>, or <code>.pagination-mini</code> for additional sizes.
+				Fancy larger or smaller pagination? Add .pagination-lg,
+				<code>.pagination-sm</code>, or <code>.pagination-mini</code> for additional sizes.
 			</p>
 
 			<?php echo $this->Paginator->pagination(array(
 				'model' => 'Post',
-				'ul' => 'pagination pagination-large'
+				'ul' => 'pagination pagination-lg'
 			)); ?>
 			<?php echo $this->Paginator->pagination(array(
 				'model' => 'Post',
@@ -478,18 +478,18 @@ echo h("<?php echo \$this->Form->create('BoostCake', array(
 			)); ?>
 			<?php echo $this->Paginator->pagination(array(
 				'model' => 'Post',
-				'ul' => 'pagination pagination-small'
+				'ul' => 'pagination pagination-sm'
 			)); ?>
 
 			<pre class="prettyprint"><?php
 echo h("<?php echo \$this->Paginator->pagination(array(
-	'ul' => 'pagination pagination-large'
+	'ul' => 'pagination pagination-lg'
 )); ?>
 <?php echo \$this->Paginator->pagination(array(
 	'ul' => 'pagination'
 )); ?>
 <?php echo \$this->Paginator->pagination(array(
-	'ul' => 'pagination pagination-small'
+	'ul' => 'pagination pagination-sm'
 )); ?>");
 			?></pre>
 
