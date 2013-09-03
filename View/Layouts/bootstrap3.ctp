@@ -73,7 +73,7 @@
 	<!-- Le javascript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 	<?php echo $this->fetch('script'); ?>
