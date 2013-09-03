@@ -45,11 +45,11 @@ More Simple! Simple! Simple!
 
 If you want to simplify the options, you can develop WrapBoostCake plugin.
 
-### What is solve in this plugin
+### What this plugin solves
 
-* Replace checkbox's and radio's `label`
-* Add `div` wrapping input
-* Add content before and after `input`
-* Add error class in outer `div`
-* Change pagination tags
-* Change SessionHelper::flash()`s template
+* Replaces the `label` of checkboxes and radios
+* Adds a wrapping `div` to inputs
+* Adds content before and after `input`
+* Adds error class in outer `div`
+* Changes pagination tags
+* Changes SessionHelper::flash()`s template
