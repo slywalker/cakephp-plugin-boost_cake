@@ -115,6 +115,7 @@ class BoostCakeFormHelper extends FormHelper {
 			}
 			$regex = '/(<label.*?>)(.*?<\/label>)/';
 			if (preg_match($regex, $html, $label)) {
+				$label = str_replace('$', '\$', $label);
 				$html = preg_replace($regex, '', $html);
 				$html = preg_replace(
 					'/(<input type="checkbox".*?>)/',
