@@ -26,7 +26,7 @@ Ensure require is present in composer.json. This will install the plugin into Pl
 
 ### Enable plugin
 
-You need to enable the plugin your app/Config/bootstrap.php file:
+You need to enable the plugin in your app/Config/bootstrap.php file:
 
 `CakePlugin::load('BoostCake');`
 
