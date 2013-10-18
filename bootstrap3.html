@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,11 +73,10 @@
 			<h3>Default styles</h3>
 			<p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
 
-			<form action="#" class="well" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cce0283755db419e276c49bd92190138460b09b2" id="Token551850478"/></div>				<fieldset>
-					<legend>Legend</legend>
-					<div class="form-group"><label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" class="form-control" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span></div>					<div class="form-group"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label></div></div>					<input  class="btn btn-default" type="submit" value="Submit"/>				</fieldset>
-			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="291886efe3bc63cd04ee082c5d3b93e9db9ea36c%3A" id="TokenFields1875104057"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked624255484"/></div></form>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6895bd0239bfcc1a2eb7fd2469d6a0d991fd52e4" id="Token492473842"/></div>	<fieldset>
+		<legend>Legend</legend>
+		<div class="form-group"><label for="BoostCakeText">Label name</label><input name="data[BoostCake][text]" class="form-control" placeholder="Type something…" maxlength="255" type="text" id="BoostCakeText"/><span class="help-block">Example block-level help text here.</span></div>		<div class="form-group"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Check me out</label></div></div>		<div class="form-group"><input  class="btn btn-default" type="submit" value="Submit"/></div>	</fieldset>
+<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="291886efe3bc63cd04ee082c5d3b93e9db9ea36c%3A" id="TokenFields990850223"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked206334944"/></div></form>			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;wrapInput&#039; =&gt; false,
@@ -96,7 +96,7 @@
 			&#039;class&#039; =&gt; false
 		)); ?&gt;
 		&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Submit&#039;, array(
-			&#039;div&#039; =&gt; false,
+			&#039;div&#039; =&gt; &#039;form-group&#039;,
 			&#039;class&#039; =&gt; &#039;btn btn-default&#039;
 		)); ?&gt;
 	&lt;/fieldset&gt;
@@ -106,10 +106,9 @@
 			<h3>Inline form</h3>
 			<p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
 
-			<form action="#" class="well form-inline" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cce0283755db419e276c49bd92190138460b09b2" id="Token315561778"/></div>				<input name="data[BoostCake][email]" class="form-control" placeholder="Email" style="width:180px;" maxlength="255" type="email" id="BoostCakeEmail"/>				<input name="data[BoostCake][password]" class="form-control" placeholder="Password" style="width:180px;" type="password" id="BoostCakePassword"/>				<div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div>				<input  class="btn btn-default" type="submit" value="Sign in"/>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="a1fc270693a5254148a1919b2e1e7a2d28a3756f%3A" id="TokenFields1625375682"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1481535409"/></div></form>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-inline" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6895bd0239bfcc1a2eb7fd2469d6a0d991fd52e4" id="Token1172003671"/></div>	<div class="form-group"><input name="data[BoostCake][email]" class="form-control" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div>	<div class="form-group"><input name="data[BoostCake][password]" class="form-control" placeholder="Password" type="password" id="BoostCakePassword"/></div>	<div class="checkbox"><div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div></div>	<div class="form-group"><input  class="btn btn-default" type="submit" value="Sign in"/></div><div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="a1fc270693a5254148a1919b2e1e7a2d28a3756f%3A" id="TokenFields730310548"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked626051335"/></div></form>			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
-		&#039;div&#039; =&gt; false,
+		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;label&#039; =&gt; false,
 		&#039;wrapInput&#039; =&gt; false,
 		&#039;class&#039; =&gt; &#039;form-control&#039;
@@ -117,19 +116,18 @@
 	&#039;class&#039; =&gt; &#039;well form-inline&#039;
 )); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;email&#039;, array(
-		&#039;placeholder&#039; =&gt; &#039;Email&#039;,
-		&#039;style&#039; =&gt; &#039;width:180px;&#039;
+		&#039;placeholder&#039; =&gt; &#039;Email&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;password&#039;, array(
-		&#039;placeholder&#039; =&gt; &#039;Password&#039;,
-		&#039;style&#039; =&gt; &#039;width:180px;&#039;
+		&#039;placeholder&#039; =&gt; &#039;Password&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;remember&#039;, array(
-		&#039;label&#039; =&gt; &#039;Remember me&#039;,
-		&#039;class&#039; =&gt; false
+		&#039;div&#039; =&gt; &#039;checkbox&#039;,
+		&#039;class&#039; =&gt; false,
+		&#039;label&#039; =&gt; &#039;Remember me&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
-		&#039;div&#039; =&gt; false,
+		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;class&#039; =&gt; &#039;btn btn-default&#039;
 	)); ?&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
@@ -140,14 +138,15 @@
 				Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout.
 			</p>
 
-			<form action="#" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cce0283755db419e276c49bd92190138460b09b2" id="Token1426002138"/></div>				<div class="form-group"><label for="BoostCakeEmail" class="col col-md-2 control-label">Email</label><div class="col col-md-10"><input name="data[BoostCake][email]" class="form-control" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>				<div class="form-group"><label for="BoostCakePassword" class="col col-md-2 control-label">Password</label><div class="col col-md-10"><input name="data[BoostCake][password]" class="form-control" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="form-group"><div class="col col-md-10 col-md-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div><div class="submit"><input  class="btn btn-default" type="submit" value="Sign in"/></div></div></div>			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="a1fc270693a5254148a1919b2e1e7a2d28a3756f%3A" id="TokenFields1562358858"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked168635120"/></div></form>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6895bd0239bfcc1a2eb7fd2469d6a0d991fd52e4" id="Token1458465773"/></div>	<div class="form-group"><label for="BoostCakeEmail" class="col col-md-3 control-label">Email</label><div class="col col-md-9"><input name="data[BoostCake][email]" class="form-control" placeholder="Email" maxlength="255" type="email" id="BoostCakeEmail"/></div></div>	<div class="form-group"><label for="BoostCakePassword" class="col col-md-3 control-label">Password</label><div class="col col-md-9"><input name="data[BoostCake][password]" class="form-control" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>	<div class="form-group"><div class="col col-md-9 col-md-offset-3"><div class="checkbox"><input type="hidden" name="data[BoostCake][remember]" id="BoostCakeRemember_" value="0"/><label for="BoostCakeRemember"><input type="checkbox" name="data[BoostCake][remember]"  value="1" id="BoostCakeRemember"/> Remember me</label></div></div></div>	<div class="form-group">
+		<div class="col col-md-9 col-md-offset-3"><input  class="btn btn-default" type="submit" value="Sign in"/></div>	</div>
+<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="a1fc270693a5254148a1919b2e1e7a2d28a3756f%3A" id="TokenFields1779191059"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1937394549"/></div></form>			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;label&#039; =&gt; array(
-			&#039;class&#039; =&gt; &#039;col col-md-2 control-label&#039;
+			&#039;class&#039; =&gt; &#039;col col-md-3 control-label&#039;
 		),
-		&#039;wrapInput&#039; =&gt; &#039;col col-md-10&#039;,
+		&#039;wrapInput&#039; =&gt; &#039;col col-md-9&#039;,
 		&#039;class&#039; =&gt; &#039;form-control&#039;
 	),
 	&#039;class&#039; =&gt; &#039;well form-horizontal&#039;
@@ -159,18 +158,22 @@
 		&#039;placeholder&#039; =&gt; &#039;Password&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;remember&#039;, array(
-		&#039;wrapInput&#039; =&gt; &#039;col col-md-10 col-md-offset-2&#039;,
+		&#039;wrapInput&#039; =&gt; &#039;col col-md-9 col-md-offset-3&#039;,
 		&#039;label&#039; =&gt; &#039;Remember me&#039;,
-		&#039;class&#039; =&gt; false,
-		&#039;afterInput&#039; =&gt; $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
-			&#039;class&#039; =&gt; &#039;btn btn-default&#039;
-		))
+		&#039;class&#039; =&gt; false
 	)); ?&gt;
+	&lt;div class=&quot;form-group&quot;&gt;
+		&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Sign in&#039;, array(
+			&#039;div&#039; =&gt; &#039;col col-md-9 col-md-offset-3&#039;,
+			&#039;class&#039; =&gt; &#039;btn btn-default&#039;
+		)); ?&gt;
+	&lt;/div&gt;
 &lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
 			<hr>
 
 			<h3>Other form example</h3>
-						<form action="#" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="cce0283755db419e276c49bd92190138460b09b2" id="Token1185623655"/></div>				<div class="form-group"><label for="BoostCakeSelect" class="col col-md-2 control-label">Select Nested Options</label><div class="col col-md-10"><select name="data[BoostCake][select]" class="form-control" id="BoostCakeSelect">
+
+			<form action="/boost_cake/boost_cake/bootstrap3" class="well form-horizontal" id="BoostCakeBootstrap3Form" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="6895bd0239bfcc1a2eb7fd2469d6a0d991fd52e4" id="Token1974902541"/></div>	<div class="form-group"><label for="BoostCakeSelect" class="col col-md-3 control-label">Select Nested Options</label><div class="col col-md-9"><select name="data[BoostCake][select]" class="form-control" id="BoostCakeSelect">
 <option value="">選択してください</option>
 <optgroup label="東京">
 <option value="1">渋谷</option>
@@ -180,7 +183,7 @@
 <option value="3">梅田</option>
 <option value="4">難波</option>
 </optgroup>
-</select></div></div>				<div class="form-group"><label for="BoostCakeSelect" class="col col-md-2 control-label">Select Nested Options Checkbox</label><div class="col col-md-10"><input type="hidden" name="data[BoostCake][select]" value="" id="BoostCakeSelect"/>
+</select></div></div>	<div class="form-group"><label for="BoostCakeSelect" class="col col-md-3 control-label">Select Nested Options Checkbox</label><div class="col col-md-9"><input type="hidden" name="data[BoostCake][select]" value="" id="BoostCakeSelect"/>
 
 <fieldset><legend>東京</legend>
 <label for="BoostCakeSelect1" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="1" id="BoostCakeSelect1" /> 渋谷</label>
@@ -190,19 +193,18 @@
 <label for="BoostCakeSelect3" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="3" id="BoostCakeSelect3" /> 梅田</label>
 <label for="BoostCakeSelect4" class="checkbox-inline"><input type="checkbox" name="data[BoostCake][select][]" value="4" id="BoostCakeSelect4" /> 難波</label>
 </fieldset>
-</div></div>				<div class="form-group"><label class="col col-md-2 control-label">Radio</label><div class="col col-md-10"><input type="hidden" name="data[BoostCake][radio]" id="BoostCakeRadio_" value=""/><label class="" for="BoostCakeRadio1"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio1" value="1" /> Option one is this and that—be sure to include why it's great</label><label class="" for="BoostCakeRadio2"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio2" value="2" /> Option two can be something else and selecting it will deselect option one</label></div></div>				<div class="form-group"><label for="BoostCakeUsername" class="col col-md-2 control-label">Prepend</label><div class="col col-md-10"><div class="input-group"><span class="input-group-addon">@</span><input name="data[BoostCake][username]" class="form-control" placeholder="Username" type="text" id="BoostCakeUsername"/></div></div></div>				<div class="form-group"><label for="BoostCakePrice" class="col col-md-2 control-label">Append</label><div class="col col-md-10"><div class="input-group"><input name="data[BoostCake][price]" class="form-control" type="number" id="BoostCakePrice"/><span class="input-group-addon">.00</span></div></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-md-2 control-label">Show Error Message</label><div class="col col-md-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/><span class="help-block text-danger">Please provide a password</span></div></div>				<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-md-2 control-label">Hide Error Message</label><div class="col col-md-10"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>				<div class="form-group"><div class="col col-md-10 col-md-offset-2"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Checkbox</label></div><span class="help-block">Checkbox Bootstrap Style</span></div></div>				<div class="form-group"><label class="col col-md-2 control-label">Checkbox</label><div class="col col-md-10"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/></div><span class="help-block">Checkbox CakePHP Style</span></div></div>				<div class="row">
-					<div class="col col-md-10 col-md-offset-2">
-						<input  class="btn btn-primary" type="submit" value="Save changes"/>						<button type="button" class="btn btn-default">Cancel</button>
-					</div>
-				</div>
-			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="c95cdcede40e2e2b4e80449f454674a9ad89e5ed%3A" id="TokenFields1473622970"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1734447507"/></div></form>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
+</div></div>	<div class="form-group"><label class="col col-md-3 control-label">Radio</label><div class="col col-md-9"><input type="hidden" name="data[BoostCake][radio]" id="BoostCakeRadio_" value=""/><label class="" for="BoostCakeBoostCakeRadio1" class="col col-md-3 control-label"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio1" value="1" /> Option one is this and that—be sure to include why it's great</label><label class="" for="BoostCakeBoostCakeRadio2" class="col col-md-3 control-label"><input type="radio" name="data[BoostCake][radio]" id="BoostCakeRadio2" value="2" /> Option two can be something else and selecting it will deselect option one</label></div></div>	<div class="form-group"><label for="BoostCakeUsername" class="col col-md-3 control-label">Prepend</label><div class="col col-md-9"><div class="input-group"><span class="input-group-addon">@</span><input name="data[BoostCake][username]" class="form-control" placeholder="Username" type="text" id="BoostCakeUsername"/></div></div></div>	<div class="form-group"><label for="BoostCakePrice" class="col col-md-3 control-label">Append</label><div class="col col-md-9"><div class="input-group"><input name="data[BoostCake][price]" class="form-control" type="number" id="BoostCakePrice"/><span class="input-group-addon">.00</span></div></div></div>	<div class="form-group has-error error"><label for="BoostCakePriceError" class="col col-md-3 control-label">Append Error</label><div class="col col-md-9"><div class="input-group"><input name="data[BoostCake][price_error]" class="form-control form-error" type="text" id="BoostCakePriceError"/><span class="input-group-addon">.00</span></div><span class="help-block text-danger">Please provide a password</span></div></div>	<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-md-3 control-label">Show Error Message</label><div class="col col-md-9"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/><span class="help-block text-danger">Please provide a password</span></div></div>	<div class="form-group has-error error"><label for="BoostCakePassword" class="col col-md-3 control-label">Hide Error Message</label><div class="col col-md-9"><input name="data[BoostCake][password]" class="form-control form-error" placeholder="Password" type="password" id="BoostCakePassword"/></div></div>	<div class="form-group"><div class="col col-md-9 col-md-offset-3"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><label for="BoostCakeCheckbox"><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/> Checkbox</label></div><span class="help-block">Checkbox Bootstrap Style</span></div></div>	<div class="form-group"><label class="col col-md-3 control-label">Checkbox</label><div class="col col-md-9"><div class="checkbox"><input type="hidden" name="data[BoostCake][checkbox]" id="BoostCakeCheckbox_" value="0"/><input type="checkbox" name="data[BoostCake][checkbox]"  value="1" id="BoostCakeCheckbox"/></div><span class="help-block">Checkbox CakePHP Style</span></div></div>	<div class="form-group">
+		<div class="col col-md-9 col-md-offset-3">
+			<input  class="btn btn-primary" type="submit" value="Save changes"/>			<button type="button" class="btn btn-default">Cancel</button>
+		</div>
+	</div>
+<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="385b1d3d2a1900f23380aaa84932a7b704463771%3A" id="TokenFields1649673530"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1084048348"/></div></form>			<pre class="prettyprint">&lt;?php echo $this-&gt;Form-&gt;create(&#039;BoostCake&#039;, array(
 	&#039;inputDefaults&#039; =&gt; array(
 		&#039;div&#039; =&gt; &#039;form-group&#039;,
 		&#039;label&#039; =&gt; array(
-			&#039;class&#039; =&gt; &#039;col col-md-2 control-label&#039;
+			&#039;class&#039; =&gt; &#039;col col-md-3 control-label&#039;
 		),
-		&#039;wrapInput&#039; =&gt; &#039;col col-md-10&#039;,
+		&#039;wrapInput&#039; =&gt; &#039;col col-md-9&#039;,
 		&#039;class&#039; =&gt; &#039;form-control&#039;
 	),
 	&#039;class&#039; =&gt; &#039;well form-horizontal&#039;
@@ -242,7 +244,7 @@
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;radio&#039;, array(
 		&#039;type&#039; =&gt; &#039;radio&#039;,
-		&#039;before&#039; =&gt; &#039;&lt;label class=&quot;col col-md-2 control-label&quot;&gt;Radio&lt;/label&gt;&#039;,
+		&#039;before&#039; =&gt; &#039;&lt;label class=&quot;col col-md-3 control-label&quot;&gt;Radio&lt;/label&gt;&#039;,
 		&#039;legend&#039; =&gt; false,
 		&#039;class&#039; =&gt; false,
 		&#039;options&#039; =&gt; array(
@@ -255,19 +257,22 @@
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Prepend&#039;,
 		),
-		&#039;between&#039; =&gt; &#039;&lt;div class=&quot;col col-md-10&quot;&gt;&#039;,
-		&#039;wrapInput&#039; =&gt; &#039;input-group&#039;,
-		&#039;beforeInput&#039; =&gt; &#039;&lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;&#039;,
-		&#039;after&#039; =&gt; &#039;&lt;/div&gt;&#039;
+		&#039;beforeInput&#039; =&gt; &#039;&lt;div class=&quot;input-group&quot;&gt;&lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;&#039;,
+		&#039;afterInput&#039; =&gt; &#039;&lt;/div&gt;&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;price&#039;, array(
 		&#039;label&#039; =&gt; array(
 			&#039;text&#039; =&gt; &#039;Append&#039;,
 		),
-		&#039;between&#039; =&gt; &#039;&lt;div class=&quot;col col-md-10&quot;&gt;&#039;,
-		&#039;wrapInput&#039; =&gt; &#039;input-group&#039;,
-		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;&#039;,
-		&#039;after&#039; =&gt; &#039;&lt;/div&gt;&#039;
+		&#039;beforeInput&#039; =&gt; &#039;&lt;div class=&quot;input-group&quot;&gt;&#039;,
+		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;&lt;/div&gt;&#039;
+	)); ?&gt;
+	&lt;?php echo $this-&gt;Form-&gt;input(&#039;price_error&#039;, array(
+		&#039;label&#039; =&gt; array(
+			&#039;text&#039; =&gt; &#039;Append Error&#039;,
+		),
+		&#039;beforeInput&#039; =&gt; &#039;&lt;div class=&quot;input-group&quot;&gt;&#039;,
+		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;&lt;/div&gt;&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;password&#039;, array(
 		&#039;label&#039; =&gt; array(
@@ -283,20 +288,19 @@
 		&#039;errorMessage&#039; =&gt; false
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
-		&#039;wrapInput&#039; =&gt; &#039;col col-md-10 col-md-offset-2&#039;,
+		&#039;wrapInput&#039; =&gt; &#039;col col-md-9 col-md-offset-3&#039;,
 		&#039;label&#039; =&gt; array(&#039;class&#039; =&gt; null),
 		&#039;class&#039; =&gt; false,
 		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Checkbox Bootstrap Style&lt;/span&gt;&#039;
 	)); ?&gt;
 	&lt;?php echo $this-&gt;Form-&gt;input(&#039;checkbox&#039;, array(
-		&#039;before&#039; =&gt; &#039;&lt;label class=&quot;col col-md-2 control-label&quot;&gt;Checkbox&lt;/label&gt;&#039;,
+		&#039;before&#039; =&gt; &#039;&lt;label class=&quot;col col-md-3 control-label&quot;&gt;Checkbox&lt;/label&gt;&#039;,
 		&#039;label&#039; =&gt; false,
 		&#039;class&#039; =&gt; false,
-		&#039;wrapInput&#039; =&gt; &#039;col col-md-10&#039;,
 		&#039;afterInput&#039; =&gt; &#039;&lt;span class=&quot;help-block&quot;&gt;Checkbox CakePHP Style&lt;/span&gt;&#039;
 	)); ?&gt;
-	&lt;div class=&quot;row&quot;&gt;
-		&lt;div class=&quot;col col-md-10 col-md-offset-2&quot;&gt;
+	&lt;div class=&quot;form-group&quot;&gt;
+		&lt;div class=&quot;col col-md-9 col-md-offset-3&quot;&gt;
 			&lt;?php echo $this-&gt;Form-&gt;submit(&#039;Save changes&#039;, array(
 				&#039;div&#039; =&gt; false,
 				&#039;class&#039; =&gt; &#039;btn btn-primary&#039;
@@ -304,7 +308,8 @@
 			&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Cancel&lt;/button&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-&lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;</pre>
+&lt;?php echo $this-&gt;Form-&gt;end(); ?&gt;
+</pre>
 		</section>
 
 		<section id="pagination">
@@ -318,40 +323,45 @@
 				The large block is hard to miss, easily scalable, and provides large click areas.
 			</p>
 
-						<ul class="pagination"><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:1" rel="first">&lt;&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9" rel="prev">&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:8">8</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11">11</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:12">12</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11" rel="next">&gt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:200" rel="last">&gt;&gt;</a></li></ul>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(&#039;ul&#039; =&gt; &#039;pagination&#039;)); ?&gt;</pre>
+
+			<ul class="pagination"><li><a href="/boost_cake/boost_cake/bootstrap3" model="Post" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:8" model="Post">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:12" model="Post">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:200" model="Post" rel="last">&gt;&gt;</a></li></ul>			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;ul&#039; =&gt; &#039;pagination&#039;
+)); ?&gt;</pre>
 
 			<h3>Sizes</h3>
 			<p>
-				Fancy larger or smaller pagination? Add .pagination-large,
-				<code>.pagination-small</code>, or <code>.pagination-mini</code> for additional sizes.
+				Fancy larger or smaller pagination? Add .pagination-lg,
+				<code>.pagination-sm</code>, or <code>.pagination-mini</code> for additional sizes.
 			</p>
 
-			<ul class="pagination pagination-large"><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:1" rel="first">&lt;&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9" rel="prev">&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:8">8</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11">11</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:12">12</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11" rel="next">&gt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:200" rel="last">&gt;&gt;</a></li></ul>			<ul class="pagination"><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:1" rel="first">&lt;&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9" rel="prev">&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:8">8</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11">11</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:12">12</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11" rel="next">&gt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:200" rel="last">&gt;&gt;</a></li></ul>			<ul class="pagination pagination-small"><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:1" rel="first">&lt;&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9" rel="prev">&lt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:8">8</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11">11</a></li><li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:12">12</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11" rel="next">&gt;</a></li>
-<li><a href="/cakephp-plugin-boost_cake/bootstrap3/page:200" rel="last">&gt;&gt;</a></li></ul>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
-	&#039;ul&#039; =&gt; &#039;pagination pagination-large&#039;
+			<ul class="pagination pagination-lg"><li><a href="/boost_cake/boost_cake/bootstrap3" model="Post" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:8" model="Post">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:12" model="Post">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:200" model="Post" rel="last">&gt;&gt;</a></li></ul>
+<ul class="pagination"><li><a href="/boost_cake/boost_cake/bootstrap3" model="Post" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:8" model="Post">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:12" model="Post">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:200" model="Post" rel="last">&gt;&gt;</a></li></ul>
+<ul class="pagination pagination-sm"><li><a href="/boost_cake/boost_cake/bootstrap3" model="Post" rel="first">&lt;&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post" rel="prev">&lt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:8" model="Post">8</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post">9</a></li><li class="current disabled"><a href="#">10</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post">11</a></li><li><a href="/boost_cake/boost_cake/bootstrap3/page:12" model="Post">12</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post" rel="next">&gt;</a></li>
+<li><a href="/boost_cake/boost_cake/bootstrap3/page:200" model="Post" rel="last">&gt;&gt;</a></li></ul>			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
+	&#039;ul&#039; =&gt; &#039;pagination pagination-lg&#039;
 )); ?&gt;
+
 &lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
 	&#039;ul&#039; =&gt; &#039;pagination&#039;
 )); ?&gt;
+
 &lt;?php echo $this-&gt;Paginator-&gt;pagination(array(
-	&#039;ul&#039; =&gt; &#039;pagination pagination-small&#039;
+	&#039;ul&#039; =&gt; &#039;pagination pagination-sm&#039;
 )); ?&gt;</pre>
 
 			<h3>Pager</h3>
@@ -360,10 +370,11 @@
 				It's great for simple sites like blogs or magazines.
 			</p>
 
-			<ul class="pager"><li class="previous"><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9" rel="prev">Previous</a></li>
-<li class="next"><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11" rel="next">Next</a></li></ul>			<ul class="pager"><li class="previous"><a href="/cakephp-plugin-boost_cake/bootstrap3/page:9" rel="prev">← Older</a></li>
-<li class="next"><a href="/cakephp-plugin-boost_cake/bootstrap3/page:11" rel="next">Newer →</a></li></ul>
-			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pager(); ?&gt;
+			<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post" rel="prev">Previous</a></li>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post" rel="next">Next</a></li></ul>
+<ul class="pager"><li class="previous"><a href="/boost_cake/boost_cake/bootstrap3/page:9" model="Post" rel="prev">← Older</a></li>
+<li class="next"><a href="/boost_cake/boost_cake/bootstrap3/page:11" model="Post" rel="next">Newer →</a></li></ul>			<pre class="prettyprint">&lt;?php echo $this-&gt;Paginator-&gt;pager(); ?&gt;
+
 &lt;?php echo $this-&gt;Paginator-&gt;pager(array(
 	&#039;prev&#039; =&gt; &#039;← Older&#039;,
 	&#039;next&#039; =&gt; &#039;Newer →&#039;
@@ -419,7 +430,7 @@ $this-&gt;Session-&gt;setFlash(__(&#039;Alert danger message testing...&#039;), 
 	<!-- Le javascript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
