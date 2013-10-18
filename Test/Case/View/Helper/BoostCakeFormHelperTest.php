@@ -311,6 +311,37 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 			'/div',
 			'/div'
 		));
+
+		$result = $this->Form->input('Contact.password', array(
+			'div' => 'control-group',
+			'label' => array(
+				'class' => 'control-label'
+			),
+			'wrapInput' => 'controls',
+			'beforeInput' => '<div class="input-append">',
+			'afterInput' => '<span class="add-on">AddOn</span></div>'
+		));
+		$this->assertTags($result, array(
+			array('div' => array('class' => 'control-group has-error error')),
+			'label' => array('for' => 'ContactPassword', 'class' => 'control-label'),
+			'Password',
+			'/label',
+			array('div' => array('class' => 'controls')),
+			array('div' => array('class' => 'input-append')),
+			'input' => array(
+				'type' => 'password', 'name' => 'data[Contact][password]',
+				'id' => 'ContactPassword', 'class' => 'form-error'
+			),
+			array('span' => array('class' => 'add-on')),
+			'AddOn',
+			'/span',
+			'/div',
+			array('span' => array('class' => 'help-block text-danger')),
+			'Please provide a password',
+			'/span',
+			'/div',
+			'/div'
+		));
 	}
 
 	public function testPostLink() {

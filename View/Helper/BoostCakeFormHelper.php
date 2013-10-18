@@ -184,7 +184,7 @@ class BoostCakeFormHelper extends FormHelper {
 			}
 		}
 
-		$html = $beforeInput . $input . $error . $afterInput;
+		$html = $beforeInput . $input . $afterInput . $error;
 
 		if ($this->_divOptions) {
 			$tag = $this->_divOptions['tag'];
