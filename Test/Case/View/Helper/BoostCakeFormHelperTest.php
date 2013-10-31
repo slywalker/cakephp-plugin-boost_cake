@@ -262,6 +262,36 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+	public function testRadio() {
+		$result = $this->Form->input('name', array(
+			'type' => 'radio',
+			'options' => array(
+				'one' => 'This is one',
+				'two' => 'This is two'
+			)
+		));
+		$this->assertTags($result, array(
+			array('div' => array()),
+			array('div' => array('class' => 'input radio')),
+			'fieldset' => array(),
+			'legend' => array(),
+			'Name',
+			'/legend',
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'id' => 'name_', 'value' => '')),
+			array('label' => array('for' => 'NameOne', 'class' => 'radio')),
+			array('input' => array('name' => 'data[name]', 'type' => 'radio', 'value' => 'one', 'id' => 'NameOne')),
+			' This is one',
+			'/label',
+			array('label' => array('for' => 'NameTwo', 'class' => 'radio')),
+			array('input' => array('name' => 'data[name]', 'type' => 'radio', 'value' => 'two', 'id' => 'NameTwo')),
+			' This is two',
+			'/label',
+			'/fieldset',
+			'/div',
+			'/div'
+		));
+	}
+
 	public function testErrorMessage() {
 		$Contact = ClassRegistry::getObject('Contact');
 		$Contact->validationErrors['password'] = array('Please provide a password');
