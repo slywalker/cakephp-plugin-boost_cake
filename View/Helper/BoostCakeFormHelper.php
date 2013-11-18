@@ -17,6 +17,58 @@ class BoostCakeFormHelper extends FormHelper {
 	protected $_fieldName = null;
 
 /**
+ * Overwrite FormHelper::create()
+ *
+ * Added: Automatically specifies inputDefaults depending on form class
+ *
+ * Returns an HTML FORM element.
+ *
+ * ### Options:
+ *
+ * - `type` Form method defaults to POST
+ * - `action`  The controller action the form submits to, (optional).
+ * - `url`  The URL the form submits to. Can be a string or a URL array. If you use 'url'
+ *    you should leave 'action' undefined.
+ * - `default`  Allows for the creation of Ajax forms. Set this to false to prevent the default event handler.
+ *   Will create an onsubmit attribute if it doesn't not exist. If it does, default action suppression
+ *   will be appended.
+ * - `onsubmit` Used in conjunction with 'default' to create ajax forms.
+ * - `inputDefaults` set the default $options for FormHelper::input(). Any options that would
+ *   be set when using FormHelper::input() can be set here. Options set with `inputDefaults`
+ *   can be overridden when calling input()
+ * - `encoding` Set the accept-charset encoding for the form. Defaults to `Configure::read('App.encoding')`
+ *
+ * @param mixed $model The model name for which the form is being defined. Should
+ *   include the plugin name for plugin models. e.g. `ContactManager.Contact`.
+ *   If an array is passed and $options argument is empty, the array will be used as options.
+ *   If `false` no model is used.
+ * @param array $options An array of html attributes and options.
+ * @return string An formatted opening FORM tag.
+ * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#options-for-create
+ */
+	public function create($model = null, $options = array()) {
+		if ($bootstrapVersion = Configure::read('BoostCake.bootstrap_version')) {
+			if (!isset($options['class'])) {
+				$class = 'default';
+			} else {
+				$class = $options['class'];
+			}
+			if ($inputDefaults = Configure::read("BoostCake.inputDefaults.$bootstrapVersion.$class")) {
+				$options = Hash::merge(
+					array(
+						'inputDefaults' => $inputDefaults
+					),
+					$options
+				);
+			}
+		}debug(Configure::read("BoostCake.inputDefaults.$bootstrapVersion.$class"));
+
+		$html = parent::create($model, $options);
+		
+		return $html;
+	}
+	
+/**
  * Overwrite FormHelper::input()
  * Generates a form input element complete with label and wrapper div
  *
