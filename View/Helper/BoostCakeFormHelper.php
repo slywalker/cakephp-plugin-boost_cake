@@ -15,7 +15,7 @@ class BoostCakeFormHelper extends FormHelper {
 	protected $_inputType = null;
 
 	protected $_fieldName = null;
-
+	
 /**
  * Overwrite FormHelper::create()
  *
@@ -61,13 +61,13 @@ class BoostCakeFormHelper extends FormHelper {
 					$options
 				);
 			}
-		}debug(Configure::read("BoostCake.inputDefaults.$bootstrapVersion.$class"));
+		}
 
 		$html = parent::create($model, $options);
 		
 		return $html;
 	}
-	
+
 /**
  * Overwrite FormHelper::input()
  * Generates a form input element complete with label and wrapper div
