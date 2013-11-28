@@ -229,6 +229,34 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 
 		$result = $this->Form->select('name',
 			array(
+				1 => 'one',
+				2 => 'two',
+				3 => 'three'
+			),
+			array(
+				'multiple' => 'checkbox',
+				'class' => 'checkbox-inline',
+				'value' => 2
+			)
+		);
+		$this->assertTags($result, array(
+			array('input' => array('type' => 'hidden', 'name' => 'data[name]', 'value' => '', 'id' => 'name')),
+			array('label' => array('for' => 'Name1', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '1', 'id' => 'Name1')),
+			' one',
+			'/label',
+			array('label' => array('for' => 'Name2', 'class' => 'selected checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '2', 'id' => 'Name2', 'checked' => 'checked')),
+			' two',
+			'/label',
+			array('label' => array('for' => 'Name3', 'class' => 'checkbox-inline')),
+			array('input' => array('type' => 'checkbox', 'name' => 'data[name][]', 'value' => '3', 'id' => 'Name3')),
+			' three',
+			'/label'
+		));
+
+		$result = $this->Form->select('name',
+			array(
 				1 => 'bill',
 				'Smith' => array(
 					2 => 'fred',
