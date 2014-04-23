@@ -24,6 +24,6 @@
         "composer/installers": "*"
     },
     "suggest": {
-        "twitter/bootstrap": "Bootstrap for Twitter"
+        "twbs/bootstrap": "Bootstrap framework"
     }
 }
