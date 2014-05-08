@@ -140,7 +140,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		);
 		$options += $defaults;
 		$return = parent::numbers($options);
-		return preg_replace('@<li class="current">(.*?)</li>@', '<li class="current disabled"><a href="#">\1</a></li>', $return);
+		return preg_replace('@<li class="current">(.*?)</li>@', '<li class="current active"><a href="#">\1</a></li>', $return);
 	}
 
 	public function first($title = null, $options = array()) {
