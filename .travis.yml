@@ -25,6 +25,7 @@ matrix:
 before_script:
   - git clone https://github.com/FriendsOfCake/travis.git --depth 1 ../travis
   - ../travis/before_script.sh
+  - if [ "$PHPCS" != 1 ]; then echo "\nrequire_once APP . DS . 'vendor' . DS . 'phpunit' . DS . 'phpunit' . DS . 'PHPUnit' . DS . 'Autoload.php';\n" >> Config/bootstrap.php; fi
 
 script:
   - ../travis/script.sh
