@@ -1,8 +1,9 @@
 <?php
 namespace BoostCake\View\Helper;
 
-use App\Utility\Set;
-use App\View\Helper\FormHelper;
+use Cake\Utility\Hash;
+use Cake\View\Helper\FormHelper;
+
 class BoostCakeFormHelper extends FormHelper {
 
 	public $helpers = array('Html' => array(

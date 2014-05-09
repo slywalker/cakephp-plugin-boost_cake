@@ -1,7 +1,8 @@
 <?php
 namespace BoostCake\View\Helper;
 
-use App\View\Helper\PaginatorHelper;
+use Cake\View\Helper\PaginatorHelper;
+
 class BoostCakePaginatorHelper extends PaginatorHelper {
 
 	public function pagination($options = array()) {
