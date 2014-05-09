@@ -17,9 +17,6 @@ matrix:
   include:
     - php: 5.4
       env:
-        - COVERALLS=1
-    - php: 5.4
-      env:
         - PHPCS=1 PHPCS_IGNORE="*/Test/*"
 
 before_script:
