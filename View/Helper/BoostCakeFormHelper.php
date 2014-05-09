@@ -76,12 +76,12 @@ class BoostCakeFormHelper extends FormHelper {
 			'afterInput' => '',
 			'errorClass' => 'has-error error'
 		);
-    
-    if (isset($options['label']) && is_string($options['label'])) {
-      $options['label'] = array(
-        'text' => $options['label']
-       );
-    }    
+
+		if (isset($options['label']) && is_string($options['label'])) {
+			$options['label'] = array(
+				'text' => $options['label']
+			);
+		}
 
 		$options = Hash::merge(
 			$default,

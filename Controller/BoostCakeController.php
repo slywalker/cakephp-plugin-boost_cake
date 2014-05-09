@@ -13,6 +13,10 @@ class BoostCakeController extends AppController {
 		'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
 	);
 
+/**
+ * beforeFilter
+ * @throws MethodNotAllowedException
+ */
 	public function beforeFilter() {
 		if (Configure::read('debug') < 1) {
 			throw new MethodNotAllowedException(__('Debug setting does not allow access to this url.'));
