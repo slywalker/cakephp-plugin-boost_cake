@@ -1,7 +1,8 @@
 <?php
-App::uses('HtmlHelper', 'View/Helper');
-App::uses('Inflector', 'Utility');
+namespace BoostCake\View\Helper;
 
+use App\View\Helper\HtmlHelper;
+use Cake\Utility\Inflector;
 class BoostCakeHtmlHelper extends HtmlHelper {
 
 /**

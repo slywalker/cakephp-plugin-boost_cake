@@ -1,6 +1,7 @@
 <?php
-App::uses('AppModel', 'Model');
+namespace BoostCake\Model;
 
+use App\Model\AppModel;
 class BoostCake extends AppModel {
 
 	public $useTable = false;

@@ -1,8 +1,9 @@
 <?php
-App::uses('View', 'View');
-App::uses('Helper', 'View');
-App::uses('BoostCakePaginatorHelper', 'BoostCake.View/Helper');
+namespace BoostCake\Test\Case\View\Helper;
 
+use BoostCake\View\Helper\BoostCakePaginatorHelper;
+use Cake\View\Helper;
+use Cake\View\View;
 /**
  * BootstrapPaginatorHelper Test Case
  *

@@ -1,6 +1,7 @@
 <?php
-App::uses('AppController', 'Controller');
+namespace BoostCake\Controller;
 
+use App\Controller\AppController;
 class BoostCakeController extends AppController {
 
 	public $uses = array('BoostCake.BoostCake');

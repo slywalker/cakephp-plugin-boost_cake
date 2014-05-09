@@ -1,4 +1,5 @@
 <?php
+namespace BoostCake\Test\Case;
 class AllBoostCakeTest extends CakeTestSuite {
 
 	public static function suite() {
