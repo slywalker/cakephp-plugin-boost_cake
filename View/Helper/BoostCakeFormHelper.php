@@ -1,7 +1,6 @@
 <?php
 namespace BoostCake\View\Helper;
 
-use Cake\Utility\Hash;
 use Cake\View\View;
 use Cake\View\Helper\FormHelper;
 
@@ -24,6 +23,8 @@ class BoostCakeFormHelper extends FormHelper {
 		'groupContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
 		'groupContainerError' => '<div class="form-group {{type}}{{required}} error">{{content}}{{error}}</div>',
 		'submitContainer' => '<div class="submit">{{content}}</div>',
+		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
+		'radioContainer' => '{{label}}'
 	];
 
 /**
@@ -35,6 +36,8 @@ class BoostCakeFormHelper extends FormHelper {
 	public function __construct(View $View, array $config = []) {
 		$this->_defaultConfig['templates'] = array_merge($this->_defaultConfig['templates'], $this->_bootstrapTemplates);
 		parent::__construct($View, $config);
+
+		$this->addWidget('radio', ['BoostCake\View\Widget\Radio', 'label']);
 	}
 
 /**
