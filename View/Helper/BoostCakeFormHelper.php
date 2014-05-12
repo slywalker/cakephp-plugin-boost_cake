@@ -21,7 +21,7 @@ class BoostCakeFormHelper extends FormHelper {
 	protected $_bootstrapTemplates = [
 		'error' => '<span class="help-block text-danger">{{content}}</span>',
 		'groupContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
-		'groupContainerError' => '<div class="form-group {{type}}{{required}} error">{{content}}{{error}}</div>',
+		'groupContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
 		'submitContainer' => '<div class="submit">{{content}}</div>',
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
 		'radioContainer' => '{{label}}'
