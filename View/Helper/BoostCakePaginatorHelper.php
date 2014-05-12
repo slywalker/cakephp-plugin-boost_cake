@@ -5,7 +5,7 @@ use Cake\View\Helper\PaginatorHelper;
 
 class BoostCakePaginatorHelper extends PaginatorHelper {
 
-	public function pagination($options = array()) {
+	public function pagination(array $options = array()) {
 		$default = array(
 			'div' => false,
 			'ul' => ''
@@ -72,7 +72,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		return $this->Html->tag('ul', implode("\n", $out), compact('class'));
 	}
 
-	public function prev($title = null, $options = array(), $disabledTitle = null, $disabledOptions = array()) {
+	public function prev($title = null, array $options = array()) {
 		$default = array(
 			'title' => '<',
 			'tag' => 'li',
@@ -99,7 +99,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		)));
 	}
 
-	public function next($title = null, $options = array(), $disabledTitle = null, $disabledOptions = array()) {
+	public function next($title = null, array $options = array()) {
 		$default = array(
 			'title' => '>',
 			'tag' => 'li',
@@ -126,7 +126,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		)));
 	}
 
-	public function numbers($options = array()) {
+	public function numbers(array $options = array()) {
 		$defaults = array(
 			'tag' => 'li',
 			'before' => null,
@@ -145,7 +145,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		return preg_replace('@<li class="current">(.*?)</li>@', '<li class="current disabled"><a href="#">\1</a></li>', $return);
 	}
 
-	public function first($title = null, $options = array()) {
+	public function first($title = null, array $options = array()) {
 		$default = array(
 			'title' => '<<',
 			'tag' => 'li',
@@ -168,7 +168,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		);
 	}
 
-	public function last($title = null, $options = array()) {
+	public function last($title = null, array $options = array()) {
 		$default = array(
 			'title' => '>>',
 			'tag' => 'li',
@@ -183,8 +183,6 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 			$title = $options['title'];
 		}
 		unset($options['title']);
-
-		$params = (array)$this->params($options['model']);
 
 		return (parent::last($title, $options)) ? (parent::last($title, $options)) : $this->Html->tag(
 			$options['tag'],

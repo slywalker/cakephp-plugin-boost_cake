@@ -2,6 +2,7 @@
 namespace BoostCake\View\Helper;
 
 use Cake\Utility\Hash;
+use Cake\View\View;
 use Cake\View\Helper\FormHelper;
 
 class BoostCakeFormHelper extends FormHelper {
@@ -18,49 +19,43 @@ class BoostCakeFormHelper extends FormHelper {
 
 	protected $_fieldName = null;
 
+	protected $_bootstrapTemplates = [
+		'error' => '<span class="help-block text-danger">{{content}}</span>',
+		'groupContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
+		'groupContainerError' => '<div class="form-group {{type}}{{required}} error">{{content}}{{error}}</div>',
+		'submitContainer' => '<div class="submit">{{content}}</div>',
+	];
+
 /**
- * Overwrite FormHelper::input()
- * Generates a form input element complete with label and wrapper div
+ * Construct the widgets and binds the default context providers
  *
- * ### Options
- *
- * See each field type method for more information. Any options that are part of
- * $attributes or $options for the different **type** methods can be included in `$options` for input().i
- * Additionally, any unknown keys that are not in the list below, or part of the selected type's options
- * will be treated as a regular html attribute for the generated input.
- *
- * - `type` - Force the type of widget you want. e.g. `type => 'select'`
- * - `label` - Either a string label, or an array of options for the label. See FormHelper::label().
- * - `div` - Either `false` to disable the div, or an array of options for the div.
- *	See HtmlHelper::div() for more options.
- * - `options` - For widgets that take options e.g. radio, select.
- * - `error` - Control the error message that is produced. Set to `false` to disable any kind of error reporting (field
- *    error and error messages).
- * - `errorMessage` - Boolean to control rendering error messages (field error will still occur).
- * - `empty` - String or boolean to enable empty select box options.
- * - `before` - Content to place before the label + input.
- * - `after` - Content to place after the label + input.
- * - `between` - Content to place between the label + input.
- * - `format` - Format template for element order. Any element that is not in the array, will not be in the output.
- *	- Default input format order: array('before', 'label', 'between', 'input', 'after', 'error')
- *	- Default checkbox format order: array('before', 'input', 'between', 'label', 'after', 'error')
- *	- Hidden input will not be formatted
- *	- Radio buttons cannot have the order of input and label elements controlled with these settings.
- *
- * Added options
- * - `wrapInput` - Either `false` to disable the div wrapping input, or an array of options for the div.
- *	See HtmlHelper::div() for more options.
- * - `checkboxDiv` - Wrap input checkbox tag's class.
- * - `beforeInput` - Content to place before the input.
- * - `afterInput` - Content to place after the input.
- * - `errorClass` - Wrap input tag's error message class.
- *
- * @param string $fieldName This should be "Modelname.fieldname"
- * @param array $options Each type of input takes different options.
- * @return string Completed form widget.
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#creating-form-elements
+ * @param \Cake\View\View $View   The View this helper is being attached to.
+ * @param array           $config Configuration settings for the helper.
  */
-	public function input($fieldName, $options = array()) {
+	public function __construct(View $View, array $config = []) {
+		$this->_defaultConfig['templates'] = array_merge($this->_defaultConfig['templates'], $this->_bootstrapTemplates);
+		parent::__construct($View, $config);
+	}
+
+/**
+ * Overwrite Cake\View\Helper\FormHelper::input()
+ */
+	public function input($fieldName, array $options = array()) {
+		$options = $this->addClass($options, 'form-control');
+
+		return parent::input($fieldName, $options);
+	}
+
+/**
+ * Overwrite Cake\View\Helper\FormHelper::label()
+ */
+	public function label($fieldName, $text = null, array $options = []) {
+		$options = $this->addClass($options, 'control-label');
+
+		return parent::label($fieldName, $text, $options);
+	}
+
+/*	public function input($fieldName, array $options = array()) {
 		$this->_fieldName = $fieldName;
 
 		$default = array(
@@ -137,7 +132,7 @@ class BoostCakeFormHelper extends FormHelper {
 		}
 
 		return $html;
-	}
+	}*/
 
 /**
  * Overwrite FormHelper::_divOptions()
@@ -147,7 +142,7 @@ class BoostCakeFormHelper extends FormHelper {
  * @param array $options
  * @return array
  */
-	protected function _divOptions($options) {
+/*	protected function _divOptions($options) {
 		$this->_inputType = $options['type'];
 
 		$divOptions = array(
@@ -163,7 +158,7 @@ class BoostCakeFormHelper extends FormHelper {
 			$divOptions = $this->addClass($divOptions, $this->_inputOptions['errorClass']);
 		}
 		return $divOptions;
-	}
+	}*/
 
 /**
  * Overwrite FormHelper::_getInput()
@@ -173,8 +168,8 @@ class BoostCakeFormHelper extends FormHelper {
  * @param type $args
  * @return type
  */
-	protected function _getInput($args) {
-		$input = parent::_getInput($args);
+/*	protected function _getInput($fieldName, $options) {
+		$input = parent::_getInput($fieldName, $options);
 		if ($this->_inputType === 'checkbox' && $this->_inputOptions['checkboxDiv'] !== false) {
 			$input = $this->Html->div($this->_inputOptions['checkboxDiv'], $input);
 		}
@@ -201,7 +196,7 @@ class BoostCakeFormHelper extends FormHelper {
 		}
 
 		return $html;
-	}
+	}*/
 
 /**
  * Overwrite FormHelper::_selectOptions()
@@ -214,7 +209,7 @@ class BoostCakeFormHelper extends FormHelper {
  * @param array $attributes
  * @return array
  */
-	protected function _selectOptions($elements = array(), $parents = array(), $showParents = null, $attributes = array()) {
+/*	protected function _selectOptions($elements = array(), $parents = array(), $showParents = null, $attributes = array()) {
 		$selectOptions = parent::_selectOptions($elements, $parents, $showParents, $attributes);
 
 		if ($attributes['style'] === 'checkbox') {
@@ -223,7 +218,7 @@ class BoostCakeFormHelper extends FormHelper {
 				$option = preg_replace('/<\/div>/', '', $option);
 				if (preg_match('/>(<label.*?>)/', $option, $match)) {
 					$class = $attributes['class'];
-					if (preg_match('/.* class="(.*)".*/', $match[1], $classMatch)) {
+					if (preg_match('/.* class="(.*)".* /', $match[1], $classMatch)) {
 						$class = $classMatch[1] . ' ' . $attributes['class'];
 						$match[1] = str_replace(' class="' . $classMatch[1] . '"', '', $match[1]);
 					}
@@ -235,7 +230,7 @@ class BoostCakeFormHelper extends FormHelper {
 		}
 
 		return $selectOptions;
-	}
+	}*/
 
 /**
  * Creates an HTML link, but access the url using the method you specify (defaults to POST).
@@ -260,7 +255,7 @@ class BoostCakeFormHelper extends FormHelper {
  * @return string An `<a />` element.
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#FormHelper::postLink
  */
-	public function postLink($title, $url = null, $options = array(), $confirmMessage = false) {
+/*	public function postLink($title, $url = null, array $options = array(), $confirmMessage = false) {
 		$block = false;
 		if (!empty($options['block'])) {
 			$block = $options['block'];
@@ -283,6 +278,6 @@ class BoostCakeFormHelper extends FormHelper {
 		}
 
 		return $out;
-	}
+	}*/
 
 }

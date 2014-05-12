@@ -61,7 +61,7 @@ class BoostCakeHtmlHelper extends HtmlHelper {
  * @return string completed img tag
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/html.html#HtmlHelper::image
  */
-	public function image($path, $options = array()) {
+	public function image($path, array $options = array()) {
 		if (empty($path)) {
 			$path = '/';
 		} else {
