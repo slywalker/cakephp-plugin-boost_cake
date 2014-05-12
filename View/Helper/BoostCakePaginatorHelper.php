@@ -5,10 +5,27 @@ use Cake\View\Helper\PaginatorHelper;
 
 class BoostCakePaginatorHelper extends PaginatorHelper {
 
+	public $helpers = array('Html' => array(
+		'className' => 'BoostCake.BoostCakeHtml'
+	));
+
+/**
+ * Construct the widgets and binds the default context providers
+ *
+ * @param \Cake\View\View $View   The View this helper is being attached to.
+ * @param array           $config Configuration settings for the helper.
+ */
+
 	public function pagination(array $options = array()) {
 		$default = array(
 			'div' => false,
-			'ul' => ''
+			'ul' => 'pagination',
+			'text' => array(
+				'first' => '<<',
+				'prev' => '<',
+				'next' => '>',
+				'last' => '>>'
+			)
 		);
 
 		$model = (empty($options['model'])) ? $this->defaultModel() : $options['model'];
@@ -29,6 +46,8 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 
 		$units = $options['units'];
 		unset($options['units']);
+		$text = $options['text'];
+		unset($options['text']);
 		$div = $options['div'];
 		unset($options['div']);
 		$ul = ($options['ul']) ? array('class' => $options['ul']) : array();
@@ -39,7 +58,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 			if ($unit === 'numbers') {
 				$out[] = $this->{$unit}($options);
 			} else {
-				$out[] = $this->{$unit}(null, $options);
+				$out[] = $this->{$unit}($text[$unit], $options);
 			}
 		}
 		$out = $this->Html->tag('ul', implode("\n", $out), $ul);
@@ -48,147 +67,4 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		}
 		return $out;
 	}
-
-	public function pager($options = array()) {
-		$default = array(
-			'ul' => 'pager',
-			'prev' => 'Previous',
-			'next' => 'Next',
-			'disabled' => 'hide',
-		);
-		$options += $default;
-
-		$class = $options['ul'];
-		unset($options['ul']);
-		$prev = $options['prev'];
-		unset($options['prev']);
-		$next = $options['next'];
-		unset($options['next']);
-
-		$out = array();
-		$out[] = $this->prev($prev, array_merge($options, array('class' => 'previous')));
-		$out[] = $this->next($next, array_merge($options, array('class' => 'next')));
-
-		return $this->Html->tag('ul', implode("\n", $out), compact('class'));
-	}
-
-	public function prev($title = null, array $options = array()) {
-		$default = array(
-			'title' => '<',
-			'tag' => 'li',
-			'model' => $this->defaultModel(),
-			'class' => null,
-			'disabled' => 'disabled',
-		);
-		$options += $default;
-		if (empty($title)) {
-			$title = $options['title'];
-		}
-		unset($options['title']);
-
-		$disabled = $options['disabled'];
-		$params = (array)$this->params($options['model']);
-		if ($disabled === 'hide' && !$params['prevPage']) {
-			return null;
-		}
-		unset($options['disabled']);
-
-		return parent::prev($title, $options, $this->link($title), array_merge($options, array(
-			'escape' => false,
-			'class' => $disabled,
-		)));
-	}
-
-	public function next($title = null, array $options = array()) {
-		$default = array(
-			'title' => '>',
-			'tag' => 'li',
-			'model' => $this->defaultModel(),
-			'class' => null,
-			'disabled' => 'disabled',
-		);
-		$options += $default;
-		if (empty($title)) {
-			$title = $options['title'];
-		}
-		unset($options['title']);
-
-		$disabled = $options['disabled'];
-		$params = (array)$this->params($options['model']);
-		if ($disabled === 'hide' && !$params['nextPage']) {
-			return null;
-		}
-		unset($options['disabled']);
-
-		return parent::next($title, $options, $this->link($title), array_merge($options, array(
-			'escape' => false,
-			'class' => $disabled,
-		)));
-	}
-
-	public function numbers(array $options = array()) {
-		$defaults = array(
-			'tag' => 'li',
-			'before' => null,
-			'after' => null,
-			'model' => $this->defaultModel(),
-			'class' => null,
-			'modulus' => 4,
-			'separator' => false,
-			'first' => null,
-			'last' => null,
-			'ellipsis' => '<li class="disabled"><a href="#">…</a></li>',
-			'currentClass' => 'current'
-		);
-		$options += $defaults;
-		$return = parent::numbers($options);
-		return preg_replace('@<li class="current">(.*?)</li>@', '<li class="current disabled"><a href="#">\1</a></li>', $return);
-	}
-
-	public function first($title = null, array $options = array()) {
-		$default = array(
-			'title' => '<<',
-			'tag' => 'li',
-			'after' => null,
-			'model' => $this->defaultModel(),
-			'separator' => null,
-			'ellipsis' => null,
-			'class' => null,
-		);
-		$options += $default;
-		if (empty($title)) {
-			$title = $options['title'];
-		}
-		unset($options['title']);
-
-		return (parent::first($title, $options)) ? (parent::first($title, $options)) : $this->Html->tag(
-			$options['tag'],
-			$this->link($title, array(), $options),
-			array('class' => 'disabled')
-		);
-	}
-
-	public function last($title = null, array $options = array()) {
-		$default = array(
-			'title' => '>>',
-			'tag' => 'li',
-			'after' => null,
-			'model' => $this->defaultModel(),
-			'separator' => null,
-			'ellipsis' => null,
-			'class' => null,
-		);
-		$options += $default;
-		if (empty($title)) {
-			$title = $options['title'];
-		}
-		unset($options['title']);
-
-		return (parent::last($title, $options)) ? (parent::last($title, $options)) : $this->Html->tag(
-			$options['tag'],
-			$this->link($title, array(), $options),
-			array('class' => 'disabled')
-		);
-	}
-
 }
