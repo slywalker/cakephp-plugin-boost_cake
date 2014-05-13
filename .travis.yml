@@ -15,13 +15,17 @@ env:
 
 matrix:
   include:
-    - php: 5.4
+    - php: 5.5
       env:
         - PHPCS=1 PHPCS_IGNORE="*/Test/*"
 
+install:
+  - sh -c "if [ -n \"$CAKE_VERSION\" ]; then composer global require 'phpunit/phpunit=3.7.*'; fi"
+
 before_script:
-  - git clone https://github.com/burzum/travis.git --depth 1 ../travis
+  - git clone https://github.com/FriendsOfCake/travis.git --depth 1 ../travis
   - ../travis/before_script.sh
+  - sh -c "if [ -n \"$CAKE_VERSION\" ]; then ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ../cakephp/vendors/PHPUnit; fi"
 
 script:
   - ../travis/script.sh
