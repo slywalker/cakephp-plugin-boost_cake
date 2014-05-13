@@ -1,13 +1,9 @@
 <?php
 namespace BoostCake\View\Helper;
 
-use Cake\View\Helper\PaginatorHelper;
+class PaginatorHelper extends \Cake\View\Helper\PaginatorHelper {
 
-class BoostCakePaginatorHelper extends PaginatorHelper {
-
-	public $helpers = array('Html' => array(
-		'className' => 'BoostCake.BoostCakeHtml'
-	));
+	public $helpers = array('Html');
 
 /**
  * Construct the widgets and binds the default context providers
@@ -15,7 +11,6 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
  * @param \Cake\View\View $View   The View this helper is being attached to.
  * @param array           $config Configuration settings for the helper.
  */
-
 	public function pagination(array $options = array()) {
 		$default = array(
 			'div' => false,

@@ -6,13 +6,12 @@
 
 BoostCake is a plugin for CakePHP using Bootstrap
 
-* [Bootstrap(2.3.2)](http://getbootstrap.com/2.3.2/)
 * [Bootstrap(3.0.0)](http://getbootstrap.com/)
 
 ## Requirements
 
-* CakePHP >= 2.3
-* Bootstrap >= 2.3 (3.0 support)
+* CakePHP >= 3.0
+* Bootstrap >= 3.0
 
 ## Installation
 
@@ -26,7 +25,7 @@ Ensure require is present in composer.json. This will install the plugin into Pl
 
 ### Enable plugin
 
-You need to enable the plugin in your app/Config/bootstrap.php file:
+You need to enable the plugin in your App/Config/bootstrap.php file:
 
 `CakePlugin::load('BoostCake');`
 

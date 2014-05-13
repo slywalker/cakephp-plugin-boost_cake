@@ -10,8 +10,7 @@ env:
     - PLUGIN_NAME=BoostCake
 
   matrix:
-    - DB=mysql CAKE_VERSION=2.4
-    - DB=mysql CAKE_VERSION=2.5
+    - DB=mysql CAKE_VERSION=3.0
 
 matrix:
   include:
