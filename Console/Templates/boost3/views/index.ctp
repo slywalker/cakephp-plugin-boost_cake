@@ -50,7 +50,7 @@
             'ul' => 'pagination pagination-lg'
         )); ?>\n"; ?>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><?= "<?=__('Actions'); ?>"; ?></h3>
