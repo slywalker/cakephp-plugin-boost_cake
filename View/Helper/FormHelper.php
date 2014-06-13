@@ -15,11 +15,11 @@ class FormHelper extends \Cake\View\Helper\FormHelper {
 
 	protected $_bootstrapTemplates = [
 		'error' => '<span class="help-block text-danger">{{content}}</span>',
-		'groupContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
-		'groupContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
+		'inputContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
+		'inputContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
 		'submitContainer' => '<div class="submit">{{content}}</div>',
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
-		'radioContainer' => '<div class="radio">{{label}}</div>'
+		'radioWrapper' => '<div class="radio">{{label}}</div>'
 	];
 
 /**
