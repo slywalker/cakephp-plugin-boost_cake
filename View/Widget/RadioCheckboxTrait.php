@@ -20,12 +20,16 @@ trait RadioCheckboxTrait {
 	protected function _renderLabel($radio, $label, $input, $context, $escape) {
 		$normalLabel = $this->_templates->get('label');
 		$this->_templates->remove('label');
-		$this->_templates->add('label', $this->_templates->get('radioLabel'));
+		$this->_templates->add([
+			'label' => $this->_templates->get('radioLabel')
+		]);
 
 		$label = parent::_renderLabel($radio, $label, $input, $context, $escape);
 
 		$this->_templates->remove('label');
-		$this->_templates->add('label', $normalLabel);
+		$this->_templates->add([
+			'label' => $normalLabel
+		]);
 		return $label;
 	}
 } 
