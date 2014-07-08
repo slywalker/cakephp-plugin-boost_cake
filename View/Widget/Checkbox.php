@@ -1,6 +1,7 @@
 <?php
 namespace BoostCake\View\Widget;
 
+use Cake\View\Form\ContextInterface;
 use Cake\View\Widget\WidgetInterface;
 
 class Checkbox extends \Cake\View\Widget\Checkbox implements WidgetInterface {
@@ -24,7 +25,7 @@ class Checkbox extends \Cake\View\Widget\Checkbox implements WidgetInterface {
  *
  * @return string Generated HTML string.
  */
-	public function render(array $data) {
+	public function render(array $data, ContextInterface $context) {
 		$data += [
 			'name' => '',
 			'value' => 1,
