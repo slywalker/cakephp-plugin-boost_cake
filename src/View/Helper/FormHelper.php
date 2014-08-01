@@ -63,6 +63,7 @@ class FormHelper extends BaseForm {
 		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle'])) {
 			$options = $this->addClass($options, 'col-sm-' . $this->_labelWidth);
 		}
+		unset($options['ignoreStyle']);
 
 		return parent::label($fieldName, $text, $options);
 	}
