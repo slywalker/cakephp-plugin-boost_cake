@@ -24,7 +24,10 @@
 	    "cakephp/cakephp": "~3.0",
         "composer/installers": "*"
     },
-    "suggest": {
-        "twbs/bootstrap": "Bootstrap framework"
-    }
+	"autoload": {
+		"psr-4": {
+			"BoostCake\\": "src",
+			"BoostCake\\Test\\": "tests"
+		}
+	}
 }
