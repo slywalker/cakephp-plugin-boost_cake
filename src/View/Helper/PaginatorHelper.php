@@ -5,8 +5,6 @@ use Cake\View\View;
 
 class PaginatorHelper extends \Cake\View\Helper\PaginatorHelper {
 
-	public $helpers = ['Html'];
-
 	protected $_bootstrapTemplates = [
 		'current' => '<li class="active"><span>{{text}} <span class="sr-only">(current)</span></span></li>',
 		'ellipsis' => '<li class="ellipsis"><span>...</span></li>',
