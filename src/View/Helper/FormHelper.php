@@ -119,7 +119,7 @@ class FormHelper extends BaseForm {
  *
  * @return string
  */
-	public function create($model = null, $options = []) {
+	public function create($model = null, array $options = []) {
 		if (isset($options['formStyle'])) {
 			$options = $this->_formStyleOptions($options);
 		}
