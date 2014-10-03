@@ -77,7 +77,7 @@ class FormHelper extends BaseForm {
  * @return string
  */
 	public function checkbox($fieldName, array $options = []) {
-		if ($options['type'] == 'checkbox') {
+		if (isset($options['type']) && !empty($options['class']) && $options['type'] == 'checkbox') {
 			$options['class'] = trim(str_replace('form-control', '', $options['class']));
 			if (empty($options['class'])) {
 				unset($options['class']);
@@ -103,7 +103,7 @@ class FormHelper extends BaseForm {
 				$this->_formStyle = 'horizontal';
 				$this->templates([
 					'formGroup' => '{{label}}<div class="col-sm-' . $this->_fieldWidth . '">{{input}}</div>',
-					'error' => '<div class="help-block text-danger col-sm-' . $this->_fieldWidth . ' col-sm-push-' . $this->_labelWidth . '">{{content}}</div>',
+					'error' => '<div class="clearfix"></div><div class="help-block text-danger col-sm-' . $this->_fieldWidth . ' col-sm-push-' . $this->_labelWidth . '">{{content}}</div>',
 				]);
 				break;
 		}
