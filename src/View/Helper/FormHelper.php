@@ -18,7 +18,9 @@ class FormHelper extends BaseForm {
 		'inputContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
 		'submitContainer' => '<div class="submit">{{content}}</div>',
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
-		'radioWrapper' => '<div class="radio">{{label}}</div>'
+		'radioWrapper' => '<div class="radio">{{label}}</div>',
+		'checkboxLabel' => '<label{{attrs}}>{{text}}{{input}}</label>',
+		'checkboxWrapper' => '<div class="checkbox">{{label}}</div>',
 	];
 
 /**
@@ -32,6 +34,7 @@ class FormHelper extends BaseForm {
 		parent::__construct($View, $config);
 
 		$this->addWidget('radio', ['BoostCake\View\Widget\Radio', 'label']);
+		$this->addWidget('checkbox', ['BoostCake\View\Widget\Checkbox', 'label']);
 	}
 
 /**
@@ -103,6 +106,7 @@ class FormHelper extends BaseForm {
 				$this->_formStyle = 'horizontal';
 				$this->templates([
 					'formGroup' => '{{label}}<div class="col-sm-' . $this->_fieldWidth . '">{{input}}</div>',
+					'checkboxWrapper' => '<div class="col-sm-' . $this->_fieldWidth . ' col-sm-offset-' . $this->_labelWidth . '"><div class="checkbox">{{label}}</div></div>',
 					'error' => '<div class="clearfix"></div><div class="help-block text-danger col-sm-' . $this->_fieldWidth . ' col-sm-push-' . $this->_labelWidth . '">{{content}}</div>',
 				]);
 				break;
