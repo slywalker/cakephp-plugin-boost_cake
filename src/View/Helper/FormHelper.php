@@ -19,8 +19,8 @@ class FormHelper extends BaseForm {
 		'submitContainer' => '<div class="submit">{{content}}</div>',
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
 		'radioWrapper' => '<div class="radio">{{label}}</div>',
-		'checkboxLabel' => '<label{{attrs}}>{{text}}{{input}}</label>',
-		'checkboxWrapper' => '<div class="checkbox">{{label}}</div>',
+		'checkboxLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
+		'checkboxFormGroup' => '<div{{attrs}}>{{label}}</div>',
 	];
 
 /**
@@ -34,7 +34,6 @@ class FormHelper extends BaseForm {
 		parent::__construct($View, $config);
 
 		$this->addWidget('radio', ['BoostCake\View\Widget\Radio', 'label']);
-		$this->addWidget('checkbox', ['BoostCake\View\Widget\Checkbox', 'label']);
 	}
 
 /**
@@ -46,6 +45,9 @@ class FormHelper extends BaseForm {
  * @return string
  */
 	public function input($fieldName, array $options = []) {
+		$options += [
+			'group' => []
+		];
 		$options = $this->addClass($options, 'form-control');
 
 		return parent::input($fieldName, $options);
@@ -54,21 +56,67 @@ class FormHelper extends BaseForm {
 /**
  * {{@inheritDoc}}
  *
- * @param string $fieldName Field
- * @param null   $text Label text
- * @param array  $options Options
+ * @param array $options
  *
  * @return string
  */
-	public function label($fieldName, $text = null, array $options = []) {
-		$options = $this->addClass($options, 'control-label');
+	protected function _groupTemplate($options) {
+		$options['group'] = $options['options']['group'];
+		$groupTemplate = $options['options']['type'] === 'checkbox' ? 'checkboxFormGroup' : 'formGroup';
 
-		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle'])) {
-			$options = $this->addClass($options, 'col-sm-' . $this->_labelWidth);
+		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['options']['type'] === 'checkbox') {
+			$options['group'] = $this->addClass($options['group'], 'checkbox col-sm-offset-' . $this->_labelWidth);
+		}
+
+		return $this->templater()
+			->format($groupTemplate, [
+				'input' => $options['input'],
+				'label' => $options['label'],
+				'error' => $options['error'],
+				'attrs' => $this->templater()->formatAttributes($options['group'])
+			]);
+	}
+
+/**
+ * {{@inheritDoc}}
+ *
+ * @param string $fieldName Field
+ * @param null $text Label text
+ * @param array $options Options
+ *
+ * @return string
+ */
+	protected function _inputLabel($fieldName, $label, $options) {
+		if (!is_array($label)) {
+			$label = [
+				'text' => $label
+			];
+		}
+
+		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['type'] !== 'checkbox') {
+			$label = $this->addClass($label, 'col-sm-' . $this->_labelWidth);
 		}
 		unset($options['ignoreStyle']);
 
-		return parent::label($fieldName, $text, $options);
+		$templater = $this->templater();
+		$currentLabel = $templater->get('label');
+		if ($options['type'] === 'checkbox') {
+			$templater->add([
+				'label' => $templater->get('checkboxLabel')
+			]);
+		} else {
+			$label = $this->addClass($label, 'control-label');
+		}
+
+		$output = parent::_inputLabel($fieldName, $label, $options);
+
+		if ($options['type'] === 'checkbox') {
+			$templater->add([
+				'label' => $currentLabel
+			]);
+		}
+
+		return $output;
 	}
 
 /**
