@@ -20,7 +20,8 @@ class FormHelper extends BaseForm {
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
 		'radioWrapper' => '<div class="radio">{{label}}</div>',
 		'checkboxLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
-		'checkboxFormGroup' => '<div{{attrs}}>{{label}}</div>',
+		'checkboxFormGroup' => '<div class="checkbox">{{label}}</div>',
+		'checkboxContainer' => '<div class="form-group {{required}}">{{content}}</div>',
 	];
 
 /**
@@ -45,39 +46,9 @@ class FormHelper extends BaseForm {
  * @return string
  */
 	public function input($fieldName, array $options = []) {
-		$options += [
-			'group' => []
-		];
 		$options = $this->addClass($options, 'form-control');
 
 		return parent::input($fieldName, $options);
-	}
-
-/**
- * {{@inheritDoc}}
- *
- * @param array $options
- *
- * @return string
- */
-	protected function _groupTemplate($options) {
-		$options['group'] = $options['options']['group'];
-		$groupTemplate = $options['options']['type'] === 'checkbox' ? 'checkboxFormGroup' : 'formGroup';
-
-		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['options']['type'] === 'checkbox') {
-			$options['group'] = $this->addClass($options['group'], 'col-sm-offset-' . $this->_labelWidth);
-		}
-		if ($options['options']['type'] === 'checkbox') {
-			$options['group'] = $this->addClass($options['group'], 'checkbox');
-		}
-
-		return $this->templater()
-			->format($groupTemplate, [
-				'input' => $options['input'],
-				'label' => $options['label'],
-				'error' => $options['error'],
-				'attrs' => $this->templater()->formatAttributes($options['group'])
-			]);
 	}
 
 /**
@@ -177,7 +148,7 @@ class FormHelper extends BaseForm {
 				$this->_formStyle = 'horizontal';
 				$this->templates([
 					'formGroup' => '{{label}}<div class="col-sm-' . $this->_fieldWidth . '">{{input}}</div>',
-					'checkboxWrapper' => '<div class="col-sm-' . $this->_fieldWidth . ' col-sm-offset-' . $this->_labelWidth . '"><div class="checkbox">{{label}}</div></div>',
+					'checkboxFormGroup' => '<div class="col-sm-' . $this->_fieldWidth . ' col-sm-offset-' . $this->_labelWidth . '"><div class="checkbox">{{label}}</div></div>',
 					'error' => '<div class="clearfix"></div><div class="help-block text-danger col-sm-' . $this->_fieldWidth . ' col-sm-push-' . $this->_labelWidth . '">{{content}}</div>',
 				]);
 				break;
