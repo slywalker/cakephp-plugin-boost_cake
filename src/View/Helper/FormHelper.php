@@ -65,7 +65,10 @@ class FormHelper extends BaseForm {
 		$groupTemplate = $options['options']['type'] === 'checkbox' ? 'checkboxFormGroup' : 'formGroup';
 
 		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['options']['type'] === 'checkbox') {
-			$options['group'] = $this->addClass($options['group'], 'checkbox col-sm-offset-' . $this->_labelWidth);
+			$options['group'] = $this->addClass($options['group'], 'col-sm-offset-' . $this->_labelWidth);
+		}
+		if ($options['options']['type'] === 'checkbox') {
+			$options['group'] = $this->addClass($options['group'], 'checkbox');
 		}
 
 		return $this->templater()
@@ -89,14 +92,10 @@ class FormHelper extends BaseForm {
 	protected function _inputLabel($fieldName, $label, $options) {
 		if (!is_array($label)) {
 			$label = [
-				'text' => $label
+				'text' => $label,
 			];
 		}
-
-		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['type'] !== 'checkbox') {
-			$label = $this->addClass($label, 'col-sm-' . $this->_labelWidth);
-		}
-		unset($options['ignoreStyle']);
+		$label['type'] = $options['type'];
 
 		$templater = $this->templater();
 		$currentLabel = $templater->get('label');
@@ -104,8 +103,6 @@ class FormHelper extends BaseForm {
 			$templater->add([
 				'label' => $templater->get('checkboxLabel')
 			]);
-		} else {
-			$label = $this->addClass($label, 'control-label');
 		}
 
 		$output = parent::_inputLabel($fieldName, $label, $options);
@@ -117,6 +114,32 @@ class FormHelper extends BaseForm {
 		}
 
 		return $output;
+	}
+
+/**
+ * {{@inheritDoc}}
+ *
+ * @param string $fieldName Field
+ * @param null $text Label text
+ * @param array $options Options
+ *
+ * @return string
+ */
+	public function label($fieldName, $text = null, array $options = []) {
+		if (!isset($options['type'])) {
+			$options['type'] = '';
+		}
+
+		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['type'] !== 'checkbox') {
+			$options = $this->addClass($options, 'col-sm-' . $this->_labelWidth);
+		}
+		if ($options['type'] !== 'checkbox') {
+			$options = $this->addClass($options, 'control-label');
+		}
+		unset($options['ignoreStyle']);
+		unset($options['type']);
+
+		return parent::label($fieldName, $text, $options);
 	}
 
 /**
