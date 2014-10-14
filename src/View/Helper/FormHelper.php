@@ -79,12 +79,42 @@ class FormHelper extends BaseForm {
 		$output = parent::_inputLabel($fieldName, $label, $options);
 
 		if ($options['type'] === 'checkbox') {
+			$output = $this->_hiddenCheckbox($fieldName, $options) . $output;
 			$templater->add([
 				'label' => $currentLabel
 			]);
 		}
 
 		return $output;
+	}
+
+/**
+ * Generates the checkbox hidden field
+ *
+ * @param string $fieldName Field name
+ * @param array $options Option array
+ *
+ * @return string
+ */
+	protected function _hiddenCheckbox($fieldName, array $options) {
+		$options += ['hiddenField' => true];
+
+		if ($options['hiddenField']) {
+			unset($options['value']);
+			$options = $this->_initInputField($fieldName, $options);
+
+			$hiddenOptions = [
+				'name' => $options['name'],
+				'value' => ($options['hiddenField'] !== true ? $options['hiddenField'] : '0'),
+				'form' => isset($options['form']) ? $options['form'] : null,
+				'secure' => false
+			];
+			if (isset($options['disabled']) && $options['disabled']) {
+				$hiddenOptions['disabled'] = 'disabled';
+			}
+
+			return $this->hidden($fieldName, $hiddenOptions);
+		}
 	}
 
 /**
@@ -128,6 +158,7 @@ class FormHelper extends BaseForm {
 				unset($options['class']);
 			}
 		}
+		$options['hiddenField'] = false;
 
 		return parent::checkbox($fieldName, $options);
 	}
