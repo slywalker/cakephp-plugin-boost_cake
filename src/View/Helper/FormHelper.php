@@ -19,8 +19,6 @@ class FormHelper extends BaseForm {
 		'submitContainer' => '<div class="submit">{{content}}</div>',
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
 		'radioWrapper' => '<div class="radio">{{label}}</div>',
-		'checkboxLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
-		'checkboxFormGroup' => '<div class="checkbox">{{label}}</div>',
 		'checkboxContainer' => '<div class="form-group {{required}}">{{content}}</div>',
 	];
 
@@ -60,85 +58,14 @@ class FormHelper extends BaseForm {
  *
  * @return string
  */
-	protected function _inputLabel($fieldName, $label, $options) {
-		if (!is_array($label)) {
-			$label = [
-				'text' => $label,
-			];
-		}
-		$label['type'] = $options['type'];
-
-		$templater = $this->templater();
-		$currentLabel = $templater->get('label');
-		if ($options['type'] === 'checkbox') {
-			$templater->add([
-				'label' => $templater->get('checkboxLabel')
-			]);
-		}
-
-		$output = parent::_inputLabel($fieldName, $label, $options);
-
-		if ($options['type'] === 'checkbox') {
-			$output = $this->_hiddenCheckbox($fieldName, $options) . $output;
-			$templater->add([
-				'label' => $currentLabel
-			]);
-		}
-
-		return $output;
-	}
-
-/**
- * Generates the checkbox hidden field
- *
- * @param string $fieldName Field name
- * @param array $options Option array
- *
- * @return string
- */
-	protected function _hiddenCheckbox($fieldName, array $options) {
-		$options += ['hiddenField' => true];
-
-		if ($options['hiddenField']) {
-			unset($options['value']);
-			$options = $this->_initInputField($fieldName, $options);
-
-			$hiddenOptions = [
-				'name' => $options['name'],
-				'value' => ($options['hiddenField'] !== true ? $options['hiddenField'] : '0'),
-				'form' => isset($options['form']) ? $options['form'] : null,
-				'secure' => false
-			];
-			if (isset($options['disabled']) && $options['disabled']) {
-				$hiddenOptions['disabled'] = 'disabled';
-			}
-
-			return $this->hidden($fieldName, $hiddenOptions);
-		}
-	}
-
-/**
- * {{@inheritDoc}}
- *
- * @param string $fieldName Field
- * @param null $text Label text
- * @param array $options Options
- *
- * @return string
- */
 	public function label($fieldName, $text = null, array $options = []) {
-		if (!isset($options['type'])) {
-			$options['type'] = '';
-		}
-
-		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && $options['type'] !== 'checkbox') {
+		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && empty($options['input'])) {
 			$options = $this->addClass($options, 'col-sm-' . $this->_labelWidth);
 		}
-		if ($options['type'] !== 'checkbox') {
+		if (empty($options['input'])) {
 			$options = $this->addClass($options, 'control-label');
 		}
 		unset($options['ignoreStyle']);
-		unset($options['type']);
 
 		return parent::label($fieldName, $text, $options);
 	}
