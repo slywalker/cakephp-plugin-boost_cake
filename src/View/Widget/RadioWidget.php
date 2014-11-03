@@ -3,7 +3,7 @@ namespace BoostCake\View\Widget;
 
 use Cake\View\Widget\WidgetInterface;
 
-class Radio extends \Cake\View\Widget\Radio implements WidgetInterface {
+class RadioWidget extends \Cake\View\Widget\RadioWidget implements WidgetInterface {
 
 /**
  * Renders a label element for a given radio or checkbox button.

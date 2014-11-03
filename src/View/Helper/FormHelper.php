@@ -32,7 +32,7 @@ class FormHelper extends BaseForm {
 		$this->_defaultConfig['templates'] = array_merge($this->_defaultConfig['templates'], $this->_bootstrapTemplates);
 		parent::__construct($View, $config);
 
-		$this->addWidget('radio', ['BoostCake\View\Widget\Radio', 'label']);
+		$this->addWidget('radio', ['BoostCake\View\Widget\RadioWidget', 'label']);
 	}
 
 /**
