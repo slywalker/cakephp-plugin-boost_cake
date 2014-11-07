@@ -139,6 +139,103 @@ class BoostCakeFormHelper extends FormHelper {
 	}
 
 /**
+ * Overwrite FormHelper::input()
+ * Generates a text form input with a DatePicker
+ *
+ * ### Options
+ *
+ * See each field type method for more information. Any options that are part of
+ * $attributes or $options for the different **type** methods can be included in `$options` for input().i
+ * Additionally, any unknown keys that are not in the list below, or part of the selected type's options
+ * will be treated as a regular html attribute for the generated input.
+ *
+ * - `language` => Put your language indice, default : en
+ * - `data-format` => This is the date format in the input.
+ *    	dd: Days
+ *    	MM: Months
+ *    	yy: Years, 2 numbers
+ *    	yyyy: Years, 4 numbers
+ *    	hh: Hours
+ *    	mm: Minutes
+ *    	ss: Seconds
+ *    	ms: Mili-Seconds
+ *    	HH: Hours, 12h-format
+ *    	PP: AM/PM		
+ *
+ * @param string $fieldName This should be "Modelname.fieldname"
+ * @param array $options Each type of input takes different options.
+ * @return string Completed form widget.
+ */
+
+	public function datePicker($fieldName, $options = array()){
+		$this->_fieldName = $fieldName;
+
+		$default = array(
+			'error' => array(
+				'attributes' => array(
+					'wrap' => 'span',
+					'class' => 'help-block text-danger'
+				)
+			),
+			'wrapInput' => array(
+				'tag' => 'div'
+			),
+			'beforeInput' => '',
+			'afterInput' => '',
+			'errorClass' => 'has-error error',
+			'data-format' => 'yyyy-MM-dd hh:mm:ss',
+			'language' => 'en',
+			'type' => 'text'
+		);
+
+		$options = Hash::merge(
+			$default,
+			$this->_inputDefaults,
+			$options
+		);
+		$this->_inputOptions = $options;
+
+		$options['error'] = false;
+		if (isset($options['wrapInput'])) {
+			unset($options['wrapInput']);
+		}
+		if (isset($options['checkboxDiv'])) {
+			unset($options['checkboxDiv']);
+		}
+		if (isset($options['beforeInput'])) {
+			unset($options['beforeInput']);
+		}
+		if (isset($options['afterInput'])) {
+			unset($options['afterInput']);
+		}
+		if (isset($options['data-format'])) {
+			unset($options['data-format']);
+		}
+		if (isset($options['language'])) {
+			unset($options['language']);
+		}
+		if (isset($options['errorClass'])) {
+			unset($options['errorClass']);
+		}
+
+		$html = '<li id="' . $this->_fieldName . '" class="input-append date">' . $this->input($this->_fieldName, $this->_inputOptions) . '<span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span></li>';
+		
+		$this->_fieldName = '#' . $this->_fieldName;
+		if(!$this->_testAdd){
+			$this->Html->script('BoostCake.datepicker.js', array('inline' => false));
+			$this->Html->css('BoostCake.datepicker.css', null, array('inline' => false));
+			$this->_testAdd = true;
+		}
+		$this->Html->scriptStart(array('inline' => false)); ?>
+		$(function() {
+			$('<?php echo $this->_fieldName; ?>').datepicker({language: '<?php echo $this->_inputOptions['language'] ?>'});
+		});<?php $this->Html->scriptEnd();
+
+
+		return $html;
+	}
+
+/**
  * Overwrite FormHelper::_divOptions()
  *
  * - Generate inner and outer div options
