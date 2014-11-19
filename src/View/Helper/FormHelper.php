@@ -91,6 +91,10 @@ class FormHelper extends BaseForm {
 	}
 
 	protected function _formStyleOptions($options) {
+		$options = $options + [
+			'formStyle' => null
+		];
+
 		$formStyle = $options['formStyle'];
 		unset($options['formStyle']);
 
@@ -110,6 +114,15 @@ class FormHelper extends BaseForm {
 					'error' => '<div class="clearfix"></div><div class="help-block text-danger col-sm-' . $this->_fieldWidth . ' col-sm-push-' . $this->_labelWidth . '">{{content}}</div>',
 				]);
 				break;
+			case 'vertical':
+			default:
+				$this->_formStyle = 'vertical';
+				$this->templates([
+					'formGroup' => '{{label}}{{input}}',
+					'checkboxFormGroup' => '<div class="checkbox">{{label}}</div>',
+					'error' => '<div class="clearfix"></div><div class="help-block text-danger">{{content}}</div>',
+				]);
+				break;
 		}
 
 		return $options;
@@ -124,9 +137,7 @@ class FormHelper extends BaseForm {
  * @return string
  */
 	public function create($model = null, array $options = []) {
-		if (isset($options['formStyle'])) {
-			$options = $this->_formStyleOptions($options);
-		}
+		$options = $this->_formStyleOptions($options);
 
 		return parent::create($model, $options);
 	}
