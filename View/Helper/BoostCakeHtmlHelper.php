@@ -3,6 +3,7 @@ App::uses('HtmlHelper', 'View/Helper');
 App::uses('Inflector', 'Utility');
 
 class BoostCakeHtmlHelper extends HtmlHelper {
+	public $helpers = array('Form');
 
 /**
  * Overwrite HtmlHelper::useTag()
@@ -30,6 +31,37 @@ class BoostCakeHtmlHelper extends HtmlHelper {
 		}
 
 		return $html;
+	}
+
+	public function buttonGroup($links, $type = 'group') {
+		$links = (array)$links;
+		$html = '<div class="btn-' . $type . '" role="' . $type . '">' . "\r\n";
+		foreach ($links as $link) {
+			$html .= $link;
+		}
+		$html .= '</div>' . "\r\n";
+		return $html;
+	}
+	
+	public function button($buttonSettings, $url = null, $options = array(), $confirmMessage = false, $postLink = false) {
+		$buttonSettings = (array)$buttonSettings;
+		$buttonClass = null;
+		if (!empty($buttonSettings[1])) {
+			$icon = array_shift($buttonSettings);
+			foreach ($buttonSettings as $buttonSetting) {
+				$buttonClass .= ' btn-' . $buttonSetting;
+			}
+		} else {
+			$icon = $buttonSettings[0];
+		}
+		if ($postLink) {
+			return $this->Form->postLink('<button type="button" type="button" class="btn' . $buttonClass . '"><span class="glyphicon glyphicon-' . $icon . '"></span></button>', $url, $options, $confirmMessage);
+		}
+		return parent::link('<button type="button" type="button" class="btn' . $buttonClass . '"><span class="glyphicon glyphicon-' . $icon . '"></span></button>', $url, $options, $confirmMessage);
+	}
+	
+	public function postButton($buttonSettings, $url = null, $options = array(), $confirmMessage = false) {
+		return $this->button($buttonSettings, $url, $options, $confirmMessage, true);
 	}
 
 /**
