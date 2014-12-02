@@ -9,17 +9,22 @@ class FormHelper extends BaseForm {
 	const COLCOUNT = 12;
 
 	protected $_formStyle = 'normal';
+
 	protected $_labelWidth = 3;
+
 	protected $_fieldWidth = 9;
 
 	protected $_bootstrapTemplates = [
-		'error' => '<div class="help-block text-danger">{{content}}</div>',
+		'error' => '<div class="clearfix"></div><div class="help-block text-danger">{{content}}</div>',
 		'inputContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
 		'inputContainerError' => '<div class="form-group {{type}}{{required}} has-error">{{content}}{{error}}</div>',
 		'submitContainer' => '<div class="submit">{{content}}</div>',
 		'radioLabel' => '<label{{attrs}}>{{input}}{{text}}</label>',
 		'radioWrapper' => '<div class="radio">{{label}}</div>',
 		'checkboxContainer' => '<div class="form-group {{required}}">{{content}}</div>',
+		'formGroup' => '{{label}}{{input}}',
+		'checkboxFormGroup' => '<div class="checkbox">{{label}}</div>',
+		'staticInput' => '<p class="form-control-static">{{value}}</p>'
 	];
 
 /**
@@ -33,6 +38,7 @@ class FormHelper extends BaseForm {
 		parent::__construct($View, $config);
 
 		$this->addWidget('radio', ['BoostCake\View\Widget\RadioWidget', 'label']);
+		$this->addWidget('static', ['BoostCake\View\Widget\StaticWidget']);
 	}
 
 /**
@@ -45,6 +51,10 @@ class FormHelper extends BaseForm {
  */
 	public function input($fieldName, array $options = []) {
 		$options = $this->addClass($options, 'form-control');
+
+		if (isset($options['type']) && $options['type'] === 'static') {
+			$options['id'] = false;
+		}
 
 		return parent::input($fieldName, $options);
 	}
@@ -117,11 +127,6 @@ class FormHelper extends BaseForm {
 			case 'vertical':
 			default:
 				$this->_formStyle = 'vertical';
-				$this->templates([
-					'formGroup' => '{{label}}{{input}}',
-					'checkboxFormGroup' => '<div class="checkbox">{{label}}</div>',
-					'error' => '<div class="clearfix"></div><div class="help-block text-danger">{{content}}</div>',
-				]);
 				break;
 		}
 
