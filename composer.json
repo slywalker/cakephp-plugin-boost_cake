@@ -21,13 +21,18 @@
     },
     "require": {
         "php": ">=5.4.0",
-	    "cakephp/cakephp": "~3.0",
-        "composer/installers": "*"
+        "cakephp/plugin-installer": "*",
+        "cakephp/cakephp": "3.0.x-dev"
     },
-	"autoload": {
-		"psr-4": {
-			"BoostCake\\": "src",
-			"BoostCake\\Test\\": "tests"
-		}
+    "autoload": {
+        "psr-4": {
+            "BoostCake\\": "src",
+            "BoostCake\\Test\\": "tests"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BoostCake\\Test\\": "tests"
+        }
 	}
 }
