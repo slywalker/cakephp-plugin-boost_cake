@@ -6,14 +6,11 @@ use Cake\View\View;
 
 class FormHelper extends BaseForm {
 
-	const COLCOUNT = 12;
-
-	protected $_formStyle = 'normal';
-
-	protected $_labelWidth = 3;
-
-	protected $_fieldWidth = 9;
-
+/**
+ * Bootstrap template strings
+ *
+ * @var array
+ */
 	protected $_bootstrapTemplates = [
 		'error' => '<div class="clearfix"></div><div class="help-block text-danger">{{content}}</div>',
 		'inputContainer' => '<div class="form-group {{type}}{{required}}">{{content}}</div>',
@@ -34,6 +31,12 @@ class FormHelper extends BaseForm {
  * @param array           $config Configuration settings for the helper.
  */
 	public function __construct(View $View, array $config = []) {
+		$this->_defaultConfig += [
+			'formStyle' => 'normal',
+			'columnCount' => 12,
+			'labelWidth' => 3,
+			'fieldWidth' => 9,
+		];
 		$this->_defaultConfig['templates'] = array_merge($this->_defaultConfig['templates'], $this->_bootstrapTemplates);
 		parent::__construct($View, $config);
 
@@ -70,7 +73,7 @@ class FormHelper extends BaseForm {
  */
 	public function label($fieldName, $text = null, array $options = []) {
 		if ($this->_formStyle == 'horizontal' && !isset($options['ignoreStyle']) && empty($options['input'])) {
-			$options = $this->addClass($options, 'col-sm-' . $this->_labelWidth);
+			$options = $this->addClass($options, 'col-sm-' . $this->_config['labelWidth']);
 		}
 		if (empty($options['input'])) {
 			$options = $this->addClass($options, 'control-label');
@@ -111,17 +114,17 @@ class FormHelper extends BaseForm {
 		switch ($formStyle) {
 			case 'horizontal':
 				if (isset($options['labelWidth'])) {
-					$this->_labelWidth = $options['labelWidth'];
+					$this->_config['labelWidth'] = $options['labelWidth'];
 					unset($options['labelWidth']);
 				}
-				$this->_fieldWidth = static::COLCOUNT - $this->_labelWidth;
+				$this->_config['fieldWidth'] = $this->_config['columnCount'] - $this->_config['labelWidth'];
 
 				$options = $this->addClass($options, 'form-horizontal');
 				$this->_formStyle = 'horizontal';
 				$this->templates([
-					'formGroup' => '{{label}}<div class="col-sm-' . $this->_fieldWidth . '">{{input}}</div>',
-					'checkboxFormGroup' => '<div class="col-sm-' . $this->_fieldWidth . ' col-sm-offset-' . $this->_labelWidth . '"><div class="checkbox">{{label}}</div></div>',
-					'error' => '<div class="clearfix"></div><div class="help-block text-danger col-sm-' . $this->_fieldWidth . ' col-sm-push-' . $this->_labelWidth . '">{{content}}</div>',
+					'formGroup' => '{{label}}<div class="col-sm-' . $this->_config['fieldWidth'] . '">{{input}}</div>',
+					'checkboxFormGroup' => '<div class="col-sm-' . $this->_config['fieldWidth'] . ' col-sm-offset-' . $this->_config['labelWidth'] . '"><div class="checkbox">{{label}}</div></div>',
+					'error' => '<div class="clearfix"></div><div class="help-block text-danger col-sm-' . $this->_config['fieldWidth'] . ' col-sm-push-' . $this->_config['labelWidth'] . '">{{content}}</div>',
 				]);
 				break;
 			case 'vertical':
@@ -143,7 +146,26 @@ class FormHelper extends BaseForm {
  */
 	public function create($model = null, array $options = []) {
 		$options = $this->_formStyleOptions($options);
-
 		return parent::create($model, $options);
+	}
+
+/**
+ * Creates a `<button>` tag.
+ *
+ * The type attribute defaults to `type="submit"`
+ * You can change it to a different value by using `$options['type']`.
+ *
+ * ### Options:
+ *
+ * - `escape` - HTML entity encode the $title of the button. Defaults to false.
+ *
+ * @param string $title The button's caption. Not automatically HTML encoded
+ * @param array $options Array of options and HTML attributes.
+ * @return string A HTML button tag.
+ * @link http://book.cakephp.org/3.0/en/views/helpers/form.html#creating-button-elements
+ */
+	public function button($title, array $options = []) {
+		$options += array('class' => 'btn');
+		return parent::button($title, $options);
 	}
 }
