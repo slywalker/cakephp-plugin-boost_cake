@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+		colors="true"
+		processIsolation="false"
+		stopOnFailure="false"
+		syntaxCheck="false"
+		bootstrap="./tests/bootstrap.php"
+		>
+
+	<!-- Add any additional test suites you want to run here -->
+	<testsuites>
+		<testsuite name="BoostCake Test Suite">
+			<directory>./tests/TestCase</directory>
+		</testsuite>
+	</testsuites>
+
+	<!-- Setup a listener for fixtures -->
+	<listeners>
+		<listener
+				class="\Cake\TestSuite\Fixture\FixtureInjector"
+				file="./vendor/cakephp/cakephp/src/TestSuite/Fixture/FixtureInjector.php">
+			<arguments>
+				<object class="\Cake\TestSuite\Fixture\FixtureManager"/>
+			</arguments>
+		</listener>
+	</listeners>
+
+	<!-- Prevent coverage reports from looking in tests and vendors -->
+	<filter>
+		<blacklist>
+			<directory suffix=".php">./vendor/</directory>
+			<directory suffix=".ctp">./vendor/</directory>
+
+			<directory suffix=".php">./tests/</directory>
+			<directory suffix=".ctp">./tests/</directory>
+		</blacklist>
+	</filter>
+
+</phpunit>
