@@ -46,6 +46,7 @@ class FormHelperTest extends TestCase
 
     public function testInput()
     {
+        $this->Form->create(null);
         $result = $this->Form->input('name');
         $this->assertHtml([
             ['div' => ['class' => 'form-group text']],
@@ -59,15 +60,17 @@ class FormHelperTest extends TestCase
 
     public function testCheckbox()
     {
+        $this->Form->create(null);
         $result = $this->Form->input('name', ['type' => 'checkbox']);
         $this->assertHtml([
-            ['div' => ['class' => 'form-group checkbox']],
-            ['input' => ['type' => 'hidden', 'name' => 'name', 'value' => '0']],
+            ['div' => ['class' => 'form-group ']],
+            ['div' => ['class' => 'checkbox']],
+            'label' => ['for' => 'name'],
             ['input' => ['name' => 'name', 'type' => 'checkbox', 'value' => '1', 'id' => 'name']],
-            'label' => ['class' => 'control-label', 'for' => 'name'],
             'Name',
             '/label',
-            '/div'
+            '/div',
+            '/div',
         ], $result);
     }
 
@@ -87,20 +90,20 @@ class FormHelperTest extends TestCase
         $this->assertHtml([
             ['input' => ['type' => 'hidden', 'name' => 'name', 'value' => '']],
             ['div' => ['class' => 'checkbox']],
-            ['input' => ['type' => 'checkbox', 'name' => 'name[]', 'value' => '1', 'id' => 'name-1']],
             ['label' => ['for' => 'name-1']],
+            ['input' => ['type' => 'checkbox', 'name' => 'name[]', 'value' => '1', 'id' => 'name-1']],
             'one',
             '/label',
             '/div',
             ['div' => ['class' => 'checkbox']],
-            ['input' => ['type' => 'checkbox', 'name' => 'name[]', 'value' => '2', 'id' => 'name-2']],
             ['label' => ['for' => 'name-2']],
+            ['input' => ['type' => 'checkbox', 'name' => 'name[]', 'value' => '2', 'id' => 'name-2']],
             'two',
             '/label',
             '/div',
             ['div' => ['class' => 'checkbox']],
-            ['input' => ['type' => 'checkbox', 'name' => 'name[]', 'value' => '3', 'id' => 'name-3']],
             ['label' => ['for' => 'name-3']],
+            ['input' => ['type' => 'checkbox', 'name' => 'name[]', 'value' => '3', 'id' => 'name-3']],
             'three',
             '/label',
             '/div',
@@ -118,6 +121,9 @@ class FormHelperTest extends TestCase
         ]);
         $this->assertHtml([
             ['div' => ['class' => 'form-group radio']],
+            ['label' => ['class'=> 'control-label']],
+            'Name',
+            '/label',
             ['input' => ['type' => 'hidden', 'name' => 'name', 'value' => '']],
             ['div' => ['class' => 'radio']],
             ['label' => ['for' => 'name-one']],
@@ -157,9 +163,11 @@ class FormHelperTest extends TestCase
                 'id' => 'contact-password',
                 'class' => 'form-control form-error'
             ],
-            ['span' => ['class' => 'help-block text-danger']],
+            ['div' => ['class' => 'clearfix']],
+            '/div',
+            ['div' => ['class' => 'help-block text-danger']],
             'Please fill in the field',
-            '/span',
+            '/div',
             '/div'
         ], $result);
     }

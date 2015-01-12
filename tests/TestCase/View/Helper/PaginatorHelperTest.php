@@ -112,17 +112,20 @@ class PaginatorHelperTest extends TestCase
             ]
         ]);
 
-        $this->assertTags($result, [
+        $this->assertHtml([
             'div' => ['class' => 'pagination'],
             'ul' => ['class' => 'pagination'],
             ['li' => ['class' => 'prev disabled']],
-            ['span' => []],
+            ['a' => ['href' => '']],
             'Prev',
-            '/span',
+            '/a',
             '/li',
             ['li' => ['class' => 'active']],
             ['span' => []],
             '1',
+            ['span' => ['class' =>'sr-only']],
+            '(current)',
+            '/span',
             '/span',
             '/li',
             ['li' => []],
@@ -137,7 +140,7 @@ class PaginatorHelperTest extends TestCase
             '/li',
             '/ul',
             '/div'
-        ]);
+        ], $result);
     }
 
     /**
@@ -174,17 +177,20 @@ class PaginatorHelperTest extends TestCase
             ]
         ]);
 
-        $this->assertTags($result, [
+        $this->assertHtml([
             'div' => ['class' => 'pagination'],
             'ul' => ['class' => 'pagination'],
             ['li' => ['class' => 'prev disabled']],
-            ['span' => []],
+            ['a' => ['href' => '']],
             'Prev',
-            '/span',
+            '/a',
             '/li',
             ['li' => ['class' => 'active']],
             ['span' => []],
             '1',
+            ['span' => ['class' => 'sr-only']],
+            '(current)',
+            '/span',
             '/span',
             '/li',
             ['li' => []],
@@ -199,7 +205,7 @@ class PaginatorHelperTest extends TestCase
             '/li',
             '/ul',
             '/div'
-        ]);
+        ], $result);
 
         $result = $this->Paginator->pagination([
             'model' => 'Post',
@@ -212,16 +218,19 @@ class PaginatorHelperTest extends TestCase
             ]
         ]);
 
-        $this->assertTags($result, [
+        $this->assertHtml([
             'ul' => ['class' => 'pagination'],
             ['li' => ['class' => 'prev disabled']],
-            ['span' => []],
+            ['a' => ['href' => '']],
             'Prev',
-            '/span',
+            '/a',
             '/li',
             ['li' => ['class' => 'active']],
             ['span' => []],
             '1',
+            ['span' => ['class' => 'sr-only']],
+            '(current)',
+            '/span',
             '/span',
             '/li',
             ['li' => []],
@@ -235,6 +244,6 @@ class PaginatorHelperTest extends TestCase
             '/a',
             '/li',
             '/ul'
-        ]);
+        ], $result);
     }
 }
