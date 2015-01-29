@@ -171,7 +171,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 			'escape' => Hash::get($disabledOptions, 'escape')
 		));
 
-		return parent::prev($title, $options, $disabledTitle, $disabledOptions);
+		return parent::next($title, $options, $disabledTitle, $disabledOptions);
 	}
 
 /**
