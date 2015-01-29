@@ -93,7 +93,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
  */
 	public function prev($title = null, $options = array(), $disabledTitle = null, $disabledOptions = array()) {
 		$default = array(
-			'title' => '<',
+			'title' => '&lsaquo;',
 			'tag' => 'li',
 			'model' => $this->defaultModel(),
 			'class' => null,
@@ -115,14 +115,17 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		if (empty($disabledTitle)) {
 			$disabledTitle = $title;
 		}
+		if (empty($disabledOptions)) {
+			$disabledOptions = array_merge($options, array(
+				'escape' => false,
+				'class' => $disabled,
+			));
+		}
 		$disabledTitle = $this->link($disabledTitle, array(), array(
 			'escape' => Hash::get($disabledOptions, 'escape')
 		));
 
-		return parent::prev($title, $options, $disabledTitle, array_merge($options, array(
-			'escape' => false,
-			'class' => $disabled,
-		)));
+		return parent::prev($title, $options, $disabledTitle, $disabledOptions);
 	}
 
 /**
@@ -136,7 +139,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
  */
 	public function next($title = null, $options = array(), $disabledTitle = null, $disabledOptions = array()) {
 		$default = array(
-			'title' => '>',
+			'title' => '&rsaquo;',
 			'tag' => 'li',
 			'model' => $this->defaultModel(),
 			'class' => null,
@@ -158,14 +161,17 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		if (empty($disabledTitle)) {
 			$disabledTitle = $title;
 		}
+		if (empty($disabledOptions)) {
+			$disabledOptions = array_merge($options, array(
+				'escape' => false,
+				'class' => $disabled,
+			));
+		}
 		$disabledTitle = $this->link($disabledTitle, array(), array(
 			'escape' => Hash::get($disabledOptions, 'escape')
 		));
 
-		return parent::next($title, $options, $disabledTitle, array_merge($options, array(
-			'escape' => false,
-			'class' => $disabled,
-		)));
+		return parent::prev($title, $options, $disabledTitle, $disabledOptions);
 	}
 
 /**
@@ -202,7 +208,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
  */
 	public function first($title = null, $options = array()) {
 		$default = array(
-			'title' => '<<',
+			'title' => '&laquo;',
 			'tag' => 'li',
 			'after' => null,
 			'model' => $this->defaultModel(),
@@ -232,7 +238,7 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
  */
 	public function last($title = null, $options = array()) {
 		$default = array(
-			'title' => '>>',
+			'title' => '&raquo;',
 			'tag' => 'li',
 			'after' => null,
 			'model' => $this->defaultModel(),
