@@ -104,7 +104,6 @@ class FormHelper extends BaseForm
                 unset($options['class']);
             }
         }
-        $options['hiddenField'] = false;
 
         return parent::checkbox($fieldName, $options);
     }
