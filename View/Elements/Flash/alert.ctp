@@ -1,4 +1,7 @@
 <?php
+if (isset($params['class'])) {
+	$class = $params['class'];
+}
 if (!isset($class)) {
 	$class = false;
 }

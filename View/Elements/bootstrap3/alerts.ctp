@@ -3,22 +3,22 @@
 echo $this->Session->flash();
 
 // Controller
-$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+$this->Flash->alert(__('Alert success message testing...'), 'alert', array(
 	'plugin' => 'BoostCake',
-	'class' => 'alert-success'
+	'params' => ['class' => 'alert-success']
 ));
 
-$this->Session->setFlash(__('Alert info message testing...'), 'alert', array(
+$this->Flash->alert(__('Alert info message testing...'), 'alert', array(
 	'plugin' => 'BoostCake',
 	'class' => 'alert-info'
 ));
 
-$this->Session->setFlash(__('Alert warning message testing...'), 'alert', array(
+$this->Flash->alert(__('Alert warning message testing...'), 'alert', array(
 	'plugin' => 'BoostCake',
-	'class' => 'alert-warning'
+	'params' => ['class' => 'alert-danger'],
 ));
 
-$this->Session->setFlash(__('Alert danger message testing...'), 'alert', array(
+$this->Flash->alert(__('Alert danger message testing...'), 'alert', array(
 	'plugin' => 'BoostCake',
 	'class' => 'alert-danger'
 ));
