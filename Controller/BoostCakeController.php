@@ -40,14 +40,14 @@ class BoostCakeController extends AppController {
  * @return void
  */
 	public function bootstrap2() {
-		$this->Session->setFlash(__('Alert notice message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert notice message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
 		), 'notice');
-		$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert success message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
-			'class' => 'alert-success'
+			'params' => ['class' => 'alert-success']
 		), 'success');
-		$this->Session->setFlash(__('Alert error message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert error message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
 			'class' => 'alert-error'
 		), 'error');
@@ -59,19 +59,19 @@ class BoostCakeController extends AppController {
  * @return void
  */
 	public function bootstrap3() {
-		$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert success message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
-			'class' => 'alert-success'
+			'params' => ['class' => 'alert-success']
 		), 'success');
-		$this->Session->setFlash(__('Alert info message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert info message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
 			'class' => 'alert-info'
 		), 'info');
-		$this->Session->setFlash(__('Alert warning message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert warning message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
-			'class' => 'alert-warning'
+			'params' => ['class' => 'alert-danger'],
 		), 'warning');
-		$this->Session->setFlash(__('Alert danger message testing...'), 'alert', array(
+		$this->Flash->alert(__('Alert danger message testing...'), 'alert', array(
 			'plugin' => 'BoostCake',
 			'class' => 'alert-danger'
 		), 'danger');
