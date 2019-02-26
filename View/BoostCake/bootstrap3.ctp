@@ -123,10 +123,10 @@
 				<h2>Alerts</h2>
 			</div>
 
-			<?php echo $this->Session->flash('success'); ?>
-			<?php echo $this->Session->flash('info'); ?>
-			<?php echo $this->Session->flash('warning'); ?>
-			<?php echo $this->Session->flash('danger'); ?>
+			<?php echo $this->Flash->render('success'); ?>
+			<?php echo $this->Flash->render('info'); ?>
+			<?php echo $this->Flash->render('warning'); ?>
+			<?php echo $this->Flash->render('danger'); ?>
 
 			<pre class="prettyprint"><?php
 				echo h(file_get_contents(dirname(__DIR__) . '/Elements/bootstrap3/alerts.ctp'));
