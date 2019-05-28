@@ -32,6 +32,11 @@ class Contact extends CakeTestModel {
 
 class BoostCakeFormHelperTest extends CakeTestCase {
 
+/**
+ * setUp
+ *
+ * @return void
+ */
 	public function setUp() {
 		parent::setUp();
 		$this->View = new View();
@@ -40,11 +45,21 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		ClassRegistry::addObject('Contact', new Contact());
 	}
 
+/**
+ * tearDown
+ *
+ * @return void
+ */
 	public function tearDown() {
 		unset($this->View);
 		unset($this->Form);
 	}
 
+/**
+ * testInput
+ *
+ * @return void
+ */
 	public function testInput() {
 		$result = $this->Form->input('name');
 		$this->assertTags($result, array(
@@ -108,6 +123,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testBeforeInputAfterInput
+ *
+ * @return void
+ */
 	public function testBeforeInputAfterInput() {
 		$result = $this->Form->input('name', array(
 			'beforeInput' => 'Before Input',
@@ -127,6 +147,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testCheckbox
+ *
+ * @return void
+ */
 	public function testCheckbox() {
 		$result = $this->Form->input('name', array('type' => 'checkbox'));
 		$this->assertTags($result, array(
@@ -179,6 +204,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testCheckboxLabelEscape
+ *
+ * @return void
+ */
 	public function testCheckboxLabelEscape() {
 		$result = $this->Form->input('name', array(
 			'type' => 'checkbox',
@@ -199,6 +229,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testSelectMultipleCheckbox
+ *
+ * @return void
+ */
 	public function testSelectMultipleCheckbox() {
 		$result = $this->Form->select('name',
 			array(
@@ -290,6 +325,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testRadio
+ *
+ * @return void
+ */
 	public function testRadio() {
 		$result = $this->Form->input('name', array(
 			'type' => 'radio',
@@ -320,6 +360,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testErrorMessage
+ *
+ * @return void
+ */
 	public function testErrorMessage() {
 		$Contact = ClassRegistry::getObject('Contact');
 		$Contact->validationErrors['password'] = array('Please provide a password');
@@ -402,6 +447,11 @@ class BoostCakeFormHelperTest extends CakeTestCase {
 		));
 	}
 
+/**
+ * testPostLink
+ *
+ * @return void
+ */
 	public function testPostLink() {
 		$result = $this->Form->postLink('Delete', '/posts/delete/1', array(
 			'block' => 'form'

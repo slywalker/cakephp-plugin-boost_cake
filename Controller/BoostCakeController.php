@@ -14,8 +14,10 @@ class BoostCakeController extends AppController {
 	);
 
 /**
- * beforeFilter
+ * Before filter
+ *
  * @throws MethodNotAllowedException
+ * @return void
  */
 	public function beforeFilter() {
 		if (Configure::read('debug') < 1) {
@@ -24,40 +26,69 @@ class BoostCakeController extends AppController {
 		parent::beforeFilter();
 	}
 
+/**
+ * Action for plugin documentation home page
+ *
+ * @return void
+ */
 	public function index() {
 	}
 
+/**
+ * Action for Bootstrap 2 example page
+ *
+ * @return void
+ */
 	public function bootstrap2() {
-		$this->Session->setFlash(__('Alert notice message testing...'), 'alert', array(
+		$this->Flash->set(__('Alert notice message testing...'), [
+			'key' => 'notice',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
-		), 'notice');
-		$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+		]);
+		$this->Flash->set(__('Alert success message testing...'), [
+			'key' => 'success',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
 			'class' => 'alert-success'
-		), 'success');
-		$this->Session->setFlash(__('Alert error message testing...'), 'alert', array(
+		]);
+		$this->Flash->set(__('Alert error message testing...'), [
+			'key' => 'error',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
 			'class' => 'alert-error'
-		), 'error');
+		]);
 	}
 
+/**
+ * Action for Bootstrap 3 example page
+ *
+ * @return void
+ */
 	public function bootstrap3() {
-		$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+		$this->Flash->set(__('Alert success message testing...'), [
+			'key' => 'success',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
 			'class' => 'alert-success'
-		), 'success');
-		$this->Session->setFlash(__('Alert info message testing...'), 'alert', array(
+		]);
+		$this->Flash->set(__('Alert info message testing...'), [
+			'key' => 'info',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
 			'class' => 'alert-info'
-		), 'info');
-		$this->Session->setFlash(__('Alert warning message testing...'), 'alert', array(
+		]);
+		$this->Flash->set(__('Alert warning message testing...'), [
+			'key' => 'warning',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
 			'class' => 'alert-warning'
-		), 'warning');
-		$this->Session->setFlash(__('Alert danger message testing...'), 'alert', array(
+		]);
+		$this->Flash->set(__('Alert danger message testing...'), [
+			'key' => 'danger',
+			'element' => 'alert',
 			'plugin' => 'BoostCake',
 			'class' => 'alert-danger'
-		), 'danger');
+		]);
 	}
 
 }

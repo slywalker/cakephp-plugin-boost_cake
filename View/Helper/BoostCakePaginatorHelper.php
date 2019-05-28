@@ -3,6 +3,12 @@ App::uses('PaginatorHelper', 'View/Helper');
 
 class BoostCakePaginatorHelper extends PaginatorHelper {
 
+/**
+ * Multi-page pagination component.
+ *
+ * @param array $options Pagination options.
+ * @return string Pagination HTML.
+ */
 	public function pagination($options = array()) {
 		$default = array(
 			'div' => false,
@@ -47,6 +53,12 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		return $out;
 	}
 
+/**
+ * Quick previous and next links for simple pagination.
+ *
+ * @param array $options Pager options.
+ * @return string Pager HTML.
+ */
 	public function pager($options = array()) {
 		$default = array(
 			'ul' => 'pager',
@@ -70,6 +82,15 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		return $this->Html->tag('ul', implode("\n", $out), compact('class'));
 	}
 
+/**
+ * Generates a "previous" link for a set of paged records
+ *
+ * @param string $title Title for the link. Defaults to '<'.
+ * @param array $options Options for pagination link.
+ * @param string $disabledTitle Title when the link is disabled.
+ * @param array $disabledOptions Options for the disabled pagination link.
+ * @return string A "previous" link or $disabledTitle text if the link is disabled.
+ */
 	public function prev($title = null, $options = array(), $disabledTitle = null, $disabledOptions = array()) {
 		$default = array(
 			'title' => '<',
@@ -91,12 +112,28 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		}
 		unset($options['disabled']);
 
-		return parent::prev($title, $options, $this->link($title), array_merge($options, array(
+		if (empty($disabledTitle)) {
+			$disabledTitle = $title;
+		}
+		$disabledTitle = $this->link($disabledTitle, array(), array(
+			'escape' => Hash::get($disabledOptions, 'escape')
+		));
+
+		return parent::prev($title, $options, $disabledTitle, array_merge($options, array(
 			'escape' => false,
 			'class' => $disabled,
 		)));
 	}
 
+/**
+ * Generates a "next" link for a set of paged records
+ *
+ * @param string $title Title for the link. Defaults to '>'.
+ * @param array $options Options for pagination link.
+ * @param string $disabledTitle Title when the link is disabled.
+ * @param array $disabledOptions Options for the disabled pagination link.
+ * @return string A "next" link or $disabledTitle text if the link is disabled.
+ */
 	public function next($title = null, $options = array(), $disabledTitle = null, $disabledOptions = array()) {
 		$default = array(
 			'title' => '>',
@@ -118,12 +155,25 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		}
 		unset($options['disabled']);
 
-		return parent::next($title, $options, $this->link($title), array_merge($options, array(
+		if (empty($disabledTitle)) {
+			$disabledTitle = $title;
+		}
+		$disabledTitle = $this->link($disabledTitle, array(), array(
+			'escape' => Hash::get($disabledOptions, 'escape')
+		));
+
+		return parent::next($title, $options, $disabledTitle, array_merge($options, array(
 			'escape' => false,
 			'class' => $disabled,
 		)));
 	}
 
+/**
+ * Returns a set of numbers for the paged result set
+ *
+ * @param array $options Options for the numbers
+ * @return string Numbers HTML
+ */
 	public function numbers($options = array()) {
 		$defaults = array(
 			'tag' => 'li',
@@ -143,6 +193,13 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		return preg_replace('@<li class="current">(.*?)</li>@', '<li class="current disabled"><a href="#">\1</a></li>', $return);
 	}
 
+/**
+ * Generates a "first" link for a set of paged records
+ *
+ * @param string $title Title for the link. Defaults to '<<'.
+ * @param array $options An array of options.
+ * @return string A "first" link.
+ */
 	public function first($title = null, $options = array()) {
 		$default = array(
 			'title' => '<<',
@@ -166,6 +223,13 @@ class BoostCakePaginatorHelper extends PaginatorHelper {
 		);
 	}
 
+/**
+ * Generates a "last" link for a set of paged records
+ *
+ * @param string $title Title for the link. Defaults to '>>'.
+ * @param array $options An array of options.
+ * @return string A "last" link.
+ */
 	public function last($title = null, $options = array()) {
 		$default = array(
 			'title' => '>>',

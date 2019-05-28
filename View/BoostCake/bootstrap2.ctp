@@ -151,9 +151,9 @@
 				<h2>Alerts</h2>
 			</div>
 
-			<?php echo $this->Session->flash('notice'); ?>
-			<?php echo $this->Session->flash('success'); ?>
-			<?php echo $this->Session->flash('error'); ?>
+			<?php echo $this->Flash->render('notice'); ?>
+			<?php echo $this->Flash->render('success'); ?>
+			<?php echo $this->Flash->render('error'); ?>
 
 			<pre class="prettyprint"><?php
 				echo h(file_get_contents(dirname(__DIR__) . '/Elements/bootstrap2/alerts.ctp'));

@@ -1,18 +1,21 @@
 <?php
 // View
-echo $this->Session->flash();
+echo $this->Flash->render();
 
 // Controller
-$this->Session->setFlash(__('Alert notice message testing...'), 'alert', array(
+$this->Flash->set(__('Alert notice message testing...'), array(
+    'element' => 'alert',
 	'plugin' => 'BoostCake',
 ));
 
-$this->Session->setFlash(__('Alert success message testing...'), 'alert', array(
+$this->Flash->set(__('Alert success message testing...'), array(
+    'element' => 'alert',
 	'plugin' => 'BoostCake',
 	'class' => 'alert-success'
 ));
 
-$this->Session->setFlash(__('Alert error message testing...'), 'alert', array(
+$this->Flash->set(__('Alert error message testing...'), array(
+    'element' => 'alert',
 	'plugin' => 'BoostCake',
 	'class' => 'alert-error'
 ));
